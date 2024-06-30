@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Padaria", "Padaria.vbproj", "{7CBC1352-25C9-44B4-8401-567882EE4307}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CBC1352-25C9-44B4-8401-567882EE4307}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CBC1352-25C9-44B4-8401-567882EE4307}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CBC1352-25C9-44B4-8401-567882EE4307}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CBC1352-25C9-44B4-8401-567882EE4307}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6E974C30-E942-48F9-B659-118664D9A7E4}
+	EndGlobalSection
+EndGlobal
