@@ -1,36 +1,37 @@
-Imports System.IO
+Imports System.Data.SqlClient
 Module mdlConexao
-    Dim x As Integer
-    Private aConexao As New ADODB.Connection
-    Private aconexao2 As New ADODB.Connection
+    Public aConexao As New SqlConnection()
+    Dim sqlServer, sqlDatabase, sqlUser, sqlPassword As String
 
-    Dim acess_server, acess_db, acess_usr, acess_pwd
+    Public Function RecebeTabela(ByVal sql As String) As DataTable
+        Dim dtResultado As New DataTable()
 
+        ' Configurações da conexão
+        sqlServer = "VAR223\SQLEXPRESS"  ' Substitua pelo nome do seu servidor
+        sqlDatabase = "dbPadaria"  ' Substitua pelo nome do seu banco de dados
+        sqlUser = "sa"  ' Substitua pelo seu usuário
+        sqlPassword = "123456"  ' Substitua pela sua senha
 
-
-    Public Function RecebeTabela(ByVal sql As String)
-
-        Dim aResultado As New ADODB.Recordset
-
-
-        acess_db = "C:\Documents and Settings\Luciene\Meus documentos\Padaria\Padaria\bin\Debug\dbPadaria.mdb"
-
-        If sql.ToUpper = "FECHAR" Then
-            aconexao2.Close()
-            Return False
-            Exit Function
+        If sql.ToUpper() = "FECHAR" Then
+            If aConexao.State <> ConnectionState.Closed Then
+                aConexao.Close()
+            End If
+            Return Nothing
         End If
 
-        If aconexao2.State = 0 Then
-            aconexao2.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & acess_db
-            aconexao2.Open()
+        ' Verifica se a conexão está fechada e abre se necessário
+        If aConexao.State = ConnectionState.Closed Then
+            aConexao.ConnectionString = $"Server={sqlServer};Database={sqlDatabase};User Id={sqlUser};Password={sqlPassword};"
+            aConexao.Open()
         End If
 
-        'aResultado2.Open(sql, aconexao2, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-        aResultado.CursorLocation = ADODB.CursorLocationEnum.adUseClient
-        aResultado.Open(sql, aconexao2, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-        RecebeTabela = aResultado
-        aResultado = Nothing
+        ' Executa o comando SQL e preenche o DataTable
+        Using cmd As New SqlCommand(sql, aConexao)
+            Using da As New SqlDataAdapter(cmd)
+                da.Fill(dtResultado)
+            End Using
+        End Using
 
+        Return dtResultado
     End Function
 End Module

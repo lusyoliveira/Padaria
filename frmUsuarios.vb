@@ -1,61 +1,6 @@
+Imports System.Data.SqlClient
+
 Public Class frmUsuarios
-    Private Sub carregarusuario()
-        Dim tbUsuarios As ADODB.Recordset, x As Integer, sql As String
-        limpar()
-        lstUsuarios.Items.Clear()
-        sql = "select * from tbUsuarios where nome like '%" & txtUsuario.Text & "%'"
-        If IsNumeric(txtUsuario.Text) Then
-            sql = "select * from tbUsuarios where codigo = " & txtUsuario.Text
-        End If
-        tbUsuarios = RecebeTabela(sql)
-        If tbUsuarios.RecordCount > 0 Then
-            tbUsuarios.MoveFirst()
-            Do Until tbUsuarios.EOF
-                lstUsuarios.Items.Add(tbUsuarios("funcionario").Value)
-                lstUsuarios.Items(x).SubItems.Add(tbUsuarios("nome").Value.ToString)
-                lstUsuarios.Items(x).SubItems.Add(tbUsuarios("permissao").Value)
-                If x Mod 2 = 0 Then
-                    lstUsuarios.Items(x).ForeColor = Color.Black
-                    lstUsuarios.Items(x).BackColor = Color.LightGray
-                Else
-                    lstUsuarios.Items(x).ForeColor = Color.Black
-                    lstUsuarios.Items(x).BackColor = Color.White
-                End If
-                x += 1
-                tbUsuarios.MoveNext()
-            Loop
-        End If
-    End Sub
-    Private Sub cboPermissao_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboPermissao.GotFocus
-        Dim tbaux As ADODB.Recordset
-        With cboPermissao
-            .Items.Clear()
-            tbaux = RecebeTabela("Select distinct permissao from tbpermissoes order by permissao")
-            If tbaux.RecordCount <> 0 Then
-                tbaux.MoveFirst()
-                While tbaux.EOF = False
-                    .Items.Add(tbaux.Fields("permissao").Value.ToString)
-                    tbaux.MoveNext()
-                End While
-            End If
-
-        End With
-    End Sub
-
-    Private Sub btnSalvar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalvar.Click
-        Dim tbUsuarios As ADODB.Recordset
-
-        tbUsuarios = RecebeTabela("select * from tbUsuarios where codigo = " & grpUsuarios.Tag)
-        If grpUsuarios.Tag = 0 Then tbUsuarios.AddNew()
-        tbUsuarios("funcionario").Value = txtFuncionario.Text
-        tbUsuarios("nome").Value = txtUsuario.Text
-        tbUsuarios("senha").Value = mcripto(txtSenha.Text)
-        tbUsuarios("permissao").Value = cboPermissao.Text
-        tbUsuarios.Update()
-        limpar()
-        carregarusuario()
-        txtUsuario.Focus()
-    End Sub
     Private Sub limpar()
         txtSenha.Text = ""
         txtUsuario.Text = ""
@@ -69,17 +14,6 @@ Public Class frmUsuarios
         txtUsuario.Focus()
         MdiParent = frmPrincipal
     End Sub
-
-    Private Sub btnExcluir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExcluir.Click
-        Dim tbUsuarios As ADODB.Recordset
-
-        tbUsuarios = RecebeTabela("select * from tbUsuarios where codigo = " & grpUsuarios.Tag)
-        If tbUsuarios.RecordCount = 0 Then Exit Sub
-        tbUsuarios.Delete()
-        carregarusuario()
-        txtUsuario.Focus()
-    End Sub
-
     Private Sub lstUsuarios_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstUsuarios.SelectedIndexChanged
         If lstUsuarios.SelectedItems.Count = 0 Then
             limpar()
@@ -90,36 +24,135 @@ Public Class frmUsuarios
         txtUsuario.Text = lstUsuarios.SelectedItems(0).SubItems(1).Text
         cboPermissao.Text = lstUsuarios.SelectedItems(0).SubItems(2).Text
     End Sub
+    Private Sub carregarusuario()
+        Dim sql As String = "SELECT * FROM tbUsuarios WHERE nome LIKE '%" & txtUsuario.Text & "%'"
+        If IsNumeric(txtUsuario.Text) Then
+            sql = "SELECT * FROM tbUsuarios WHERE codigo = " & txtUsuario.Text
+        End If
 
+        lstUsuarios.Items.Clear()
+
+        Dim cmd As New SqlCommand(sql, aConexao)
+        Try
+            aConexao.Open()
+            Dim reader As SqlDataReader = cmd.ExecuteReader()
+            Dim x As Integer = 0
+
+            While reader.Read()
+                lstUsuarios.Items.Add(reader("funcionario").ToString())
+                lstUsuarios.Items(x).SubItems.Add(reader("nome").ToString())
+                lstUsuarios.Items(x).SubItems.Add(reader("permissao").ToString())
+
+                If x Mod 2 = 0 Then
+                    lstUsuarios.Items(x).ForeColor = Color.Black
+                    lstUsuarios.Items(x).BackColor = Color.LightGray
+                Else
+                    lstUsuarios.Items(x).ForeColor = Color.Black
+                    lstUsuarios.Items(x).BackColor = Color.White
+                End If
+
+                x += 1
+            End While
+
+            reader.Close()
+        Catch ex As Exception
+            MessageBox.Show("Erro ao carregar usuários: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+    Private Sub cboPermissao_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboPermissao.GotFocus
+        cboPermissao.Items.Clear()
+
+        Dim sql As String = "SELECT DISTINCT permissao FROM tbpermissoes ORDER BY permissao"
+        Dim cmd As New SqlCommand(sql, aConexao)
+
+        Try
+            aConexao.Open()
+            Dim reader As SqlDataReader = cmd.ExecuteReader()
+
+            While reader.Read()
+                cboPermissao.Items.Add(reader("permissao").ToString())
+            End While
+
+            reader.Close()
+        Catch ex As Exception
+            MessageBox.Show("Erro ao carregar permissões: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
     Private Sub btnAlterar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAlterar.Click
-        Dim tbUsuarios As ADODB.Recordset, sql As String
-
         If btnAlterar.Text = "Alterar" Then
-            sql = "Select * from tbUsuarios "
-            tbUsuarios = RecebeTabela(sql)
-            If tbUsuarios.RecordCount = 0 Then
-                MsgBox("Este Usuário Não Existe !", MsgBoxStyle.Critical)
-                Exit Sub
-            End If
-            txtUsuario.Text = tbUsuarios.Fields("nome").Value.ToString
-            txtSenha.Text = tbUsuarios.Fields("senha").Value.ToString
-            cboPermissao.Text = tbUsuarios.Fields("permissao").Value.ToString
-            btnSalvar.Enabled = False
-            btnExcluir.Enabled = False
-            btnAlterar.Text = "Salvar"
-        Else
-            tbUsuarios = RecebeTabela("select * from tbUsuarios where codigo = " & grpUsuarios.Tag)
-            If grpUsuarios.Tag = 0 Then tbUsuarios.AddNew()
-            tbUsuarios("nome").Value = txtUsuario.Text
-            tbUsuarios("senha").Value = txtSenha.Text
-            tbUsuarios("permissao").Value = cboPermissao.Text
-            tbUsuarios.Update()
-            btnSalvar.Enabled = True
-            btnExcluir.Enabled = True
-            btnAlterar.Text = "Alterar"
-            limpar()
-            carregarusuario()
-            txtUsuario.Focus()
+            Dim sql As String = "SELECT * FROM tbUsuarios WHERE codigo = " & grpUsuarios.Tag
+
+            Dim cmd As New SqlCommand(sql, aConexao)
+            Try
+                aConexao.Open()
+                Dim reader As SqlDataReader = cmd.ExecuteReader()
+
+                If reader.Read() Then
+                    txtUsuario.Text = reader("nome").ToString()
+                    txtSenha.Text = reader("senha").ToString()
+                    cboPermissao.Text = reader("permissao").ToString()
+
+                    btnSalvar.Enabled = False
+                    btnExcluir.Enabled = False
+                    btnAlterar.Text = "Salvar"
+                Else
+                    MsgBox("Este usuário não existe!", MsgBoxStyle.Critical)
+                End If
+
+                reader.Close()
+            Catch ex As Exception
+                MsgBox("Erro ao carregar usuário para alteração: " & ex.Message, MsgBoxStyle.Critical)
+            End Try
+        Else ' Botão está no modo "Salvar"
+            Dim sql As String = "SELECT * FROM tbUsuarios WHERE codigo = " & grpUsuarios.Tag
+            Dim cmd As New SqlCommand(sql, aConexao)
+            Try
+                aConexao.Open()
+                Dim adapter As New SqlDataAdapter(cmd)
+                Dim builder As New SqlCommandBuilder(adapter)
+                Dim ds As New DataSet()
+
+                adapter.Fill(ds, "tbUsuarios")
+                Dim row As DataRow = ds.Tables("tbUsuarios").Rows(0)
+
+                row("nome") = txtUsuario.Text
+                row("senha") = txtSenha.Text
+                row("permissao") = cboPermissao.Text
+
+                adapter.Update(ds, "tbUsuarios")
+
+                btnSalvar.Enabled = True
+                btnExcluir.Enabled = True
+                btnAlterar.Text = "Alterar"
+
+                limpar()
+                carregarusuario()
+                txtUsuario.Focus()
+            Catch ex As Exception
+                MsgBox("Erro ao salvar alterações: " & ex.Message, MsgBoxStyle.Critical)
+            End Try
         End If
     End Sub
+    Private Sub btnExcluir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExcluir.Click
+        Dim sql As String = "SELECT * FROM tbUsuarios WHERE codigo = " & grpUsuarios.Tag
+
+        Dim cmd As New SqlCommand(sql, aConexao)
+        Try
+            aConexao.Open()
+            Dim adapter As New SqlDataAdapter(cmd)
+            Dim builder As New SqlCommandBuilder(adapter)
+            Dim ds As New DataSet()
+
+            adapter.Fill(ds, "tbUsuarios")
+            If ds.Tables("tbUsuarios").Rows.Count > 0 Then
+                ds.Tables("tbUsuarios").Rows(0).Delete()
+                adapter.Update(ds, "tbUsuarios")
+                carregarusuario()
+                txtUsuario.Focus()
+            End If
+        Catch ex As Exception
+            MsgBox("Erro ao excluir usuário: " & ex.Message, MsgBoxStyle.Critical)
+        End Try
+    End Sub
+
 End Class

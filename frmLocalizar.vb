@@ -1,120 +1,88 @@
+Imports System.Data.SqlClient
+
 Public Class frmLocalizar
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLocalizar.Click
-        Dim tbClientes, tbProdutos, tbFuncionarios, tbFornecedores, tbEstoque As ADODB.Recordset, sql As String, x As Integer
+        Dim sql As String = ""
+        Dim x As Integer = 0
+
+        lstLocalizar.Items.Clear()
 
         Select Case cboItens.Text
-            Case Is = "Clientes"
-                lstLocalizar.Items.Clear()
-                sql = "select * from tbClientes where nome like '%" & txtLocalizar.Text & "%'"
+            Case "Clientes"
+                sql = "SELECT * FROM tbClientes WHERE nome LIKE '%" & txtLocalizar.Text & "%'"
                 If IsNumeric(txtLocalizar.Text) Then
-                    sql = "select * from tbClientes where nrficha = " & txtLocalizar.Text
+                    sql = "SELECT * FROM tbClientes WHERE nrficha = " & txtLocalizar.Text
                 End If
-                tbClientes = RecebeTabela(sql)
-                If tbClientes.RecordCount > 0 Then
-                    tbClientes.MoveFirst()
-                    Do Until tbClientes.EOF
-                        lstLocalizar.Items.Add(tbClientes("codigo").Value)
-                        lstLocalizar.Items(x).SubItems.Add(tbClientes("nome").Value.ToString)
-                        lstLocalizar.Items(x).SubItems.Add(tbClientes("nrficha").Value)
-                        x += 1
-                        tbClientes.MoveNext()
-                    Loop
-                Else
-                    MsgBox("Esse Cliente Não Existe", MsgBoxStyle.Exclamation)
-                    Exit Sub
-                    txtLocalizar.Focus()
-                End If
-            Case Is = "Produtos"
-                lstLocalizar.Items.Clear()
-                sql = "select * from tbProdutos where produto like '%" & txtLocalizar.Text & "%'"
+            Case "Produtos"
+                sql = "SELECT * FROM tbProdutos WHERE produto LIKE '%" & txtLocalizar.Text & "%'"
                 If IsNumeric(txtLocalizar.Text) Then
-                    sql = "select * from tbProdutos where codprod = " & txtLocalizar.Text
+                    sql = "SELECT * FROM tbProdutos WHERE codprod = " & txtLocalizar.Text
                 End If
-                tbProdutos = RecebeTabela(sql)
-                If tbProdutos.RecordCount > 0 Then
-                    tbProdutos.MoveFirst()
-                    Do Until tbProdutos.EOF
-                        lstLocalizar.Items.Add(tbProdutos("codprod").Value)
-                        lstLocalizar.Items(x).SubItems.Add(tbProdutos("produto").Value.ToString)
-                        lstLocalizar.Items(x).SubItems.Add(tbProdutos("validade").Value)
-                        x += 1
-                        tbProdutos.MoveNext()
-                    Loop
-                Else
-                    MsgBox("Esse Produto Não Existe", MsgBoxStyle.Exclamation)
-                    Exit Sub
-                    txtLocalizar.Focus()
-                End If
-            Case Is = "Funcionários"
-                lstLocalizar.Items.Clear()
-                sql = "select * from tbFuncionarios where nome like '%" & txtLocalizar.Text & "%'"
+            Case "Funcionários"
+                sql = "SELECT * FROM tbFuncionarios WHERE nome LIKE '%" & txtLocalizar.Text & "%'"
                 If IsNumeric(txtLocalizar.Text) Then
-                    sql = "select * from tbFuncionarios where codigo = " & txtLocalizar.Text
+                    sql = "SELECT * FROM tbFuncionarios WHERE codigo = " & txtLocalizar.Text
                 End If
-                tbFuncionarios = RecebeTabela(sql)
-                If tbFuncionarios.RecordCount > 0 Then
-                    tbFuncionarios.MoveFirst()
-                    Do Until tbFuncionarios.EOF
-                        lstLocalizar.Items.Add(tbFuncionarios("codigo").Value)
-                        lstLocalizar.Items(x).SubItems.Add(tbFuncionarios("nome").Value.ToString)
-                        lstLocalizar.Items(x).SubItems.Add(tbFuncionarios("salario").Value)
-                        x += 1
-                        tbFuncionarios.MoveNext()
-                    Loop
-                Else
-                    MsgBox("Esse Funcionário Não Existe", MsgBoxStyle.Exclamation)
-                    Exit Sub
-                    txtLocalizar.Focus()
-                End If
-            Case Is = "Fornecedores"
-                lstLocalizar.Items.Clear()
-                sql = "select * from tbFornecedores where Empresa like '%" & txtLocalizar.Text & "%'"
+            Case "Fornecedores"
+                sql = "SELECT * FROM tbFornecedores WHERE Empresa LIKE '%" & txtLocalizar.Text & "%'"
                 If IsNumeric(txtLocalizar.Text) Then
-                    sql = "select * from tbFornecedores where codigo = " & txtLocalizar.Text
+                    sql = "SELECT * FROM tbFornecedores WHERE codigo = " & txtLocalizar.Text
                 End If
-                tbFornecedores = RecebeTabela(sql)
-                If tbFornecedores.RecordCount > 0 Then
-                    tbFornecedores.MoveFirst()
-                    Do Until tbFornecedores.EOF
-                        lstLocalizar.Items.Add(tbFornecedores("codigo").Value)
-                        lstLocalizar.Items(x).SubItems.Add(tbFornecedores("empresa").Value.ToString)
-                        lstLocalizar.Items(x).SubItems.Add(tbFornecedores("telefone").Value)
-                        x += 1
-                        tbFornecedores.MoveNext()
-                    Loop
-                Else
-                    MsgBox("Esse Fornecedor Não Existe", MsgBoxStyle.Exclamation)
-                    Exit Sub
-                    txtLocalizar.Focus()
-                End If
-            Case Is = "Estoque"
-                lstLocalizar.Items.Clear()
-                sql = "select * from tbEstoque where produto like '%" & txtLocalizar.Text & "%'"
+            Case "Estoque"
+                sql = "SELECT * FROM tbEstoque WHERE produto LIKE '%" & txtLocalizar.Text & "%'"
                 If IsNumeric(txtLocalizar.Text) Then
-                    sql = "select * from tbEstoque where codprod = " & txtLocalizar.Text
-                End If
-                tbEstoque = RecebeTabela(sql)
-                If tbEstoque.RecordCount > 0 Then
-                    tbEstoque.MoveFirst()
-                    Do Until tbEstoque.EOF
-                        lstLocalizar.Items.Add(tbEstoque("codprod").Value)
-                        lstLocalizar.Items(x).SubItems.Add(tbEstoque("produto").Value.ToString)
-                        lstLocalizar.Items(x).SubItems.Add(tbEstoque("quantidade").Value)
-                        x += 1
-                        tbEstoque.MoveNext()
-                    Loop
-                Else
-                    MsgBox("Esse Unidade Não Existe", MsgBoxStyle.Exclamation)
-                    Exit Sub
-                    txtLocalizar.Focus()
+                    sql = "SELECT * FROM tbEstoque WHERE codprod = " & txtLocalizar.Text
                 End If
             Case Else
-                MsgBox("Selecione Uma Tabela!", MsgBoxStyle.Exclamation)
-                Exit Sub
+                MsgBox("Selecione uma tabela!", MsgBoxStyle.Exclamation)
                 cboItens.Focus()
+                Exit Sub
         End Select
+
+        Dim cmd As New SqlCommand(sql, aConexao)
+        Try
+            aConexao.Open()
+            Dim reader As SqlDataReader = cmd.ExecuteReader()
+
+                While reader.Read()
+                    Select Case cboItens.Text
+                        Case "Clientes"
+                            lstLocalizar.Items.Add(reader("codigo").ToString())
+                            lstLocalizar.Items(x).SubItems.Add(reader("nome").ToString())
+                            lstLocalizar.Items(x).SubItems.Add(reader("nrficha").ToString())
+                        Case "Produtos"
+                            lstLocalizar.Items.Add(reader("codprod").ToString())
+                            lstLocalizar.Items(x).SubItems.Add(reader("produto").ToString())
+                            lstLocalizar.Items(x).SubItems.Add(reader("validade").ToString())
+                        Case "Funcionários"
+                            lstLocalizar.Items.Add(reader("codigo").ToString())
+                            lstLocalizar.Items(x).SubItems.Add(reader("nome").ToString())
+                            lstLocalizar.Items(x).SubItems.Add(reader("salario").ToString())
+                        Case "Fornecedores"
+                            lstLocalizar.Items.Add(reader("codigo").ToString())
+                            lstLocalizar.Items(x).SubItems.Add(reader("Empresa").ToString())
+                            lstLocalizar.Items(x).SubItems.Add(reader("telefone").ToString())
+                        Case "Estoque"
+                            lstLocalizar.Items.Add(reader("codprod").ToString())
+                            lstLocalizar.Items(x).SubItems.Add(reader("produto").ToString())
+                            lstLocalizar.Items(x).SubItems.Add(reader("quantidade").ToString())
+                    End Select
+                    x += 1
+                End While
+
+                If x = 0 Then
+                    MsgBox("Nenhum registro encontrado.", MsgBoxStyle.Information)
+                    txtLocalizar.Focus()
+                End If
+
+                reader.Close()
+            Catch ex As Exception
+                MsgBox("Erro ao executar consulta: " & ex.Message, MsgBoxStyle.Critical)
+            End Try
+
     End Sub
+
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFechar.Click
         Me.Close()

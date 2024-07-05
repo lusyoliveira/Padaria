@@ -1,31 +1,41 @@
+Imports System.Data.SqlClient
+
 Public Class frmConfig
-    Dim tbaux As ADODB.Recordset
     Dim sql As String
     Private Sub frmConfig_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         MdiParent = frmPrincipal
         carregadados()
     End Sub
     Private Sub carregadados()
-        tbaux = RecebeTabela("Select * from tbconfig")
-        chkEsconde.Checked = IIf(tbaux.Fields("esconder").Value.ToString = "True", True, False)
-        txtCliente.Text = tbaux.Fields("cliente").Value.ToString
+        Dim tbaux As DataTable = RecebeTabela("SELECT * FROM tbconfig")
+        If tbaux.Rows.Count > 0 Then
+            Dim row As DataRow = tbaux.Rows(0)
+            chkEsconde.Checked = Convert.ToBoolean(row("esconder").ToString())
+            txtCliente.Text = row("cliente").ToString()
+        End If
         btnAlterar.Enabled = True
         btnSalvar.Enabled = True
         grpConfig.Enabled = False
     End Sub
-
-    Private Sub btnAlterar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAlterar.Click
-        grpConfig.Enabled = True
-    End Sub
-
     Private Sub btnSalvar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalvar.Click
-        sql = "update tbconfig set cliente = '" & txtCliente.Text & "', esconder = " & IIf(chkEsconde.Checked = True, True, False)
-        tbaux = RecebeTabela(sql)
+        Dim esconderValue As Boolean = chkEsconde.Checked
+        Dim sql As String = "UPDATE tbconfig SET cliente = @cliente, esconder = @esconder"
+
+        Using cmd As New SqlCommand(sql, aConexao)
+            cmd.Parameters.AddWithValue("@cliente", txtCliente.Text)
+            cmd.Parameters.AddWithValue("@esconder", esconderValue)
+
+            If aConexao.State = ConnectionState.Closed Then
+                aConexao.Open()
+            End If
+
+            cmd.ExecuteNonQuery()
+        End Using
+
         btnAlterar.Enabled = True
         btnSalvar.Enabled = False
     End Sub
-
-    Private Sub GroupBox1_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
+    Private Sub btnAlterar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAlterar.Click
+        grpConfig.Enabled = True
     End Sub
 End Class

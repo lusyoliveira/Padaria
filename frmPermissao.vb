@@ -1,5 +1,5 @@
 Public Class frmPermissao
-    Dim tbaux As ADODB.Recordset
+    Dim tbaux, tbPermissoes
     Dim sql As String
     Dim x As Integer
     Private Sub btnSalvar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalvar.Click
@@ -74,8 +74,6 @@ Public Class frmPermissao
     End Sub
 
     Private Sub btnExcluir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExcluir.Click
-        Dim tbPermissoes As ADODB.Recordset
-
         tbPermissoes = RecebeTabela("select * from tbPermissoes where codigo = " & grpPermissoes.Tag)
         If tbPermissoes.RecordCount = 0 Then Exit Sub
         tbPermissoes.Delete()

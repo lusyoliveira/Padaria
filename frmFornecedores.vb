@@ -1,3 +1,5 @@
+Imports System.Data.SqlClient
+
 Public Class frmFornecedores
     Private Sub limpar()
         txtFornecedor.Text = ""
@@ -14,44 +16,6 @@ Public Class frmFornecedores
         mkdTelefone.Text = ""
         mkdCelular.Text = ""
     End Sub
-    Private Sub CarregarFornecedores()
-        Dim tbFornecedores As ADODB.Recordset, x As Integer, sql As String
-        limpar()
-        lstFornecedores.Items.Clear()
-        sql = "select * from tbFornecedores where empresa like '%" & txtEmpresa.Text & "%'"
-        If IsNumeric(txtEmpresa.Text) Then
-            sql = "select * from tbFornecedores where codigo = " & txtEmpresa.Text
-        End If
-        tbFornecedores = RecebeTabela(sql)
-        If tbFornecedores.RecordCount > 0 Then
-            tbFornecedores.MoveFirst()
-            Do Until tbFornecedores.EOF
-                lstFornecedores.Items.Add(tbFornecedores("empresa").Value)
-                lstFornecedores.Items(x).SubItems.Add(tbFornecedores("endereco").Value)
-                lstFornecedores.Items(x).SubItems.Add(tbFornecedores("bairro").Value)
-                lstFornecedores.Items(x).SubItems.Add(tbFornecedores("complemento").Value)
-                lstFornecedores.Items(x).SubItems.Add(tbFornecedores("cidade").Value)
-                lstFornecedores.Items(x).SubItems.Add(tbFornecedores("cnpj").Value)
-                lstFornecedores.Items(x).SubItems.Add(tbFornecedores("uf").Value)
-                lstFornecedores.Items(x).SubItems.Add(tbFornecedores("cep").Value)
-                lstFornecedores.Items(x).SubItems.Add(tbFornecedores("fornecedor").Value)
-                lstFornecedores.Items(x).SubItems.Add(tbFornecedores("telefone").Value)
-                lstFornecedores.Items(x).SubItems.Add(tbFornecedores("celular").Value)
-                lstFornecedores.Items(x).SubItems.Add(tbFornecedores("site").Value)
-                lstFornecedores.Items(x).SubItems.Add(tbFornecedores("email").Value)
-                If x Mod 2 = 0 Then
-                    lstFornecedores.Items(x).ForeColor = Color.Black
-                    lstFornecedores.Items(x).BackColor = Color.LightGray
-                Else
-                    lstFornecedores.Items(x).ForeColor = Color.Black
-                    lstFornecedores.Items(x).BackColor = Color.White
-                End If
-                x += 1
-                tbFornecedores.MoveNext()
-            Loop
-        End If
-    End Sub
-
     Private Sub lstFornecedores_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstFornecedores.SelectedIndexChanged
         If lstFornecedores.SelectedItems.Count = 0 Then
             limpar()
@@ -72,50 +36,127 @@ Public Class frmFornecedores
         txtSite.Text = lstFornecedores.SelectedItems(0).SubItems(11).Text
         txtEmail.Text = lstFornecedores.SelectedItems(0).SubItems(12).Text
     End Sub
+    Private Sub CarregarFornecedores()
+        Dim sql As String = "SELECT * FROM tbFornecedores WHERE empresa LIKE @empresa"
 
+        limpar()
+        lstFornecedores.Items.Clear()
+
+        Using cmd As New SqlCommand(sql, aConexao)
+            If IsNumeric(txtEmpresa.Text) Then
+                cmd.CommandText = "SELECT * FROM tbFornecedores WHERE codigo = @codigo"
+                cmd.Parameters.AddWithValue("@codigo", txtEmpresa.Text)
+            Else
+                cmd.Parameters.AddWithValue("@empresa", "%" & txtEmpresa.Text & "%")
+            End If
+
+            Try
+                aConexao.Open()
+                Using reader As SqlDataReader = cmd.ExecuteReader()
+                    While reader.Read()
+                        lstFornecedores.Items.Add(reader("empresa").ToString())
+                        lstFornecedores.Items(lstFornecedores.Items.Count - 1).SubItems.Add(reader("endereco").ToString())
+                        lstFornecedores.Items(lstFornecedores.Items.Count - 1).SubItems.Add(reader("bairro").ToString())
+                        lstFornecedores.Items(lstFornecedores.Items.Count - 1).SubItems.Add(reader("complemento").ToString())
+                        lstFornecedores.Items(lstFornecedores.Items.Count - 1).SubItems.Add(reader("cidade").ToString())
+                        lstFornecedores.Items(lstFornecedores.Items.Count - 1).SubItems.Add(reader("cnpj").ToString())
+                        lstFornecedores.Items(lstFornecedores.Items.Count - 1).SubItems.Add(reader("uf").ToString())
+                        lstFornecedores.Items(lstFornecedores.Items.Count - 1).SubItems.Add(reader("cep").ToString())
+                        lstFornecedores.Items(lstFornecedores.Items.Count - 1).SubItems.Add(reader("fornecedor").ToString())
+                        lstFornecedores.Items(lstFornecedores.Items.Count - 1).SubItems.Add(reader("telefone").ToString())
+                        lstFornecedores.Items(lstFornecedores.Items.Count - 1).SubItems.Add(reader("celular").ToString())
+                        lstFornecedores.Items(lstFornecedores.Items.Count - 1).SubItems.Add(reader("site").ToString())
+                        lstFornecedores.Items(lstFornecedores.Items.Count - 1).SubItems.Add(reader("email").ToString())
+                    End While
+                End Using
+            Catch ex As Exception
+                MsgBox("Erro ao carregar fornecedores: " & ex.Message, MsgBoxStyle.Critical)
+            Finally
+                aConexao.Close()
+            End Try
+        End Using
+    End Sub
     Private Sub btnSalvar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalvar.Click
-        Dim tbFornecedores As ADODB.Recordset
+        Dim sql As String = "INSERT INTO tbFornecedores (empresa, endereco, bairro, complemento, cidade, cnpj, uf, cep, fornecedor, telefone, celular, site, email) VALUES (@empresa, @endereco, @bairro, @complemento, @cidade, @cnpj, @uf, @cep, @fornecedor, @telefone, @celular, @site, @email)"
 
-        tbFornecedores = RecebeTabela("select * from tbFornecedores where codigo = " & grpFornecedores.Tag)
-        If grpFornecedores.Tag = 0 Then tbFornecedores.AddNew()
-        tbFornecedores("empresa").Value = txtEmpresa.Text
-        tbFornecedores("endereco").Value = txtEndereco.Text
-        tbFornecedores("bairro").Value = txtBairro.Text
-        tbFornecedores("complemento").Value = txtComplemento.Text
-        tbFornecedores("cidade").Value = cboCidade.Text
-        tbFornecedores("cnpj").Value = mkdCNPJ.Text
-        tbFornecedores("uf").Value = cbouf.Text
-        tbFornecedores("cep").Value = mkdCEP.Text
-        tbFornecedores("fornecedor").Value = txtFornecedor.Text
-        tbFornecedores("telefone").Value = mkdTelefone.Text
-        tbFornecedores("celular").Value = mkdCelular.Text
-        tbFornecedores("site").Value = txtSite.Text
-        tbFornecedores("email").Value = txtEmail.Text
-        tbFornecedores.Update()
-        MsgBox("Registro salvo com sucesso!", MsgBoxStyle.Information)
-        CarregarFornecedores()
-        limpar()
+        Using cmd As New SqlCommand(sql, aConexao)
+            cmd.Parameters.AddWithValue("@empresa", txtEmpresa.Text)
+            cmd.Parameters.AddWithValue("@endereco", txtEndereco.Text)
+            cmd.Parameters.AddWithValue("@bairro", txtBairro.Text)
+            cmd.Parameters.AddWithValue("@complemento", txtComplemento.Text)
+            cmd.Parameters.AddWithValue("@cidade", cboCidade.Text)
+            cmd.Parameters.AddWithValue("@cnpj", mkdCNPJ.Text)
+            cmd.Parameters.AddWithValue("@uf", cbouf.Text)
+            cmd.Parameters.AddWithValue("@cep", mkdCEP.Text)
+            cmd.Parameters.AddWithValue("@fornecedor", txtFornecedor.Text)
+            cmd.Parameters.AddWithValue("@telefone", mkdTelefone.Text)
+            cmd.Parameters.AddWithValue("@celular", mkdCelular.Text)
+            cmd.Parameters.AddWithValue("@site", txtSite.Text)
+            cmd.Parameters.AddWithValue("@email", txtEmail.Text)
+
+            Try
+                aConexao.Open()
+                cmd.ExecuteNonQuery()
+                MsgBox("Registro salvo com sucesso!", MsgBoxStyle.Information)
+                CarregarFornecedores()
+                limpar()
+            Catch ex As Exception
+                MsgBox("Erro ao salvar registro: " & ex.Message, MsgBoxStyle.Critical)
+            Finally
+                aConexao.Close()
+            End Try
+        End Using
     End Sub
-
     Private Sub btnAlterar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAlterar.Click
-        Dim tbFornecedores As ADODB.Recordset
+        Dim sql As String = "UPDATE tbFornecedores SET empresa = @empresa, endereco = @endereco, bairro = @bairro, complemento = @complemento, cidade = @cidade, cnpj = @cnpj, uf = @uf, cep = @cep, telefone = @telefone, celular = @celular, site = @site, email = @email WHERE empresa = @empresa"
 
-        tbFornecedores = RecebeTabela("update tbFornecedores set empresa = '" & txtEmpresa.Text & "',endereco = '" & txtEndereco.Text & "',bairro = '" & txtBairro.Text & "',complemento = '" & txtComplemento.Text & "',cidade = '" & cboCidade.Text & "',cnpj = '" & mkdCNPJ.Text & "',uf = '" & cbouf.Text & "',cep = '" & mkdCEP.Text & "', fornecedor = '" & txtFornecedor.Text & "', telefone = '" & mkdTelefone.Text & "', celular = '" & mkdCelular.Text & "', site = '" & txtSite.Text & "', email = '" & txtEmail.Text & "' where empresa = '" & txtEmpresa.Text & "'")
-        MsgBox("Registro alterardo com sucesso!", MsgBoxStyle.Information)
-        CarregarFornecedores()
-        txtEmpresa.Focus()
+        Using cmd As New SqlCommand(sql, aConexao)
+            cmd.Parameters.AddWithValue("@empresa", txtEmpresa.Text)
+            cmd.Parameters.AddWithValue("@endereco", txtEndereco.Text)
+            cmd.Parameters.AddWithValue("@bairro", txtBairro.Text)
+            cmd.Parameters.AddWithValue("@complemento", txtComplemento.Text)
+            cmd.Parameters.AddWithValue("@cidade", cboCidade.Text)
+            cmd.Parameters.AddWithValue("@cnpj", mkdCNPJ.Text)
+            cmd.Parameters.AddWithValue("@uf", cbouf.Text)
+            cmd.Parameters.AddWithValue("@cep", mkdCEP.Text)
+            cmd.Parameters.AddWithValue("@telefone", mkdTelefone.Text)
+            cmd.Parameters.AddWithValue("@celular", mkdCelular.Text)
+            cmd.Parameters.AddWithValue("@site", txtSite.Text)
+            cmd.Parameters.AddWithValue("@email", txtEmail.Text)
+
+            Try
+                aConexao.Open()
+                cmd.ExecuteNonQuery()
+                MsgBox("Registro alterado com sucesso!", MsgBoxStyle.Information)
+                CarregarFornecedores()
+                txtEmpresa.Focus()
+            Catch ex As Exception
+                MsgBox("Erro ao alterar registro: " & ex.Message, MsgBoxStyle.Critical)
+            Finally
+                aConexao.Close()
+            End Try
+        End Using
     End Sub
-
     Private Sub btnExcluir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExcluir.Click
-        Dim tbFornecedores As ADODB.Recordset
+        Dim sql As String = "DELETE FROM tbFornecedores WHERE empresa = @empresa"
 
-        tbFornecedores = RecebeTabela("select * from tbFornecedores where empresa = '" & txtEmpresa.Text & "'")
-        If tbFornecedores.RecordCount = 0 Then Exit Sub
-        tbFornecedores.Delete()
-        CarregarFornecedores()
+        Using cmd As New SqlCommand(sql, aConexao)
+            cmd.Parameters.AddWithValue("@empresa", txtEmpresa.Text)
 
-        limpar()
+            Try
+                aConexao.Open()
+                cmd.ExecuteNonQuery()
+                MsgBox("Registro excluído com sucesso!", MsgBoxStyle.Information)
+                CarregarFornecedores()
+                limpar()
+            Catch ex As Exception
+                MsgBox("Erro ao excluir registro: " & ex.Message, MsgBoxStyle.Critical)
+            Finally
+                aConexao.Close()
+            End Try
+        End Using
     End Sub
+
     Private Sub frmFornecedores_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         txtEmpresa.Focus()
         CarregarFornecedores()

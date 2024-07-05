@@ -1,5 +1,5 @@
 Public Class frmRelatorios
-    Dim tbaux As ADODB.Recordset
+    Dim tbaux
     Dim sql As String
     Dim wcpagina As Integer = 1
     Dim imagem As Image
@@ -154,7 +154,7 @@ Public Class frmRelatorios
                 While tbaux.EOF = False
                     e.Graphics.DrawString(CDate(tbaux.Fields("data").Value.ToString), MYFONT, Brushes.Black, X1, Y1)
                     e.Graphics.DrawString(FormatCurrency(tbaux.Fields("saldo_incial").Value.ToString), MYFONT, Brushes.Black, X1 + 170, Y1)
-                    e.Graphics.DrawString(FormatCurrency(tbaux.Fields("saldo_final").Value.ToString), MYFONT, Brushes.Black, X1 + 230, Y1) 
+                    e.Graphics.DrawString(FormatCurrency(tbaux.Fields("saldo_final").Value.ToString), MYFONT, Brushes.Black, X1 + 230, Y1)
                     Y1 += Line
                     tbaux.MoveNext()
                     If Y1 >= e.MarginBounds.Bottom - 50 Then
@@ -276,7 +276,7 @@ Public Class frmRelatorios
                         Exit While
                     End If
                 End While
-            
+
             Case Else
                 MsgBox("Dados Inválidos!", MsgBoxStyle.Critical)
         End Select
