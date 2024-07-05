@@ -95,7 +95,6 @@ Public Class frmCaderneta
     End Sub
 
     Private Sub frmCaderneta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        MdiParent = frmPrincipal
 
         Dim tbDthCaderneta As DataTable = RecebeTabela("SELECT * FROM tbDthCaderneta")
         If tbDthCaderneta.Rows.Count = 0 Then

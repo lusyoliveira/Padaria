@@ -12,7 +12,6 @@ Public Class frmEstoque
         cboFornecedores.Text = ""
     End Sub
     Private Sub frmEstoque_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        MdiParent = frmPrincipal
         txtProdutos.Focus()
         CarregarEstoque()
     End Sub

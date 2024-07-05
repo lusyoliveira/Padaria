@@ -9,7 +9,6 @@ Public Class frmVendas
     End Sub
 
     Private Sub frmVendas_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        MdiParent = frmPrincipal
     End Sub
 End Class
 

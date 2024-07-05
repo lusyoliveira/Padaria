@@ -10,7 +10,6 @@ Public Class frmClientes
         mkdTelefone.Text = ""
     End Sub
     Private Sub frmProdutos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        MdiParent = frmPrincipal
         lblData.Text = Date.Now.Date
         lblRegistro.Text = ContarRegistros()
         txtNrficha.Focus()

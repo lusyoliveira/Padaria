@@ -3,7 +3,6 @@ Imports System.Data.SqlClient
 Public Class frmConfig
     Dim sql As String
     Private Sub frmConfig_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        MdiParent = frmPrincipal
         carregadados()
     End Sub
     Private Sub carregadados()

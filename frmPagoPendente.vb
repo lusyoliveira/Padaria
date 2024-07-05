@@ -1,7 +1,6 @@
 ﻿Public Class frmPagoPendente
 
     Private Sub frmPagoPendente_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        MdiParent = frmPrincipal
         txtNrficha.Focus()
         'CarregaPagamento()
     End Sub

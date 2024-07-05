@@ -47,7 +47,6 @@ Public Class frmPermissao
 
     Private Sub Form2_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         pegamenus(lstMenus, frmPrincipal.MenuStrip1)
-        MdiParent = frmPrincipal
         lstMenus.Focus()
     End Sub
 

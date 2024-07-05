@@ -12,7 +12,6 @@ Public Class frmUsuarios
     Private Sub frmUsuarios_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         carregarusuario()
         txtUsuario.Focus()
-        MdiParent = frmPrincipal
     End Sub
     Private Sub lstUsuarios_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstUsuarios.SelectedIndexChanged
         If lstUsuarios.SelectedItems.Count = 0 Then

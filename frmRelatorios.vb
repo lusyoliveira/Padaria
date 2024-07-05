@@ -291,7 +291,6 @@ Public Class frmRelatorios
     End Sub
 
     Private Sub frmRelatorios_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        MdiParent = frmPrincipal
         txtFiltro.Focus()
         lblGerando.Visible = False
     End Sub

@@ -161,7 +161,6 @@ Public Class frmLocalizar
     End Sub
 
     Private Sub frmLocalizar_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        MdiParent = frmPrincipal
         txtLocalizar.Focus()
     End Sub
 End Class

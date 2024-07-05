@@ -10,7 +10,6 @@ Public Class frmProdutos
         txtValorUnit.Text = ""
     End Sub
     Private Sub frmProdutos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        MdiParent = frmPrincipal
         CarregarFilmes()
     End Sub
     Private Sub btnSalvar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalvar.Click
