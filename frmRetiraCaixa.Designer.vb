@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class RetiraCaixa
+Partial Class frmRetiraCaixa
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,18 +22,18 @@ Partial Class RetiraCaixa
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Panel2 = New System.Windows.Forms.Panel
-        Me.Panel1 = New System.Windows.Forms.Panel
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.btnConfirmar = New System.Windows.Forms.Button
-        Me.txtValorAbrir = New System.Windows.Forms.TextBox
-        Me.lblValorAbrir = New System.Windows.Forms.Label
-        Me.txtData = New System.Windows.Forms.TextBox
-        Me.lblData = New System.Windows.Forms.Label
-        Me.lblFuncionario = New System.Windows.Forms.Label
-        Me.txtFuncionario = New System.Windows.Forms.TextBox
-        Me.txtCaixa = New System.Windows.Forms.TextBox
-        Me.lblCaixa = New System.Windows.Forms.Label
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnConfirmar = New System.Windows.Forms.Button()
+        Me.txtValorAbrir = New System.Windows.Forms.TextBox()
+        Me.lblValorAbrir = New System.Windows.Forms.Label()
+        Me.txtData = New System.Windows.Forms.TextBox()
+        Me.lblData = New System.Windows.Forms.Label()
+        Me.lblFuncionario = New System.Windows.Forms.Label()
+        Me.txtFuncionario = New System.Windows.Forms.TextBox()
+        Me.txtCaixa = New System.Windows.Forms.TextBox()
+        Me.lblCaixa = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -78,11 +78,12 @@ Partial Class RetiraCaixa
         '
         'btnConfirmar
         '
-        Me.btnConfirmar.Location = New System.Drawing.Point(356, 90)
+        Me.btnConfirmar.BackgroundImage = Global.Padaria.My.Resources.Resources.ok
+        Me.btnConfirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnConfirmar.Location = New System.Drawing.Point(373, 88)
         Me.btnConfirmar.Name = "btnConfirmar"
-        Me.btnConfirmar.Size = New System.Drawing.Size(75, 36)
+        Me.btnConfirmar.Size = New System.Drawing.Size(58, 55)
         Me.btnConfirmar.TabIndex = 22
-        Me.btnConfirmar.Text = "Button1"
         Me.btnConfirmar.UseVisualStyleBackColor = True
         '
         'txtValorAbrir
@@ -152,14 +153,14 @@ Partial Class RetiraCaixa
         Me.lblCaixa.TabIndex = 14
         Me.lblCaixa.Text = "Caixa"
         '
-        'RetiraCaixa
+        'frmRetiraCaixa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(484, 246)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Panel1)
-        Me.Name = "RetiraCaixa"
+        Me.Name = "frmRetiraCaixa"
         Me.Text = "RetiraCaixa"
         Me.Panel1.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)

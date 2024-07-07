@@ -19,28 +19,28 @@ Partial Class frmLocalizar
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLocalizar))
-        Me.grpLocalizar = New System.Windows.Forms.GroupBox
-        Me.btnExcluir = New System.Windows.Forms.Button
-        Me.btnAlterar = New System.Windows.Forms.Button
-        Me.btnSalvar = New System.Windows.Forms.Button
-        Me.btnFechar = New System.Windows.Forms.Button
-        Me.btnLocalizar = New System.Windows.Forms.Button
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.lblItens = New System.Windows.Forms.Label
-        Me.lstLocalizar = New System.Windows.Forms.ListView
-        Me.codigo = New System.Windows.Forms.ColumnHeader
-        Me.nome = New System.Windows.Forms.ColumnHeader
-        Me.dados = New System.Windows.Forms.ColumnHeader
-        Me.txtLocalizar = New System.Windows.Forms.TextBox
-        Me.cboItens = New System.Windows.Forms.ComboBox
-        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog
-        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog
-        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument
+        Me.grpLocalizar = New System.Windows.Forms.GroupBox()
+        Me.btnExcluir = New System.Windows.Forms.Button()
+        Me.btnAlterar = New System.Windows.Forms.Button()
+        Me.btnSalvar = New System.Windows.Forms.Button()
+        Me.btnFechar = New System.Windows.Forms.Button()
+        Me.btnLocalizar = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblItens = New System.Windows.Forms.Label()
+        Me.lstLocalizar = New System.Windows.Forms.ListView()
+        Me.codigo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.nome = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.dados = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.txtLocalizar = New System.Windows.Forms.TextBox()
+        Me.cboItens = New System.Windows.Forms.ComboBox()
+        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Panel1 = New System.Windows.Forms.Panel
-        Me.Panel2 = New System.Windows.Forms.Panel
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.grpLocalizar.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -65,6 +65,7 @@ Partial Class frmLocalizar
         '
         'btnExcluir
         '
+        Me.btnExcluir.BackgroundImage = Global.Padaria.My.Resources.Resources.ball_stop
         Me.btnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnExcluir.Location = New System.Drawing.Point(254, 201)
         Me.btnExcluir.Name = "btnExcluir"
@@ -75,6 +76,7 @@ Partial Class frmLocalizar
         '
         'btnAlterar
         '
+        Me.btnAlterar.BackgroundImage = Global.Padaria.My.Resources.Resources.document
         Me.btnAlterar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnAlterar.Location = New System.Drawing.Point(178, 201)
         Me.btnAlterar.Name = "btnAlterar"
@@ -85,6 +87,7 @@ Partial Class frmLocalizar
         '
         'btnSalvar
         '
+        Me.btnSalvar.BackgroundImage = Global.Padaria.My.Resources.Resources.ok
         Me.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnSalvar.Location = New System.Drawing.Point(111, 201)
         Me.btnSalvar.Name = "btnSalvar"
@@ -105,6 +108,7 @@ Partial Class frmLocalizar
         '
         'btnLocalizar
         '
+        Me.btnLocalizar.BackgroundImage = Global.Padaria.My.Resources.Resources.binoculars
         Me.btnLocalizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnLocalizar.Location = New System.Drawing.Point(38, 201)
         Me.btnLocalizar.Name = "btnLocalizar"
@@ -135,6 +139,7 @@ Partial Class frmLocalizar
         '
         Me.lstLocalizar.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.codigo, Me.nome, Me.dados})
         Me.lstLocalizar.FullRowSelect = True
+        Me.lstLocalizar.HideSelection = False
         Me.lstLocalizar.Location = New System.Drawing.Point(24, 77)
         Me.lstLocalizar.MultiSelect = False
         Me.lstLocalizar.Name = "lstLocalizar"

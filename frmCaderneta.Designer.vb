@@ -19,52 +19,52 @@ Partial Class frmCaderneta
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCaderneta))
-        Me.grpCaderneta = New System.Windows.Forms.GroupBox
-        Me.lblDataVencimento = New System.Windows.Forms.Label
-        Me.lblDataVencimento2 = New System.Windows.Forms.Label
-        Me.lblTotalFinal2 = New System.Windows.Forms.Label
-        Me.lblTotalFinal = New System.Windows.Forms.Label
-        Me.lblProdutos = New System.Windows.Forms.Label
-        Me.lblCodProd2 = New System.Windows.Forms.Label
-        Me.btnMostrar = New System.Windows.Forms.Button
-        Me.txtQuantidade = New System.Windows.Forms.TextBox
-        Me.btnCancelar = New System.Windows.Forms.Button
-        Me.btnFazer = New System.Windows.Forms.Button
-        Me.lblQuantidade = New System.Windows.Forms.Label
-        Me.txtCodProd = New System.Windows.Forms.TextBox
-        Me.lblDataCompra = New System.Windows.Forms.Label
-        Me.lblDataCompra2 = New System.Windows.Forms.Label
-        Me.btnSalvar = New System.Windows.Forms.Button
-        Me.lblTotal1 = New System.Windows.Forms.Label
-        Me.lblTotal = New System.Windows.Forms.Label
-        Me.lblValor1 = New System.Windows.Forms.Label
-        Me.lblValor = New System.Windows.Forms.Label
-        Me.btnImprimir = New System.Windows.Forms.Button
-        Me.lstReservas = New System.Windows.Forms.ListView
-        Me.NFicha = New System.Windows.Forms.ColumnHeader
-        Me.Produtos = New System.Windows.Forms.ColumnHeader
-        Me.Valor = New System.Windows.Forms.ColumnHeader
-        Me.Quantidade = New System.Windows.Forms.ColumnHeader
-        Me.Data = New System.Windows.Forms.ColumnHeader
-        Me.total = New System.Windows.Forms.ColumnHeader
-        Me.lblProdutos2 = New System.Windows.Forms.Label
+        Me.grpCaderneta = New System.Windows.Forms.GroupBox()
+        Me.lblDataVencimento = New System.Windows.Forms.Label()
+        Me.lblDataVencimento2 = New System.Windows.Forms.Label()
+        Me.lblTotalFinal2 = New System.Windows.Forms.Label()
+        Me.lblTotalFinal = New System.Windows.Forms.Label()
+        Me.lblProdutos = New System.Windows.Forms.Label()
+        Me.lblCodProd2 = New System.Windows.Forms.Label()
+        Me.txtQuantidade = New System.Windows.Forms.TextBox()
+        Me.lblQuantidade = New System.Windows.Forms.Label()
+        Me.txtCodProd = New System.Windows.Forms.TextBox()
+        Me.lblDataCompra = New System.Windows.Forms.Label()
+        Me.lblDataCompra2 = New System.Windows.Forms.Label()
+        Me.lblTotal1 = New System.Windows.Forms.Label()
+        Me.lblTotal = New System.Windows.Forms.Label()
+        Me.lblValor1 = New System.Windows.Forms.Label()
+        Me.lblValor = New System.Windows.Forms.Label()
+        Me.lstReservas = New System.Windows.Forms.ListView()
+        Me.NFicha = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Produtos = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Valor = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Quantidade = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Data = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.total = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.lblProdutos2 = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Panel1 = New System.Windows.Forms.Panel
-        Me.Panel2 = New System.Windows.Forms.Panel
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.grpDados = New System.Windows.Forms.GroupBox
-        Me.cboDependentes = New System.Windows.Forms.ComboBox
-        Me.lblNrFicha = New System.Windows.Forms.Label
-        Me.cboClientes = New System.Windows.Forms.ComboBox
-        Me.lblDependentes = New System.Windows.Forms.Label
-        Me.lblNrFicha2 = New System.Windows.Forms.Label
-        Me.lblCliente2 = New System.Windows.Forms.Label
-        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument
-        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog
-        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.grpDados = New System.Windows.Forms.GroupBox()
+        Me.cboDependentes = New System.Windows.Forms.ComboBox()
+        Me.lblNrFicha = New System.Windows.Forms.Label()
+        Me.cboClientes = New System.Windows.Forms.ComboBox()
+        Me.lblDependentes = New System.Windows.Forms.Label()
+        Me.lblNrFicha2 = New System.Windows.Forms.Label()
+        Me.lblCliente2 = New System.Windows.Forms.Label()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
+        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
+        Me.btnMostrar = New System.Windows.Forms.Button()
+        Me.btnCancelar = New System.Windows.Forms.Button()
+        Me.btnFazer = New System.Windows.Forms.Button()
+        Me.btnSalvar = New System.Windows.Forms.Button()
+        Me.btnImprimir = New System.Windows.Forms.Button()
         Me.grpCaderneta.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.grpDados.SuspendLayout()
@@ -97,7 +97,7 @@ Partial Class frmCaderneta
         Me.grpCaderneta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.grpCaderneta.Location = New System.Drawing.Point(16, 206)
         Me.grpCaderneta.Name = "grpCaderneta"
-        Me.grpCaderneta.Size = New System.Drawing.Size(744, 429)
+        Me.grpCaderneta.Size = New System.Drawing.Size(744, 395)
         Me.grpCaderneta.TabIndex = 2
         Me.grpCaderneta.TabStop = False
         Me.grpCaderneta.Tag = "0"
@@ -106,7 +106,7 @@ Partial Class frmCaderneta
         'lblDataVencimento
         '
         Me.lblDataVencimento.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblDataVencimento.Location = New System.Drawing.Point(391, 67)
+        Me.lblDataVencimento.Location = New System.Drawing.Point(391, 56)
         Me.lblDataVencimento.Name = "lblDataVencimento"
         Me.lblDataVencimento.Size = New System.Drawing.Size(126, 23)
         Me.lblDataVencimento.TabIndex = 92
@@ -115,7 +115,7 @@ Partial Class frmCaderneta
         '
         Me.lblDataVencimento2.AutoSize = True
         Me.lblDataVencimento2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblDataVencimento2.Location = New System.Drawing.Point(388, 40)
+        Me.lblDataVencimento2.Location = New System.Drawing.Point(388, 36)
         Me.lblDataVencimento2.Name = "lblDataVencimento2"
         Me.lblDataVencimento2.Size = New System.Drawing.Size(136, 17)
         Me.lblDataVencimento2.TabIndex = 91
@@ -125,7 +125,7 @@ Partial Class frmCaderneta
         '
         Me.lblTotalFinal2.AutoSize = True
         Me.lblTotalFinal2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblTotalFinal2.Location = New System.Drawing.Point(466, 362)
+        Me.lblTotalFinal2.Location = New System.Drawing.Point(480, 323)
         Me.lblTotalFinal2.Name = "lblTotalFinal2"
         Me.lblTotalFinal2.Size = New System.Drawing.Size(74, 17)
         Me.lblTotalFinal2.TabIndex = 88
@@ -134,7 +134,7 @@ Partial Class frmCaderneta
         'lblTotalFinal
         '
         Me.lblTotalFinal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblTotalFinal.Location = New System.Drawing.Point(455, 389)
+        Me.lblTotalFinal.Location = New System.Drawing.Point(469, 350)
         Me.lblTotalFinal.Name = "lblTotalFinal"
         Me.lblTotalFinal.Size = New System.Drawing.Size(106, 24)
         Me.lblTotalFinal.TabIndex = 87
@@ -144,7 +144,7 @@ Partial Class frmCaderneta
         'lblProdutos
         '
         Me.lblProdutos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblProdutos.Location = New System.Drawing.Point(20, 144)
+        Me.lblProdutos.Location = New System.Drawing.Point(20, 117)
         Me.lblProdutos.Name = "lblProdutos"
         Me.lblProdutos.Size = New System.Drawing.Size(388, 23)
         Me.lblProdutos.TabIndex = 86
@@ -159,49 +159,19 @@ Partial Class frmCaderneta
         Me.lblCodProd2.TabIndex = 85
         Me.lblCodProd2.Text = "Código"
         '
-        'btnMostrar
-        '
-        Me.btnMostrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnMostrar.Location = New System.Drawing.Point(220, 362)
-        Me.btnMostrar.Name = "btnMostrar"
-        Me.btnMostrar.Size = New System.Drawing.Size(53, 55)
-        Me.btnMostrar.TabIndex = 84
-        Me.ToolTip1.SetToolTip(Me.btnMostrar, "Mostrar Pagamentos Pendentes")
-        Me.btnMostrar.UseVisualStyleBackColor = True
-        '
         'txtQuantidade
         '
         Me.txtQuantidade.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.txtQuantidade.Location = New System.Drawing.Point(537, 144)
+        Me.txtQuantidade.Location = New System.Drawing.Point(537, 117)
         Me.txtQuantidade.Name = "txtQuantidade"
         Me.txtQuantidade.Size = New System.Drawing.Size(79, 23)
         Me.txtQuantidade.TabIndex = 3
-        '
-        'btnCancelar
-        '
-        Me.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnCancelar.Location = New System.Drawing.Point(644, 36)
-        Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(53, 55)
-        Me.btnCancelar.TabIndex = 7
-        Me.ToolTip1.SetToolTip(Me.btnCancelar, "Cancelar")
-        Me.btnCancelar.UseVisualStyleBackColor = True
-        '
-        'btnFazer
-        '
-        Me.btnFazer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnFazer.Location = New System.Drawing.Point(577, 36)
-        Me.btnFazer.Name = "btnFazer"
-        Me.btnFazer.Size = New System.Drawing.Size(53, 55)
-        Me.btnFazer.TabIndex = 4
-        Me.ToolTip1.SetToolTip(Me.btnFazer, "Fazer Resera")
-        Me.btnFazer.UseVisualStyleBackColor = True
         '
         'lblQuantidade
         '
         Me.lblQuantidade.AutoSize = True
         Me.lblQuantidade.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblQuantidade.Location = New System.Drawing.Point(534, 117)
+        Me.lblQuantidade.Location = New System.Drawing.Point(534, 100)
         Me.lblQuantidade.Name = "lblQuantidade"
         Me.lblQuantidade.Size = New System.Drawing.Size(82, 17)
         Me.lblQuantidade.TabIndex = 83
@@ -210,7 +180,7 @@ Partial Class frmCaderneta
         'txtCodProd
         '
         Me.txtCodProd.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.txtCodProd.Location = New System.Drawing.Point(20, 67)
+        Me.txtCodProd.Location = New System.Drawing.Point(20, 56)
         Me.txtCodProd.Name = "txtCodProd"
         Me.txtCodProd.Size = New System.Drawing.Size(192, 23)
         Me.txtCodProd.TabIndex = 2
@@ -218,7 +188,7 @@ Partial Class frmCaderneta
         'lblDataCompra
         '
         Me.lblDataCompra.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblDataCompra.Location = New System.Drawing.Point(247, 67)
+        Me.lblDataCompra.Location = New System.Drawing.Point(247, 56)
         Me.lblDataCompra.Name = "lblDataCompra"
         Me.lblDataCompra.Size = New System.Drawing.Size(108, 23)
         Me.lblDataCompra.TabIndex = 78
@@ -227,28 +197,17 @@ Partial Class frmCaderneta
         '
         Me.lblDataCompra2.AutoSize = True
         Me.lblDataCompra2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblDataCompra2.Location = New System.Drawing.Point(244, 40)
+        Me.lblDataCompra2.Location = New System.Drawing.Point(244, 36)
         Me.lblDataCompra2.Name = "lblDataCompra2"
         Me.lblDataCompra2.Size = New System.Drawing.Size(111, 17)
         Me.lblDataCompra2.TabIndex = 76
         Me.lblDataCompra2.Text = "Data da Compra"
         '
-        'btnSalvar
-        '
-        Me.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnSalvar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalvar.Location = New System.Drawing.Point(88, 362)
-        Me.btnSalvar.Name = "btnSalvar"
-        Me.btnSalvar.Size = New System.Drawing.Size(53, 55)
-        Me.btnSalvar.TabIndex = 5
-        Me.ToolTip1.SetToolTip(Me.btnSalvar, "Salvar")
-        Me.btnSalvar.UseVisualStyleBackColor = True
-        '
         'lblTotal1
         '
         Me.lblTotal1.AutoSize = True
         Me.lblTotal1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblTotal1.Location = New System.Drawing.Point(646, 118)
+        Me.lblTotal1.Location = New System.Drawing.Point(646, 101)
         Me.lblTotal1.Name = "lblTotal1"
         Me.lblTotal1.Size = New System.Drawing.Size(40, 17)
         Me.lblTotal1.TabIndex = 77
@@ -257,7 +216,7 @@ Partial Class frmCaderneta
         'lblTotal
         '
         Me.lblTotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblTotal.Location = New System.Drawing.Point(649, 145)
+        Me.lblTotal.Location = New System.Drawing.Point(644, 118)
         Me.lblTotal.Name = "lblTotal"
         Me.lblTotal.Size = New System.Drawing.Size(72, 24)
         Me.lblTotal.TabIndex = 76
@@ -266,7 +225,7 @@ Partial Class frmCaderneta
         '
         Me.lblValor1.AutoSize = True
         Me.lblValor1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblValor1.Location = New System.Drawing.Point(432, 117)
+        Me.lblValor1.Location = New System.Drawing.Point(432, 100)
         Me.lblValor1.Name = "lblValor1"
         Me.lblValor1.Size = New System.Drawing.Size(41, 17)
         Me.lblValor1.TabIndex = 75
@@ -275,27 +234,18 @@ Partial Class frmCaderneta
         'lblValor
         '
         Me.lblValor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblValor.Location = New System.Drawing.Point(435, 143)
+        Me.lblValor.Location = New System.Drawing.Point(435, 117)
         Me.lblValor.Name = "lblValor"
         Me.lblValor.Size = New System.Drawing.Size(72, 24)
         Me.lblValor.TabIndex = 74
-        '
-        'btnImprimir
-        '
-        Me.btnImprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnImprimir.Location = New System.Drawing.Point(152, 362)
-        Me.btnImprimir.Name = "btnImprimir"
-        Me.btnImprimir.Size = New System.Drawing.Size(53, 55)
-        Me.btnImprimir.TabIndex = 8
-        Me.ToolTip1.SetToolTip(Me.btnImprimir, "Imprimir")
-        Me.btnImprimir.UseVisualStyleBackColor = True
         '
         'lstReservas
         '
         Me.lstReservas.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.NFicha, Me.Produtos, Me.Valor, Me.Quantidade, Me.Data, Me.total})
         Me.lstReservas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
         Me.lstReservas.FullRowSelect = True
-        Me.lstReservas.Location = New System.Drawing.Point(20, 181)
+        Me.lstReservas.HideSelection = False
+        Me.lstReservas.Location = New System.Drawing.Point(20, 146)
         Me.lstReservas.MultiSelect = False
         Me.lstReservas.Name = "lstReservas"
         Me.lstReservas.Size = New System.Drawing.Size(701, 171)
@@ -337,7 +287,7 @@ Partial Class frmCaderneta
         '
         Me.lblProdutos2.AutoSize = True
         Me.lblProdutos2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblProdutos2.Location = New System.Drawing.Point(17, 117)
+        Me.lblProdutos2.Location = New System.Drawing.Point(17, 100)
         Me.lblProdutos2.Name = "lblProdutos2"
         Me.lblProdutos2.Size = New System.Drawing.Size(58, 17)
         Me.lblProdutos2.TabIndex = 12
@@ -468,11 +418,67 @@ Partial Class frmCaderneta
         '
         Me.PrintDialog1.UseEXDialog = True
         '
+        'btnMostrar
+        '
+        Me.btnMostrar.BackgroundImage = Global.Padaria.My.Resources.Resources.folder_open
+        Me.btnMostrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnMostrar.Location = New System.Drawing.Point(234, 323)
+        Me.btnMostrar.Name = "btnMostrar"
+        Me.btnMostrar.Size = New System.Drawing.Size(53, 55)
+        Me.btnMostrar.TabIndex = 84
+        Me.ToolTip1.SetToolTip(Me.btnMostrar, "Mostrar Pagamentos Pendentes")
+        Me.btnMostrar.UseVisualStyleBackColor = True
+        '
+        'btnCancelar
+        '
+        Me.btnCancelar.BackgroundImage = Global.Padaria.My.Resources.Resources.ball_stop
+        Me.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnCancelar.Location = New System.Drawing.Point(644, 36)
+        Me.btnCancelar.Name = "btnCancelar"
+        Me.btnCancelar.Size = New System.Drawing.Size(53, 55)
+        Me.btnCancelar.TabIndex = 7
+        Me.ToolTip1.SetToolTip(Me.btnCancelar, "Cancelar")
+        Me.btnCancelar.UseVisualStyleBackColor = True
+        '
+        'btnFazer
+        '
+        Me.btnFazer.BackgroundImage = Global.Padaria.My.Resources.Resources.add
+        Me.btnFazer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnFazer.Location = New System.Drawing.Point(577, 36)
+        Me.btnFazer.Name = "btnFazer"
+        Me.btnFazer.Size = New System.Drawing.Size(53, 55)
+        Me.btnFazer.TabIndex = 4
+        Me.ToolTip1.SetToolTip(Me.btnFazer, "Fazer Resera")
+        Me.btnFazer.UseVisualStyleBackColor = True
+        '
+        'btnSalvar
+        '
+        Me.btnSalvar.BackgroundImage = Global.Padaria.My.Resources.Resources.ok
+        Me.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnSalvar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSalvar.Location = New System.Drawing.Point(102, 323)
+        Me.btnSalvar.Name = "btnSalvar"
+        Me.btnSalvar.Size = New System.Drawing.Size(53, 55)
+        Me.btnSalvar.TabIndex = 5
+        Me.ToolTip1.SetToolTip(Me.btnSalvar, "Salvar")
+        Me.btnSalvar.UseVisualStyleBackColor = True
+        '
+        'btnImprimir
+        '
+        Me.btnImprimir.BackgroundImage = Global.Padaria.My.Resources.Resources.print_view
+        Me.btnImprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnImprimir.Location = New System.Drawing.Point(166, 323)
+        Me.btnImprimir.Name = "btnImprimir"
+        Me.btnImprimir.Size = New System.Drawing.Size(53, 55)
+        Me.btnImprimir.TabIndex = 8
+        Me.ToolTip1.SetToolTip(Me.btnImprimir, "Imprimir")
+        Me.btnImprimir.UseVisualStyleBackColor = True
+        '
         'frmCaderneta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(772, 649)
+        Me.ClientSize = New System.Drawing.Size(772, 614)
         Me.Controls.Add(Me.grpDados)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)

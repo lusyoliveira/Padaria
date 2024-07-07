@@ -19,22 +19,22 @@ Partial Class frmDependentes
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Me.grpDependentes = New System.Windows.Forms.GroupBox
-        Me.lstDependentes = New System.Windows.Forms.ListView
-        Me.codigo = New System.Windows.Forms.ColumnHeader
-        Me.nome = New System.Windows.Forms.ColumnHeader
-        Me.Parentesco = New System.Windows.Forms.ColumnHeader
-        Me.cboParentesco = New System.Windows.Forms.ComboBox
-        Me.lblParentesco = New System.Windows.Forms.Label
-        Me.btnExcluir = New System.Windows.Forms.Button
-        Me.btnAlterar = New System.Windows.Forms.Button
-        Me.btnSalvar = New System.Windows.Forms.Button
-        Me.txtNome = New System.Windows.Forms.TextBox
-        Me.lblNome = New System.Windows.Forms.Label
+        Me.components = New System.ComponentModel.Container()
+        Me.grpDependentes = New System.Windows.Forms.GroupBox()
+        Me.lstDependentes = New System.Windows.Forms.ListView()
+        Me.codigo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.nome = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Parentesco = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.cboParentesco = New System.Windows.Forms.ComboBox()
+        Me.lblParentesco = New System.Windows.Forms.Label()
+        Me.btnExcluir = New System.Windows.Forms.Button()
+        Me.btnAlterar = New System.Windows.Forms.Button()
+        Me.btnSalvar = New System.Windows.Forms.Button()
+        Me.txtNome = New System.Windows.Forms.TextBox()
+        Me.lblNome = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Panel1 = New System.Windows.Forms.Panel
-        Me.Panel2 = New System.Windows.Forms.Panel
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.grpDependentes.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -61,6 +61,7 @@ Partial Class frmDependentes
         '
         Me.lstDependentes.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.codigo, Me.nome, Me.Parentesco})
         Me.lstDependentes.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lstDependentes.HideSelection = False
         Me.lstDependentes.Location = New System.Drawing.Point(20, 99)
         Me.lstDependentes.Name = "lstDependentes"
         Me.lstDependentes.Size = New System.Drawing.Size(410, 177)
@@ -99,12 +100,14 @@ Partial Class frmDependentes
         Me.lblParentesco.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblParentesco.Location = New System.Drawing.Point(306, 32)
         Me.lblParentesco.Name = "lblParentesco"
-        Me.lblParentesco.Size = New System.Drawing.Size(77, 16)
+        Me.lblParentesco.Size = New System.Drawing.Size(76, 16)
         Me.lblParentesco.TabIndex = 37
         Me.lblParentesco.Text = "Parentesco"
         '
         'btnExcluir
         '
+        Me.btnExcluir.BackgroundImage = Global.Padaria.My.Resources.Resources.ball_stop
+        Me.btnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnExcluir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExcluir.Location = New System.Drawing.Point(446, 221)
         Me.btnExcluir.Name = "btnExcluir"
@@ -115,6 +118,8 @@ Partial Class frmDependentes
         '
         'btnAlterar
         '
+        Me.btnAlterar.BackgroundImage = Global.Padaria.My.Resources.Resources.document
+        Me.btnAlterar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnAlterar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAlterar.Location = New System.Drawing.Point(446, 160)
         Me.btnAlterar.Name = "btnAlterar"
@@ -125,6 +130,8 @@ Partial Class frmDependentes
         '
         'btnSalvar
         '
+        Me.btnSalvar.BackgroundImage = Global.Padaria.My.Resources.Resources.ok
+        Me.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnSalvar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalvar.Location = New System.Drawing.Point(446, 99)
         Me.btnSalvar.Name = "btnSalvar"
@@ -147,7 +154,7 @@ Partial Class frmDependentes
         Me.lblNome.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNome.Location = New System.Drawing.Point(17, 28)
         Me.lblNome.Name = "lblNome"
-        Me.lblNome.Size = New System.Drawing.Size(45, 16)
+        Me.lblNome.Size = New System.Drawing.Size(44, 16)
         Me.lblNome.TabIndex = 1
         Me.lblNome.Text = "Nome"
         '

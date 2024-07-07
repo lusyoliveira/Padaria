@@ -22,21 +22,23 @@ Partial Class frmConfig
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Me.btnAlterar = New System.Windows.Forms.Button
-        Me.btnSalvar = New System.Windows.Forms.Button
-        Me.txtCliente = New System.Windows.Forms.TextBox
-        Me.lblCliente = New System.Windows.Forms.Label
-        Me.grpConfig = New System.Windows.Forms.GroupBox
-        Me.chkEsconde = New System.Windows.Forms.CheckBox
+        Me.components = New System.ComponentModel.Container()
+        Me.btnAlterar = New System.Windows.Forms.Button()
+        Me.btnSalvar = New System.Windows.Forms.Button()
+        Me.txtCliente = New System.Windows.Forms.TextBox()
+        Me.lblCliente = New System.Windows.Forms.Label()
+        Me.grpConfig = New System.Windows.Forms.GroupBox()
+        Me.chkEsconde = New System.Windows.Forms.CheckBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Panel1 = New System.Windows.Forms.Panel
-        Me.Panel2 = New System.Windows.Forms.Panel
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.grpConfig.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnAlterar
         '
+        Me.btnAlterar.BackgroundImage = Global.Padaria.My.Resources.Resources.document
+        Me.btnAlterar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnAlterar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAlterar.Location = New System.Drawing.Point(258, 83)
         Me.btnAlterar.Name = "btnAlterar"
@@ -47,6 +49,8 @@ Partial Class frmConfig
         '
         'btnSalvar
         '
+        Me.btnSalvar.BackgroundImage = Global.Padaria.My.Resources.Resources.ok
+        Me.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnSalvar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalvar.Location = New System.Drawing.Point(177, 83)
         Me.btnSalvar.Name = "btnSalvar"
@@ -69,7 +73,7 @@ Partial Class frmConfig
         Me.lblCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCliente.Location = New System.Drawing.Point(22, 31)
         Me.lblCliente.Name = "lblCliente"
-        Me.lblCliente.Size = New System.Drawing.Size(49, 16)
+        Me.lblCliente.Size = New System.Drawing.Size(48, 16)
         Me.lblCliente.TabIndex = 4
         Me.lblCliente.Text = "Cliente"
         '
@@ -94,7 +98,7 @@ Partial Class frmConfig
         Me.chkEsconde.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkEsconde.Location = New System.Drawing.Point(25, 97)
         Me.chkEsconde.Name = "chkEsconde"
-        Me.chkEsconde.Size = New System.Drawing.Size(136, 20)
+        Me.chkEsconde.Size = New System.Drawing.Size(135, 20)
         Me.chkEsconde.TabIndex = 2
         Me.chkEsconde.Text = "Esconder Opções"
         Me.chkEsconde.UseVisualStyleBackColor = True

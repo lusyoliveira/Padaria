@@ -21,7 +21,6 @@ Public Class frmFuncionarios
     End Sub
     Private Sub frmProdutos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         CarregarFuncionarios()
-        MdiParent = frmPrincipal
         txtNome.Focus()
     End Sub
     Private Sub lstFuncionarios_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstFuncionarios.SelectedIndexChanged

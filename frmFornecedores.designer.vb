@@ -23,55 +23,55 @@ Partial Class frmFornecedores
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFornecedores))
-        Me.Panel1 = New System.Windows.Forms.Panel
-        Me.lblFornecedor = New System.Windows.Forms.Label
-        Me.txtFornecedor = New System.Windows.Forms.TextBox
-        Me.lblEndereco = New System.Windows.Forms.Label
-        Me.lblEmpresa = New System.Windows.Forms.Label
-        Me.lblComplemento = New System.Windows.Forms.Label
-        Me.lblCnpj = New System.Windows.Forms.Label
-        Me.txtEmpresa = New System.Windows.Forms.TextBox
-        Me.lblBairro = New System.Windows.Forms.Label
-        Me.lblCidade = New System.Windows.Forms.Label
-        Me.lblUf = New System.Windows.Forms.Label
-        Me.txtEndereco = New System.Windows.Forms.TextBox
-        Me.txtComplemento = New System.Windows.Forms.TextBox
-        Me.txtBairro = New System.Windows.Forms.TextBox
-        Me.lblCep = New System.Windows.Forms.Label
-        Me.mkdCelular = New System.Windows.Forms.MaskedTextBox
-        Me.mkdTelefone = New System.Windows.Forms.MaskedTextBox
-        Me.lblCelular = New System.Windows.Forms.Label
-        Me.lblTelefone = New System.Windows.Forms.Label
-        Me.txtSite = New System.Windows.Forms.TextBox
-        Me.txtEmail = New System.Windows.Forms.TextBox
-        Me.lblEmail = New System.Windows.Forms.Label
-        Me.lblSite = New System.Windows.Forms.Label
-        Me.mkdCNPJ = New System.Windows.Forms.MaskedTextBox
-        Me.mkdCEP = New System.Windows.Forms.MaskedTextBox
-        Me.cbouf = New System.Windows.Forms.ComboBox
-        Me.grpFornecedores = New System.Windows.Forms.GroupBox
-        Me.cboCidade = New System.Windows.Forms.ComboBox
-        Me.btnExcluir = New System.Windows.Forms.Button
-        Me.btnSalvar = New System.Windows.Forms.Button
-        Me.btnAlterar = New System.Windows.Forms.Button
-        Me.lstFornecedores = New System.Windows.Forms.ListView
-        Me.empresa = New System.Windows.Forms.ColumnHeader
-        Me.endereco = New System.Windows.Forms.ColumnHeader
-        Me.bairro = New System.Windows.Forms.ColumnHeader
-        Me.complemento = New System.Windows.Forms.ColumnHeader
-        Me.cidade = New System.Windows.Forms.ColumnHeader
-        Me.CNPJ = New System.Windows.Forms.ColumnHeader
-        Me.uf = New System.Windows.Forms.ColumnHeader
-        Me.cep = New System.Windows.Forms.ColumnHeader
-        Me.fornecedor = New System.Windows.Forms.ColumnHeader
-        Me.telefone = New System.Windows.Forms.ColumnHeader
-        Me.celular = New System.Windows.Forms.ColumnHeader
-        Me.siteweb = New System.Windows.Forms.ColumnHeader
-        Me.email = New System.Windows.Forms.ColumnHeader
-        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument
-        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog
-        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog
-        Me.Panel2 = New System.Windows.Forms.Panel
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lblFornecedor = New System.Windows.Forms.Label()
+        Me.txtFornecedor = New System.Windows.Forms.TextBox()
+        Me.lblEndereco = New System.Windows.Forms.Label()
+        Me.lblEmpresa = New System.Windows.Forms.Label()
+        Me.lblComplemento = New System.Windows.Forms.Label()
+        Me.lblCnpj = New System.Windows.Forms.Label()
+        Me.txtEmpresa = New System.Windows.Forms.TextBox()
+        Me.lblBairro = New System.Windows.Forms.Label()
+        Me.lblCidade = New System.Windows.Forms.Label()
+        Me.lblUf = New System.Windows.Forms.Label()
+        Me.txtEndereco = New System.Windows.Forms.TextBox()
+        Me.txtComplemento = New System.Windows.Forms.TextBox()
+        Me.txtBairro = New System.Windows.Forms.TextBox()
+        Me.lblCep = New System.Windows.Forms.Label()
+        Me.mkdCelular = New System.Windows.Forms.MaskedTextBox()
+        Me.mkdTelefone = New System.Windows.Forms.MaskedTextBox()
+        Me.lblCelular = New System.Windows.Forms.Label()
+        Me.lblTelefone = New System.Windows.Forms.Label()
+        Me.txtSite = New System.Windows.Forms.TextBox()
+        Me.txtEmail = New System.Windows.Forms.TextBox()
+        Me.lblEmail = New System.Windows.Forms.Label()
+        Me.lblSite = New System.Windows.Forms.Label()
+        Me.mkdCNPJ = New System.Windows.Forms.MaskedTextBox()
+        Me.mkdCEP = New System.Windows.Forms.MaskedTextBox()
+        Me.cbouf = New System.Windows.Forms.ComboBox()
+        Me.grpFornecedores = New System.Windows.Forms.GroupBox()
+        Me.cboCidade = New System.Windows.Forms.ComboBox()
+        Me.btnExcluir = New System.Windows.Forms.Button()
+        Me.btnSalvar = New System.Windows.Forms.Button()
+        Me.btnAlterar = New System.Windows.Forms.Button()
+        Me.lstFornecedores = New System.Windows.Forms.ListView()
+        Me.empresa = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.endereco = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.bairro = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.complemento = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.cidade = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.CNPJ = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.uf = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.cep = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.fornecedor = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.telefone = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.celular = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.siteweb = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.email = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
+        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.grpFornecedores.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -369,6 +369,8 @@ Partial Class frmFornecedores
         '
         'btnExcluir
         '
+        Me.btnExcluir.BackgroundImage = Global.Padaria.My.Resources.Resources.ball_stop
+        Me.btnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnExcluir.Location = New System.Drawing.Point(333, 466)
         Me.btnExcluir.Name = "btnExcluir"
         Me.btnExcluir.Size = New System.Drawing.Size(53, 55)
@@ -377,6 +379,8 @@ Partial Class frmFornecedores
         '
         'btnSalvar
         '
+        Me.btnSalvar.BackgroundImage = Global.Padaria.My.Resources.Resources.ok
+        Me.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnSalvar.Location = New System.Drawing.Point(197, 466)
         Me.btnSalvar.Name = "btnSalvar"
         Me.btnSalvar.Size = New System.Drawing.Size(53, 55)
@@ -385,6 +389,8 @@ Partial Class frmFornecedores
         '
         'btnAlterar
         '
+        Me.btnAlterar.BackgroundImage = Global.Padaria.My.Resources.Resources.document
+        Me.btnAlterar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnAlterar.Location = New System.Drawing.Point(263, 466)
         Me.btnAlterar.Name = "btnAlterar"
         Me.btnAlterar.Size = New System.Drawing.Size(53, 55)
@@ -396,6 +402,7 @@ Partial Class frmFornecedores
         Me.lstFornecedores.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.empresa, Me.endereco, Me.bairro, Me.complemento, Me.cidade, Me.CNPJ, Me.uf, Me.cep, Me.fornecedor, Me.telefone, Me.celular, Me.siteweb, Me.email})
         Me.lstFornecedores.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
         Me.lstFornecedores.FullRowSelect = True
+        Me.lstFornecedores.HideSelection = False
         Me.lstFornecedores.Location = New System.Drawing.Point(11, 258)
         Me.lstFornecedores.MultiSelect = False
         Me.lstFornecedores.Name = "lstFornecedores"

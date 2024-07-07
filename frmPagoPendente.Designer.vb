@@ -22,25 +22,25 @@ Partial Class frmPagoPendente
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Panel2 = New System.Windows.Forms.Panel
-        Me.Panel1 = New System.Windows.Forms.Panel
-        Me.grpPagamento = New System.Windows.Forms.GroupBox
-        Me.btnConsultar = New System.Windows.Forms.Button
-        Me.lblTotalPagar2 = New System.Windows.Forms.Label
-        Me.lblTotalPagar = New System.Windows.Forms.Label
-        Me.cbxPago = New System.Windows.Forms.CheckBox
-        Me.btnPagar = New System.Windows.Forms.Button
-        Me.lblCliente2 = New System.Windows.Forms.Label
-        Me.lblClientes = New System.Windows.Forms.Label
-        Me.lblNrFicha = New System.Windows.Forms.Label
-        Me.txtNrficha = New System.Windows.Forms.TextBox
-        Me.lstPagamento = New System.Windows.Forms.ListView
-        Me.NrFicha = New System.Windows.Forms.ColumnHeader
-        Me.Cliente = New System.Windows.Forms.ColumnHeader
-        Me.Dependente = New System.Windows.Forms.ColumnHeader
-        Me.Data = New System.Windows.Forms.ColumnHeader
-        Me.Total = New System.Windows.Forms.ColumnHeader
-        Me.Pago = New System.Windows.Forms.ColumnHeader
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.grpPagamento = New System.Windows.Forms.GroupBox()
+        Me.btnConsultar = New System.Windows.Forms.Button()
+        Me.lblTotalPagar2 = New System.Windows.Forms.Label()
+        Me.lblTotalPagar = New System.Windows.Forms.Label()
+        Me.cbxPago = New System.Windows.Forms.CheckBox()
+        Me.btnPagar = New System.Windows.Forms.Button()
+        Me.lblCliente2 = New System.Windows.Forms.Label()
+        Me.lblClientes = New System.Windows.Forms.Label()
+        Me.lblNrFicha = New System.Windows.Forms.Label()
+        Me.txtNrficha = New System.Windows.Forms.TextBox()
+        Me.lstPagamento = New System.Windows.Forms.ListView()
+        Me.NrFicha = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Cliente = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Dependente = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Data = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Total = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Pago = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel1.SuspendLayout()
         Me.grpPagamento.SuspendLayout()
         Me.SuspendLayout()
@@ -87,6 +87,8 @@ Partial Class frmPagoPendente
         '
         'btnConsultar
         '
+        Me.btnConsultar.BackgroundImage = Global.Padaria.My.Resources.Resources.binoculars
+        Me.btnConsultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnConsultar.Location = New System.Drawing.Point(562, 32)
         Me.btnConsultar.Name = "btnConsultar"
         Me.btnConsultar.Size = New System.Drawing.Size(53, 55)
@@ -119,13 +121,14 @@ Partial Class frmPagoPendente
         Me.cbxPago.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbxPago.Location = New System.Drawing.Point(417, 454)
         Me.cbxPago.Name = "cbxPago"
-        Me.cbxPago.Size = New System.Drawing.Size(60, 20)
+        Me.cbxPago.Size = New System.Drawing.Size(59, 20)
         Me.cbxPago.TabIndex = 88
         Me.cbxPago.Text = "Pago"
         Me.cbxPago.UseVisualStyleBackColor = True
         '
         'btnPagar
         '
+        Me.btnPagar.BackgroundImage = Global.Padaria.My.Resources.Resources.ok
         Me.btnPagar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnPagar.Location = New System.Drawing.Point(525, 430)
         Me.btnPagar.Name = "btnPagar"
@@ -172,6 +175,7 @@ Partial Class frmPagoPendente
         'lstPagamento
         '
         Me.lstPagamento.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.NrFicha, Me.Cliente, Me.Dependente, Me.Data, Me.Total, Me.Pago})
+        Me.lstPagamento.HideSelection = False
         Me.lstPagamento.Location = New System.Drawing.Point(15, 102)
         Me.lstPagamento.Name = "lstPagamento"
         Me.lstPagamento.Size = New System.Drawing.Size(779, 312)

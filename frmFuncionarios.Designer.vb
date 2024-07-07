@@ -20,70 +20,72 @@ Partial Class frmFuncionarios
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFuncionarios))
-        Me.btnExcluir = New System.Windows.Forms.Button
-        Me.btnSalvar = New System.Windows.Forms.Button
-        Me.btnAlterar = New System.Windows.Forms.Button
-        Me.lstFuncionarios = New System.Windows.Forms.ListView
-        Me.nome = New System.Windows.Forms.ColumnHeader
-        Me.endereco = New System.Windows.Forms.ColumnHeader
-        Me.bairro = New System.Windows.Forms.ColumnHeader
-        Me.cidade = New System.Windows.Forms.ColumnHeader
-        Me.estado = New System.Windows.Forms.ColumnHeader
-        Me.cep = New System.Windows.Forms.ColumnHeader
-        Me.cpf = New System.Windows.Forms.ColumnHeader
-        Me.rg = New System.Windows.Forms.ColumnHeader
-        Me.telefone = New System.Windows.Forms.ColumnHeader
-        Me.celular = New System.Windows.Forms.ColumnHeader
-        Me.registro = New System.Windows.Forms.ColumnHeader
-        Me.cargo = New System.Windows.Forms.ColumnHeader
-        Me.salario = New System.Windows.Forms.ColumnHeader
-        Me.carteira = New System.Windows.Forms.ColumnHeader
-        Me.pis = New System.Windows.Forms.ColumnHeader
-        Me.Label4 = New System.Windows.Forms.Label
-        Me.grpFuncionarios = New System.Windows.Forms.GroupBox
-        Me.cbouf = New System.Windows.Forms.ComboBox
-        Me.cboCidade = New System.Windows.Forms.ComboBox
-        Me.mkdcelular = New System.Windows.Forms.MaskedTextBox
-        Me.lblCelular = New System.Windows.Forms.Label
-        Me.mkdRG = New System.Windows.Forms.MaskedTextBox
-        Me.mkdTelefone = New System.Windows.Forms.MaskedTextBox
-        Me.Label5 = New System.Windows.Forms.Label
-        Me.lblRG = New System.Windows.Forms.Label
-        Me.mkdCpf = New System.Windows.Forms.MaskedTextBox
-        Me.lblCpf = New System.Windows.Forms.Label
-        Me.lblEstado = New System.Windows.Forms.Label
-        Me.lblCidade = New System.Windows.Forms.Label
-        Me.mkdCEP = New System.Windows.Forms.MaskedTextBox
-        Me.lblCEP = New System.Windows.Forms.Label
-        Me.txtBairro = New System.Windows.Forms.TextBox
-        Me.txtEndereco = New System.Windows.Forms.TextBox
-        Me.Label3 = New System.Windows.Forms.Label
-        Me.txtNome = New System.Windows.Forms.TextBox
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.txtSalario = New System.Windows.Forms.TextBox
-        Me.Label9 = New System.Windows.Forms.Label
-        Me.txtCargo = New System.Windows.Forms.TextBox
-        Me.Label8 = New System.Windows.Forms.Label
-        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog
-        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog
-        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.mkdCarteira = New System.Windows.Forms.MaskedTextBox
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.lblNumero = New System.Windows.Forms.Label
-        Me.txtNumero = New System.Windows.Forms.TextBox
-        Me.mkdPis = New System.Windows.Forms.MaskedTextBox
-        Me.lblPIS = New System.Windows.Forms.Label
-        Me.Panel1 = New System.Windows.Forms.Panel
-        Me.Panel2 = New System.Windows.Forms.Panel
+        Me.btnExcluir = New System.Windows.Forms.Button()
+        Me.btnSalvar = New System.Windows.Forms.Button()
+        Me.btnAlterar = New System.Windows.Forms.Button()
+        Me.lstFuncionarios = New System.Windows.Forms.ListView()
+        Me.nome = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.endereco = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.bairro = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.cidade = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.estado = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.cep = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.cpf = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.rg = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.telefone = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.celular = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.registro = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.cargo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.salario = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.carteira = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.pis = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.grpFuncionarios = New System.Windows.Forms.GroupBox()
+        Me.cbouf = New System.Windows.Forms.ComboBox()
+        Me.cboCidade = New System.Windows.Forms.ComboBox()
+        Me.mkdcelular = New System.Windows.Forms.MaskedTextBox()
+        Me.lblCelular = New System.Windows.Forms.Label()
+        Me.mkdRG = New System.Windows.Forms.MaskedTextBox()
+        Me.mkdTelefone = New System.Windows.Forms.MaskedTextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.lblRG = New System.Windows.Forms.Label()
+        Me.mkdCpf = New System.Windows.Forms.MaskedTextBox()
+        Me.lblCpf = New System.Windows.Forms.Label()
+        Me.lblEstado = New System.Windows.Forms.Label()
+        Me.lblCidade = New System.Windows.Forms.Label()
+        Me.mkdCEP = New System.Windows.Forms.MaskedTextBox()
+        Me.lblCEP = New System.Windows.Forms.Label()
+        Me.txtBairro = New System.Windows.Forms.TextBox()
+        Me.txtEndereco = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtNome = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtSalario = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtCargo = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.mkdCarteira = New System.Windows.Forms.MaskedTextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblNumero = New System.Windows.Forms.Label()
+        Me.txtNumero = New System.Windows.Forms.TextBox()
+        Me.mkdPis = New System.Windows.Forms.MaskedTextBox()
+        Me.lblPIS = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.grpFuncionarios.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnExcluir
         '
+        Me.btnExcluir.BackgroundImage = Global.Padaria.My.Resources.Resources.ball_stop
+        Me.btnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnExcluir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExcluir.Location = New System.Drawing.Point(371, 595)
+        Me.btnExcluir.Location = New System.Drawing.Point(375, 569)
         Me.btnExcluir.Name = "btnExcluir"
         Me.btnExcluir.Size = New System.Drawing.Size(53, 55)
         Me.btnExcluir.TabIndex = 17
@@ -91,8 +93,10 @@ Partial Class frmFuncionarios
         '
         'btnSalvar
         '
+        Me.btnSalvar.BackgroundImage = Global.Padaria.My.Resources.Resources.ok
+        Me.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnSalvar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalvar.Location = New System.Drawing.Point(185, 595)
+        Me.btnSalvar.Location = New System.Drawing.Point(189, 569)
         Me.btnSalvar.Name = "btnSalvar"
         Me.btnSalvar.Size = New System.Drawing.Size(53, 55)
         Me.btnSalvar.TabIndex = 15
@@ -100,8 +104,10 @@ Partial Class frmFuncionarios
         '
         'btnAlterar
         '
+        Me.btnAlterar.BackgroundImage = Global.Padaria.My.Resources.Resources.document
+        Me.btnAlterar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnAlterar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAlterar.Location = New System.Drawing.Point(278, 595)
+        Me.btnAlterar.Location = New System.Drawing.Point(282, 569)
         Me.btnAlterar.Name = "btnAlterar"
         Me.btnAlterar.Size = New System.Drawing.Size(53, 55)
         Me.btnAlterar.TabIndex = 16
@@ -112,7 +118,8 @@ Partial Class frmFuncionarios
         Me.lstFuncionarios.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.nome, Me.endereco, Me.bairro, Me.cidade, Me.estado, Me.cep, Me.cpf, Me.rg, Me.telefone, Me.celular, Me.registro, Me.cargo, Me.salario, Me.carteira, Me.pis})
         Me.lstFuncionarios.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstFuncionarios.FullRowSelect = True
-        Me.lstFuncionarios.Location = New System.Drawing.Point(12, 417)
+        Me.lstFuncionarios.HideSelection = False
+        Me.lstFuncionarios.Location = New System.Drawing.Point(12, 393)
         Me.lstFuncionarios.MultiSelect = False
         Me.lstFuncionarios.Name = "lstFuncionarios"
         Me.lstFuncionarios.Size = New System.Drawing.Size(603, 159)
@@ -200,7 +207,7 @@ Partial Class frmFuncionarios
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(148, 82)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(44, 16)
+        Me.Label4.Size = New System.Drawing.Size(43, 16)
         Me.Label4.TabIndex = 18
         Me.Label4.Text = "Bairro"
         '
@@ -270,7 +277,7 @@ Partial Class frmFuncionarios
         Me.lblCelular.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCelular.Location = New System.Drawing.Point(236, 141)
         Me.lblCelular.Name = "lblCelular"
-        Me.lblCelular.Size = New System.Drawing.Size(50, 16)
+        Me.lblCelular.Size = New System.Drawing.Size(49, 16)
         Me.lblCelular.TabIndex = 41
         Me.lblCelular.Text = "Celular"
         '
@@ -298,7 +305,7 @@ Partial Class frmFuncionarios
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(117, 141)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(62, 16)
+        Me.Label5.Size = New System.Drawing.Size(61, 16)
         Me.Label5.TabIndex = 29
         Me.Label5.Text = "Telefone"
         '
@@ -308,7 +315,7 @@ Partial Class frmFuncionarios
         Me.lblRG.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblRG.Location = New System.Drawing.Point(15, 141)
         Me.lblRG.Name = "lblRG"
-        Me.lblRG.Size = New System.Drawing.Size(28, 16)
+        Me.lblRG.Size = New System.Drawing.Size(27, 16)
         Me.lblRG.TabIndex = 39
         Me.lblRG.Text = "RG"
         '
@@ -327,7 +334,7 @@ Partial Class frmFuncionarios
         Me.lblCpf.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCpf.Location = New System.Drawing.Point(477, 83)
         Me.lblCpf.Name = "lblCpf"
-        Me.lblCpf.Size = New System.Drawing.Size(34, 16)
+        Me.lblCpf.Size = New System.Drawing.Size(33, 16)
         Me.lblCpf.TabIndex = 37
         Me.lblCpf.Text = "CPF"
         '
@@ -337,7 +344,7 @@ Partial Class frmFuncionarios
         Me.lblEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEstado.Location = New System.Drawing.Point(325, 82)
         Me.lblEstado.Name = "lblEstado"
-        Me.lblEstado.Size = New System.Drawing.Size(51, 16)
+        Me.lblEstado.Size = New System.Drawing.Size(50, 16)
         Me.lblEstado.TabIndex = 35
         Me.lblEstado.Text = "Estado"
         '
@@ -347,7 +354,7 @@ Partial Class frmFuncionarios
         Me.lblCidade.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCidade.Location = New System.Drawing.Point(15, 83)
         Me.lblCidade.Name = "lblCidade"
-        Me.lblCidade.Size = New System.Drawing.Size(52, 16)
+        Me.lblCidade.Size = New System.Drawing.Size(51, 16)
         Me.lblCidade.TabIndex = 33
         Me.lblCidade.Text = "Cidade"
         '
@@ -366,7 +373,7 @@ Partial Class frmFuncionarios
         Me.lblCEP.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCEP.Location = New System.Drawing.Point(382, 82)
         Me.lblCEP.Name = "lblCEP"
-        Me.lblCEP.Size = New System.Drawing.Size(35, 16)
+        Me.lblCEP.Size = New System.Drawing.Size(34, 16)
         Me.lblCEP.TabIndex = 31
         Me.lblCEP.Text = "CEP"
         '
@@ -392,7 +399,7 @@ Partial Class frmFuncionarios
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(315, 32)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(67, 16)
+        Me.Label3.Size = New System.Drawing.Size(66, 16)
         Me.Label3.TabIndex = 17
         Me.Label3.Text = "Endereço"
         '
@@ -410,14 +417,14 @@ Partial Class frmFuncionarios
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(15, 32)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(45, 16)
+        Me.Label2.Size = New System.Drawing.Size(44, 16)
         Me.Label2.TabIndex = 17
         Me.Label2.Text = "Nome"
         '
         'txtSalario
         '
         Me.txtSalario.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSalario.Location = New System.Drawing.Point(529, 66)
+        Me.txtSalario.Location = New System.Drawing.Point(529, 54)
         Me.txtSalario.Name = "txtSalario"
         Me.txtSalario.Size = New System.Drawing.Size(57, 22)
         Me.txtSalario.TabIndex = 14
@@ -426,16 +433,16 @@ Partial Class frmFuncionarios
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(526, 41)
+        Me.Label9.Location = New System.Drawing.Point(526, 29)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(51, 16)
+        Me.Label9.Size = New System.Drawing.Size(50, 16)
         Me.Label9.TabIndex = 22
         Me.Label9.Text = "Salário"
         '
         'txtCargo
         '
         Me.txtCargo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCargo.Location = New System.Drawing.Point(86, 67)
+        Me.txtCargo.Location = New System.Drawing.Point(86, 55)
         Me.txtCargo.Name = "txtCargo"
         Me.txtCargo.Size = New System.Drawing.Size(180, 22)
         Me.txtCargo.TabIndex = 11
@@ -444,9 +451,9 @@ Partial Class frmFuncionarios
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(83, 41)
+        Me.Label8.Location = New System.Drawing.Point(83, 29)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(45, 16)
+        Me.Label8.Size = New System.Drawing.Size(44, 16)
         Me.Label8.TabIndex = 23
         Me.Label8.Text = "Cargo"
         '
@@ -483,7 +490,7 @@ Partial Class frmFuncionarios
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 291)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(603, 110)
+        Me.GroupBox1.Size = New System.Drawing.Size(603, 96)
         Me.GroupBox1.TabIndex = 42
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Dados da Empresa"
@@ -491,7 +498,7 @@ Partial Class frmFuncionarios
         'mkdCarteira
         '
         Me.mkdCarteira.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.mkdCarteira.Location = New System.Drawing.Point(407, 66)
+        Me.mkdCarteira.Location = New System.Drawing.Point(407, 54)
         Me.mkdCarteira.Mask = "000.000.000 - 00"
         Me.mkdCarteira.Name = "mkdCarteira"
         Me.mkdCarteira.Size = New System.Drawing.Size(105, 22)
@@ -501,9 +508,9 @@ Partial Class frmFuncionarios
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(404, 41)
+        Me.Label1.Location = New System.Drawing.Point(404, 29)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(111, 16)
+        Me.Label1.Size = New System.Drawing.Size(110, 16)
         Me.Label1.TabIndex = 43
         Me.Label1.Text = "Nº Cart. Trabalho"
         '
@@ -511,16 +518,16 @@ Partial Class frmFuncionarios
         '
         Me.lblNumero.AutoSize = True
         Me.lblNumero.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNumero.Location = New System.Drawing.Point(8, 41)
+        Me.lblNumero.Location = New System.Drawing.Point(8, 29)
         Me.lblNumero.Name = "lblNumero"
-        Me.lblNumero.Size = New System.Drawing.Size(59, 16)
+        Me.lblNumero.Size = New System.Drawing.Size(58, 16)
         Me.lblNumero.TabIndex = 41
         Me.lblNumero.Text = "Registro"
         '
         'txtNumero
         '
         Me.txtNumero.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNumero.Location = New System.Drawing.Point(11, 66)
+        Me.txtNumero.Location = New System.Drawing.Point(11, 54)
         Me.txtNumero.Name = "txtNumero"
         Me.txtNumero.Size = New System.Drawing.Size(56, 22)
         Me.txtNumero.TabIndex = 10
@@ -528,7 +535,7 @@ Partial Class frmFuncionarios
         'mkdPis
         '
         Me.mkdPis.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.mkdPis.Location = New System.Drawing.Point(282, 67)
+        Me.mkdPis.Location = New System.Drawing.Point(282, 55)
         Me.mkdPis.Mask = "000.000.000 - 00"
         Me.mkdPis.Name = "mkdPis"
         Me.mkdPis.Size = New System.Drawing.Size(105, 22)
@@ -538,9 +545,9 @@ Partial Class frmFuncionarios
         '
         Me.lblPIS.AutoSize = True
         Me.lblPIS.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPIS.Location = New System.Drawing.Point(279, 42)
+        Me.lblPIS.Location = New System.Drawing.Point(279, 30)
         Me.lblPIS.Name = "lblPIS"
-        Me.lblPIS.Size = New System.Drawing.Size(29, 16)
+        Me.lblPIS.Size = New System.Drawing.Size(28, 16)
         Me.lblPIS.TabIndex = 39
         Me.lblPIS.Text = "PIS"
         '
@@ -567,7 +574,7 @@ Partial Class frmFuncionarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(629, 667)
+        Me.ClientSize = New System.Drawing.Size(629, 634)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox1)

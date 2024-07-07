@@ -22,17 +22,17 @@ Partial Class frmPermissao
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.cboPermissao = New System.Windows.Forms.ComboBox
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.btnSalvar = New System.Windows.Forms.Button
-        Me.btnExcluir = New System.Windows.Forms.Button
-        Me.lstMenus = New System.Windows.Forms.CheckedListBox
-        Me.grpPermissoes = New System.Windows.Forms.GroupBox
-        Me.Panel1 = New System.Windows.Forms.Panel
+        Me.components = New System.ComponentModel.Container()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.cboPermissao = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnSalvar = New System.Windows.Forms.Button()
+        Me.btnExcluir = New System.Windows.Forms.Button()
+        Me.lstMenus = New System.Windows.Forms.CheckedListBox()
+        Me.grpPermissoes = New System.Windows.Forms.GroupBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Panel2 = New System.Windows.Forms.Panel
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.grpPermissoes.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -67,8 +67,10 @@ Partial Class frmPermissao
         '
         'btnSalvar
         '
+        Me.btnSalvar.BackgroundImage = Global.Padaria.My.Resources.Resources.ok
+        Me.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnSalvar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.btnSalvar.Location = New System.Drawing.Point(30, 401)
+        Me.btnSalvar.Location = New System.Drawing.Point(260, 31)
         Me.btnSalvar.Name = "btnSalvar"
         Me.btnSalvar.Size = New System.Drawing.Size(53, 55)
         Me.btnSalvar.TabIndex = 4
@@ -77,8 +79,10 @@ Partial Class frmPermissao
         '
         'btnExcluir
         '
+        Me.btnExcluir.BackgroundImage = Global.Padaria.My.Resources.Resources.ball_stop
+        Me.btnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnExcluir.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.btnExcluir.Location = New System.Drawing.Point(150, 401)
+        Me.btnExcluir.Location = New System.Drawing.Point(342, 31)
         Me.btnExcluir.Name = "btnExcluir"
         Me.btnExcluir.Size = New System.Drawing.Size(53, 55)
         Me.btnExcluir.TabIndex = 6
@@ -91,7 +95,7 @@ Partial Class frmPermissao
         Me.lstMenus.FormattingEnabled = True
         Me.lstMenus.Location = New System.Drawing.Point(19, 111)
         Me.lstMenus.Name = "lstMenus"
-        Me.lstMenus.Size = New System.Drawing.Size(196, 274)
+        Me.lstMenus.Size = New System.Drawing.Size(421, 274)
         Me.lstMenus.TabIndex = 7
         '
         'grpPermissoes
@@ -105,7 +109,7 @@ Partial Class frmPermissao
         Me.grpPermissoes.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpPermissoes.Location = New System.Drawing.Point(12, 81)
         Me.grpPermissoes.Name = "grpPermissoes"
-        Me.grpPermissoes.Size = New System.Drawing.Size(237, 462)
+        Me.grpPermissoes.Size = New System.Drawing.Size(463, 402)
         Me.grpPermissoes.TabIndex = 8
         Me.grpPermissoes.TabStop = False
         Me.grpPermissoes.Tag = "0"
@@ -118,23 +122,23 @@ Partial Class frmPermissao
         Me.Panel1.ForeColor = System.Drawing.Color.DarkRed
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(263, 75)
+        Me.Panel1.Size = New System.Drawing.Size(487, 75)
         Me.Panel1.TabIndex = 9
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.White
         Me.Panel2.ForeColor = System.Drawing.Color.DarkRed
-        Me.Panel2.Location = New System.Drawing.Point(0, 31)
+        Me.Panel2.Location = New System.Drawing.Point(0, 29)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(263, 31)
+        Me.Panel2.Size = New System.Drawing.Size(487, 27)
         Me.Panel2.TabIndex = 39
         '
         'frmPermissao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(263, 553)
+        Me.ClientSize = New System.Drawing.Size(487, 493)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.grpPermissoes)

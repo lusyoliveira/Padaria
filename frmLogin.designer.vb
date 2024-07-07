@@ -22,21 +22,21 @@ Partial Class frmLogin
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.txtUsuario = New System.Windows.Forms.TextBox
-        Me.txtSenha = New System.Windows.Forms.TextBox
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.grpLogin = New System.Windows.Forms.GroupBox
-        Me.btnSair = New System.Windows.Forms.Button
-        Me.btnEntrar = New System.Windows.Forms.Button
+        Me.components = New System.ComponentModel.Container()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtUsuario = New System.Windows.Forms.TextBox()
+        Me.txtSenha = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.grpLogin = New System.Windows.Forms.GroupBox()
+        Me.btnSair = New System.Windows.Forms.Button()
         Me.er = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip
-        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel
-        Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel
-        Me.Panel1 = New System.Windows.Forms.Panel
-        Me.Panel2 = New System.Windows.Forms.Panel
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnEntrar = New System.Windows.Forms.Button()
         Me.grpLogin.SuspendLayout()
         CType(Me.er, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
@@ -109,6 +109,7 @@ Partial Class frmLogin
         '
         'btnSair
         '
+        Me.btnSair.BackgroundImage = Global.Padaria.My.Resources.Resources.ball_stop
         Me.btnSair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnSair.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.btnSair.Location = New System.Drawing.Point(132, 175)
@@ -116,19 +117,6 @@ Partial Class frmLogin
         Me.btnSair.Size = New System.Drawing.Size(53, 55)
         Me.btnSair.TabIndex = 3
         Me.btnSair.UseVisualStyleBackColor = True
-        '
-        'btnEntrar
-        '
-        Me.btnEntrar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.btnEntrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnEntrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.er.SetIconAlignment(Me.btnEntrar, System.Windows.Forms.ErrorIconAlignment.TopRight)
-        Me.btnEntrar.Location = New System.Drawing.Point(36, 175)
-        Me.btnEntrar.Name = "btnEntrar"
-        Me.btnEntrar.Size = New System.Drawing.Size(53, 55)
-        Me.btnEntrar.TabIndex = 2
-        Me.ToolTip1.SetToolTip(Me.btnEntrar, "Entrar")
-        Me.btnEntrar.UseVisualStyleBackColor = True
         '
         'er
         '
@@ -174,6 +162,20 @@ Partial Class frmLogin
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(494, 31)
         Me.Panel2.TabIndex = 41
+        '
+        'btnEntrar
+        '
+        Me.btnEntrar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnEntrar.BackgroundImage = Global.Padaria.My.Resources.Resources.ok1
+        Me.btnEntrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnEntrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.er.SetIconAlignment(Me.btnEntrar, System.Windows.Forms.ErrorIconAlignment.TopRight)
+        Me.btnEntrar.Location = New System.Drawing.Point(36, 175)
+        Me.btnEntrar.Name = "btnEntrar"
+        Me.btnEntrar.Size = New System.Drawing.Size(53, 55)
+        Me.btnEntrar.TabIndex = 2
+        Me.ToolTip1.SetToolTip(Me.btnEntrar, "Entrar")
+        Me.btnEntrar.UseVisualStyleBackColor = True
         '
         'frmLogin
         '

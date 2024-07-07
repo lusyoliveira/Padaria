@@ -22,33 +22,34 @@ Partial Class frmRelatorios
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRelatorios))
-        Me.btnImprimir = New System.Windows.Forms.Button
-        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument
-        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog
-        Me.cboConsulta = New System.Windows.Forms.ComboBox
+        Me.btnImprimir = New System.Windows.Forms.Button()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
+        Me.cboConsulta = New System.Windows.Forms.ComboBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Panel2 = New System.Windows.Forms.Panel
-        Me.txtFiltro = New System.Windows.Forms.TextBox
-        Me.Panel1 = New System.Windows.Forms.Panel
-        Me.Label4 = New System.Windows.Forms.Label
-        Me.grpFiltro = New System.Windows.Forms.GroupBox
-        Me.lblGerando = New System.Windows.Forms.Label
-        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar
-        Me.lblFiltro = New System.Windows.Forms.Label
-        Me.lblAviso = New System.Windows.Forms.Label
-        Me.lblTabelas = New System.Windows.Forms.Label
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.txtFiltro = New System.Windows.Forms.TextBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.grpFiltro = New System.Windows.Forms.GroupBox()
+        Me.lblGerando = New System.Windows.Forms.Label()
+        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
+        Me.lblFiltro = New System.Windows.Forms.Label()
+        Me.lblAviso = New System.Windows.Forms.Label()
+        Me.lblTabelas = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.grpFiltro.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnImprimir
         '
+        Me.btnImprimir.BackgroundImage = Global.Padaria.My.Resources.Resources.print_view
         Me.btnImprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnImprimir.Location = New System.Drawing.Point(406, 166)
+        Me.btnImprimir.Location = New System.Drawing.Point(437, 159)
         Me.btnImprimir.Name = "btnImprimir"
-        Me.btnImprimir.Size = New System.Drawing.Size(95, 33)
+        Me.btnImprimir.Size = New System.Drawing.Size(61, 54)
         Me.btnImprimir.TabIndex = 0
         Me.ToolTip1.SetToolTip(Me.btnImprimir, "Gerar Relatório")
         Me.btnImprimir.UseVisualStyleBackColor = True
@@ -169,8 +170,8 @@ Partial Class frmRelatorios
         Me.lblAviso.Name = "lblAviso"
         Me.lblAviso.Size = New System.Drawing.Size(496, 51)
         Me.lblAviso.TabIndex = 8
-        Me.lblAviso.Text = "Digite o que você deseja localizar e em seguida selecione a tabela desejada. Um r" & _
-            "elatório é gerado com apenas com os dados do filtro."
+        Me.lblAviso.Text = "Digite o que você deseja localizar e em seguida selecione a tabela desejada. Um r" &
+    "elatório é gerado com apenas com os dados do filtro."
         '
         'lblTabelas
         '

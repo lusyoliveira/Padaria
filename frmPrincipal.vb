@@ -116,7 +116,7 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub RetirarDoCaixaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RetirarDoCaixaToolStripMenuItem.Click
-        Dim frmAbreRetiraCaixa As New RetiraCaixa()
+        Dim frmAbreRetiraCaixa As New frmRetiraCaixa()
         frmAbreRetiraCaixa.MdiParent = Me
         frmAbreRetiraCaixa.Show()
     End Sub

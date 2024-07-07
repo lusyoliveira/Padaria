@@ -19,30 +19,30 @@ Partial Class frmVendas
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVendas))
-        Me.lblProduto2 = New System.Windows.Forms.Label
-        Me.lblValorUnit2 = New System.Windows.Forms.Label
-        Me.lblRecebido2 = New System.Windows.Forms.Label
-        Me.grpLocacao = New System.Windows.Forms.GroupBox
-        Me.lblTroco = New System.Windows.Forms.Label
-        Me.lblTroco2 = New System.Windows.Forms.Label
-        Me.txtQuantidade = New System.Windows.Forms.TextBox
-        Me.lblQuantidade = New System.Windows.Forms.Label
-        Me.lblProduto = New System.Windows.Forms.Label
-        Me.txtCodigo = New System.Windows.Forms.TextBox
-        Me.lblCodigo = New System.Windows.Forms.Label
-        Me.lblTotalpagar = New System.Windows.Forms.Label
-        Me.lblTotalPagar2 = New System.Windows.Forms.Label
-        Me.lblRecebido = New System.Windows.Forms.Label
-        Me.lblValorUnit = New System.Windows.Forms.Label
-        Me.btnPagar = New System.Windows.Forms.Button
-        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog
-        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument
-        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog
+        Me.lblProduto2 = New System.Windows.Forms.Label()
+        Me.lblValorUnit2 = New System.Windows.Forms.Label()
+        Me.lblRecebido2 = New System.Windows.Forms.Label()
+        Me.grpLocacao = New System.Windows.Forms.GroupBox()
+        Me.lblTroco = New System.Windows.Forms.Label()
+        Me.lblTroco2 = New System.Windows.Forms.Label()
+        Me.txtQuantidade = New System.Windows.Forms.TextBox()
+        Me.lblQuantidade = New System.Windows.Forms.Label()
+        Me.lblProduto = New System.Windows.Forms.Label()
+        Me.txtCodigo = New System.Windows.Forms.TextBox()
+        Me.lblCodigo = New System.Windows.Forms.Label()
+        Me.lblTotalpagar = New System.Windows.Forms.Label()
+        Me.lblTotalPagar2 = New System.Windows.Forms.Label()
+        Me.lblRecebido = New System.Windows.Forms.Label()
+        Me.lblValorUnit = New System.Windows.Forms.Label()
+        Me.btnPagar = New System.Windows.Forms.Button()
+        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Panel1 = New System.Windows.Forms.Panel
-        Me.Panel2 = New System.Windows.Forms.Panel
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.grpLocacao.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -52,7 +52,7 @@ Partial Class frmVendas
         Me.lblProduto2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblProduto2.Location = New System.Drawing.Point(264, 35)
         Me.lblProduto2.Name = "lblProduto2"
-        Me.lblProduto2.Size = New System.Drawing.Size(55, 16)
+        Me.lblProduto2.Size = New System.Drawing.Size(54, 16)
         Me.lblProduto2.TabIndex = 15
         Me.lblProduto2.Text = "Produto"
         '
@@ -62,7 +62,7 @@ Partial Class frmVendas
         Me.lblValorUnit2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblValorUnit2.Location = New System.Drawing.Point(160, 104)
         Me.lblValorUnit2.Name = "lblValorUnit2"
-        Me.lblValorUnit2.Size = New System.Drawing.Size(40, 16)
+        Me.lblValorUnit2.Size = New System.Drawing.Size(39, 16)
         Me.lblValorUnit2.TabIndex = 16
         Me.lblValorUnit2.Text = "Valor"
         '
@@ -70,9 +70,9 @@ Partial Class frmVendas
         '
         Me.lblRecebido2.AutoSize = True
         Me.lblRecebido2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRecebido2.Location = New System.Drawing.Point(287, 489)
+        Me.lblRecebido2.Location = New System.Drawing.Point(280, 417)
         Me.lblRecebido2.Name = "lblRecebido2"
-        Me.lblRecebido2.Size = New System.Drawing.Size(68, 16)
+        Me.lblRecebido2.Size = New System.Drawing.Size(67, 16)
         Me.lblRecebido2.TabIndex = 19
         Me.lblRecebido2.Text = "Recebido"
         '
@@ -96,7 +96,7 @@ Partial Class frmVendas
         Me.grpLocacao.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpLocacao.Location = New System.Drawing.Point(12, 81)
         Me.grpLocacao.Name = "grpLocacao"
-        Me.grpLocacao.Size = New System.Drawing.Size(680, 559)
+        Me.grpLocacao.Size = New System.Drawing.Size(680, 500)
         Me.grpLocacao.TabIndex = 14
         Me.grpLocacao.TabStop = False
         Me.grpLocacao.Tag = "0"
@@ -106,7 +106,7 @@ Partial Class frmVendas
         '
         Me.lblTroco.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblTroco.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTroco.Location = New System.Drawing.Point(409, 516)
+        Me.lblTroco.Location = New System.Drawing.Point(402, 444)
         Me.lblTroco.Name = "lblTroco"
         Me.lblTroco.Size = New System.Drawing.Size(79, 31)
         Me.lblTroco.TabIndex = 41
@@ -116,9 +116,9 @@ Partial Class frmVendas
         '
         Me.lblTroco2.AutoSize = True
         Me.lblTroco2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTroco2.Location = New System.Drawing.Point(406, 489)
+        Me.lblTroco2.Location = New System.Drawing.Point(399, 417)
         Me.lblTroco2.Name = "lblTroco2"
-        Me.lblTroco2.Size = New System.Drawing.Size(44, 16)
+        Me.lblTroco2.Size = New System.Drawing.Size(43, 16)
         Me.lblTroco2.TabIndex = 40
         Me.lblTroco2.Text = "Troco"
         '
@@ -135,7 +135,7 @@ Partial Class frmVendas
         Me.lblQuantidade.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblQuantidade.Location = New System.Drawing.Point(25, 104)
         Me.lblQuantidade.Name = "lblQuantidade"
-        Me.lblQuantidade.Size = New System.Drawing.Size(78, 16)
+        Me.lblQuantidade.Size = New System.Drawing.Size(77, 16)
         Me.lblQuantidade.TabIndex = 38
         Me.lblQuantidade.Text = "Quantidade"
         '
@@ -160,7 +160,7 @@ Partial Class frmVendas
         Me.lblCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
         Me.lblCodigo.Location = New System.Drawing.Point(24, 35)
         Me.lblCodigo.Name = "lblCodigo"
-        Me.lblCodigo.Size = New System.Drawing.Size(52, 16)
+        Me.lblCodigo.Size = New System.Drawing.Size(51, 16)
         Me.lblCodigo.TabIndex = 34
         Me.lblCodigo.Text = "Código"
         '
@@ -168,7 +168,7 @@ Partial Class frmVendas
         '
         Me.lblTotalpagar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblTotalpagar.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalpagar.Location = New System.Drawing.Point(157, 516)
+        Me.lblTotalpagar.Location = New System.Drawing.Point(150, 444)
         Me.lblTotalpagar.Name = "lblTotalpagar"
         Me.lblTotalpagar.Size = New System.Drawing.Size(77, 31)
         Me.lblTotalpagar.TabIndex = 33
@@ -178,9 +178,9 @@ Partial Class frmVendas
         '
         Me.lblTotalPagar2.AutoSize = True
         Me.lblTotalPagar2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalPagar2.Location = New System.Drawing.Point(154, 489)
+        Me.lblTotalPagar2.Location = New System.Drawing.Point(147, 417)
         Me.lblTotalPagar2.Name = "lblTotalPagar2"
-        Me.lblTotalPagar2.Size = New System.Drawing.Size(90, 16)
+        Me.lblTotalPagar2.Size = New System.Drawing.Size(89, 16)
         Me.lblTotalPagar2.TabIndex = 32
         Me.lblTotalPagar2.Text = "Total a Pagar"
         '
@@ -188,7 +188,7 @@ Partial Class frmVendas
         '
         Me.lblRecebido.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblRecebido.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRecebido.Location = New System.Drawing.Point(290, 516)
+        Me.lblRecebido.Location = New System.Drawing.Point(283, 444)
         Me.lblRecebido.Name = "lblRecebido"
         Me.lblRecebido.Size = New System.Drawing.Size(79, 31)
         Me.lblRecebido.TabIndex = 28
@@ -206,9 +206,10 @@ Partial Class frmVendas
         '
         'btnPagar
         '
+        Me.btnPagar.BackgroundImage = Global.Padaria.My.Resources.Resources.ok
         Me.btnPagar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnPagar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPagar.Location = New System.Drawing.Point(518, 498)
+        Me.btnPagar.Location = New System.Drawing.Point(511, 426)
         Me.btnPagar.Name = "btnPagar"
         Me.btnPagar.Size = New System.Drawing.Size(53, 55)
         Me.btnPagar.TabIndex = 23
@@ -253,7 +254,7 @@ Partial Class frmVendas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(705, 652)
+        Me.ClientSize = New System.Drawing.Size(705, 601)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.grpLocacao)

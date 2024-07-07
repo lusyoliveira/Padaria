@@ -19,35 +19,35 @@ Partial Class frmProdutos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProdutos))
-        Me.lblProduto = New System.Windows.Forms.Label
-        Me.grpProdutos = New System.Windows.Forms.GroupBox
-        Me.lblMansagem = New System.Windows.Forms.Label
-        Me.txtQuantidade = New System.Windows.Forms.TextBox
-        Me.lblQuantidade = New System.Windows.Forms.Label
-        Me.txtValidade = New System.Windows.Forms.TextBox
-        Me.lblValidade = New System.Windows.Forms.Label
-        Me.txtValorUnit = New System.Windows.Forms.TextBox
-        Me.lblValorUnit = New System.Windows.Forms.Label
-        Me.txtProduto = New System.Windows.Forms.TextBox
-        Me.txtCodigo = New System.Windows.Forms.TextBox
-        Me.lblCodigo = New System.Windows.Forms.Label
-        Me.lstProduto = New System.Windows.Forms.ListView
-        Me.codprod = New System.Windows.Forms.ColumnHeader
-        Me.Produto = New System.Windows.Forms.ColumnHeader
-        Me.Valor = New System.Windows.Forms.ColumnHeader
-        Me.Validade = New System.Windows.Forms.ColumnHeader
-        Me.Quantidade = New System.Windows.Forms.ColumnHeader
-        Me.btnExcluir = New System.Windows.Forms.Button
-        Me.btnSalvar = New System.Windows.Forms.Button
-        Me.btnAlterar = New System.Windows.Forms.Button
-        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument
-        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog
-        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog
+        Me.lblProduto = New System.Windows.Forms.Label()
+        Me.grpProdutos = New System.Windows.Forms.GroupBox()
+        Me.lblMansagem = New System.Windows.Forms.Label()
+        Me.txtQuantidade = New System.Windows.Forms.TextBox()
+        Me.lblQuantidade = New System.Windows.Forms.Label()
+        Me.txtValidade = New System.Windows.Forms.TextBox()
+        Me.lblValidade = New System.Windows.Forms.Label()
+        Me.txtValorUnit = New System.Windows.Forms.TextBox()
+        Me.lblValorUnit = New System.Windows.Forms.Label()
+        Me.txtProduto = New System.Windows.Forms.TextBox()
+        Me.txtCodigo = New System.Windows.Forms.TextBox()
+        Me.lblCodigo = New System.Windows.Forms.Label()
+        Me.lstProduto = New System.Windows.Forms.ListView()
+        Me.codprod = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Produto = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Valor = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Validade = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Quantidade = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.btnExcluir = New System.Windows.Forms.Button()
+        Me.btnSalvar = New System.Windows.Forms.Button()
+        Me.btnAlterar = New System.Windows.Forms.Button()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
+        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Panel1 = New System.Windows.Forms.Panel
-        Me.Panel2 = New System.Windows.Forms.Panel
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.grpProdutos.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -57,7 +57,7 @@ Partial Class frmProdutos
         Me.lblProduto.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblProduto.Location = New System.Drawing.Point(235, 31)
         Me.lblProduto.Name = "lblProduto"
-        Me.lblProduto.Size = New System.Drawing.Size(55, 16)
+        Me.lblProduto.Size = New System.Drawing.Size(54, 16)
         Me.lblProduto.TabIndex = 11
         Me.lblProduto.Text = "Produto"
         '
@@ -92,9 +92,9 @@ Partial Class frmProdutos
         Me.lblMansagem.AutoSize = True
         Me.lblMansagem.Location = New System.Drawing.Point(31, 489)
         Me.lblMansagem.Name = "lblMansagem"
-        Me.lblMansagem.Size = New System.Drawing.Size(57, 20)
+        Me.lblMansagem.Size = New System.Drawing.Size(88, 20)
         Me.lblMansagem.TabIndex = 0
-        Me.lblMansagem.Text = "Label1"
+        Me.lblMansagem.Text = "Mensagem"
         '
         'txtQuantidade
         '
@@ -109,7 +109,7 @@ Partial Class frmProdutos
         Me.lblQuantidade.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblQuantidade.Location = New System.Drawing.Point(259, 92)
         Me.lblQuantidade.Name = "lblQuantidade"
-        Me.lblQuantidade.Size = New System.Drawing.Size(78, 16)
+        Me.lblQuantidade.Size = New System.Drawing.Size(77, 16)
         Me.lblQuantidade.TabIndex = 50
         Me.lblQuantidade.Text = "Quantidade"
         '
@@ -126,7 +126,7 @@ Partial Class frmProdutos
         Me.lblValidade.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblValidade.Location = New System.Drawing.Point(126, 92)
         Me.lblValidade.Name = "lblValidade"
-        Me.lblValidade.Size = New System.Drawing.Size(63, 16)
+        Me.lblValidade.Size = New System.Drawing.Size(62, 16)
         Me.lblValidade.TabIndex = 48
         Me.lblValidade.Text = "Validade"
         '
@@ -143,7 +143,7 @@ Partial Class frmProdutos
         Me.lblValorUnit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblValorUnit.Location = New System.Drawing.Point(18, 92)
         Me.lblValorUnit.Name = "lblValorUnit"
-        Me.lblValorUnit.Size = New System.Drawing.Size(89, 16)
+        Me.lblValorUnit.Size = New System.Drawing.Size(88, 16)
         Me.lblValorUnit.TabIndex = 46
         Me.lblValorUnit.Text = "Valor Unitário"
         '
@@ -167,7 +167,7 @@ Partial Class frmProdutos
         Me.lblCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCodigo.Location = New System.Drawing.Point(18, 31)
         Me.lblCodigo.Name = "lblCodigo"
-        Me.lblCodigo.Size = New System.Drawing.Size(52, 16)
+        Me.lblCodigo.Size = New System.Drawing.Size(51, 16)
         Me.lblCodigo.TabIndex = 43
         Me.lblCodigo.Text = "Código"
         '
@@ -176,6 +176,7 @@ Partial Class frmProdutos
         Me.lstProduto.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.codprod, Me.Produto, Me.Valor, Me.Validade, Me.Quantidade})
         Me.lstProduto.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstProduto.FullRowSelect = True
+        Me.lstProduto.HideSelection = False
         Me.lstProduto.Location = New System.Drawing.Point(21, 162)
         Me.lstProduto.MultiSelect = False
         Me.lstProduto.Name = "lstProduto"
@@ -211,6 +212,8 @@ Partial Class frmProdutos
         '
         'btnExcluir
         '
+        Me.btnExcluir.BackgroundImage = Global.Padaria.My.Resources.Resources.ball_stop
+        Me.btnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnExcluir.Location = New System.Drawing.Point(345, 476)
         Me.btnExcluir.Name = "btnExcluir"
         Me.btnExcluir.Size = New System.Drawing.Size(53, 55)
@@ -220,6 +223,8 @@ Partial Class frmProdutos
         '
         'btnSalvar
         '
+        Me.btnSalvar.BackgroundImage = Global.Padaria.My.Resources.Resources.ok
+        Me.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnSalvar.Location = New System.Drawing.Point(209, 476)
         Me.btnSalvar.Name = "btnSalvar"
         Me.btnSalvar.Size = New System.Drawing.Size(53, 55)
@@ -229,6 +234,8 @@ Partial Class frmProdutos
         '
         'btnAlterar
         '
+        Me.btnAlterar.BackgroundImage = Global.Padaria.My.Resources.Resources.document
+        Me.btnAlterar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnAlterar.Location = New System.Drawing.Point(275, 476)
         Me.btnAlterar.Name = "btnAlterar"
         Me.btnAlterar.Size = New System.Drawing.Size(53, 55)
