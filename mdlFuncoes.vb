@@ -1,17 +1,18 @@
 ﻿Imports System.IO
 Imports System.Threading.Thread
 Imports System.Globalization
+Imports System.Data.SqlClient
 Module mdlFuncoes
     'Public meuServidor As String = "SJFPA008\DEV"
     Public total2
     Dim tbaux3, tabela, tbcaixa, rs, tbconfig, tbaux, tbpermissao, tbClientes
 
     Declare Function GetUserName Lib "advapi32.dll" Alias _
-"GetUserNameA" (ByVal lpBuffer As String, _
+"GetUserNameA" (ByVal lpBuffer As String,
 ByRef nSize As Integer) As Integer
 
     Declare Function GetComputerName Lib "kernel32" Alias _
-"GetComputerNameA" (ByVal lpBuffer As String, _
+"GetComputerNameA" (ByVal lpBuffer As String,
 ByRef nSize As Integer) As Integer
     Public Function GetUserName() As String
         Dim iReturn As Integer
@@ -82,7 +83,7 @@ ByRef nSize As Integer) As Integer
     End Function
     Public Function carregalista(ByVal lista As CheckedListBox, ByVal sql As String, ByVal campo As String, Optional ByVal checa As Boolean = False) As Boolean
         Dim tbLista As DataTable
-        tbLista = RecebeTabela(sql)
+        'tbLista = RecebeTabela(sql)
 
         If tbLista.Rows.Count = 0 Then
             Return False
@@ -149,7 +150,7 @@ ByRef nSize As Integer) As Integer
     Public Function montargrade(ByVal sql As String, ByVal grade As DataGridView, ByVal textodestino As TextBox, ByVal ParamArray conteudo() As Object) As Boolean
         Dim x As Integer, y As Integer, total As Long
 
-        tabela = RecebeTabela(sql)
+        ' tabela = RecebeTabela(sql)
         total = 0
         grade.Rows.Clear()
         If tabela.RecordCount <> 0 Then
@@ -514,163 +515,6 @@ ByRef nSize As Integer) As Integer
         wcdata = wcdata.AddDays(-1)
         Return wcdata
     End Function
-    Public Function CtrlMenu(ByVal permissao As String, Optional ByVal esconder As Boolean = False) As Boolean
-        For Each item As ToolStripItem In frmPrincipal.MenuStrip1.Items
-            If TypeOf item Is ToolStripMenuItem Then
-                Dim menu As ToolStripMenuItem = DirectCast(item, ToolStripMenuItem)
-                Dim sql As String = $"Select * from tbpermissoes where permissao = '{permissao}' and menu = '{menu.Text}'"
-                tbpermissao = RecebeTabela(sql)
-
-                If tbpermissao.Rows.Count > 0 Then
-                    If Convert.ToBoolean(tbpermissao.Rows(0)("ativo")) Then
-                        If Not esconder Then
-                            menu.Enabled = True
-                        Else
-                            menu.Visible = True
-                        End If
-                    Else
-                        If Not esconder Then
-                            menu.Enabled = False
-                        Else
-                            menu.Visible = False
-                        End If
-                    End If
-                Else
-                    If Not esconder Then
-                        menu.Enabled = True
-                    Else
-                        menu.Visible = True
-                    End If
-                End If
-
-                ctrlmenusubmenu(menu, permissao, esconder)
-            End If
-        Next
-
-        Return True
-    End Function
-    Public Function ctrlmenusubmenu(ByVal menu As ToolStripMenuItem, ByVal permissao As String, Optional ByVal esconder As Boolean = False) As Boolean
-        For Each item As ToolStripItem In menu.DropDownItems
-            If TypeOf item Is ToolStripMenuItem Then
-                Dim submenu As ToolStripMenuItem = DirectCast(item, ToolStripMenuItem)
-                Dim sql As String = $"Select * from tbpermissoes where permissao = '{permissao}' and menu = '{submenu.Text}'"
-                tbpermissao = RecebeTabela(sql)
-
-                If tbpermissao.Rows.Count > 0 Then
-                    If Convert.ToBoolean(tbpermissao.Rows(0)("ativo")) Then
-                        If Not esconder Then
-                            submenu.Enabled = True
-                        Else
-                            submenu.Visible = True
-                        End If
-                    Else
-                        If Not esconder Then
-                            submenu.Enabled = False
-                        Else
-                            submenu.Visible = False
-                        End If
-                    End If
-                Else
-                    If Not esconder Then
-                        submenu.Enabled = True
-                    Else
-                        submenu.Visible = True
-                    End If
-                End If
-
-                ctrlmenusubmenu(submenu, permissao, esconder)
-            End If
-        Next
-
-        Return True
-    End Function
-
-    Public Function achanumerodependente(ByVal matricula As String, ByVal nome As String) As Integer
-        Dim sql As String = $"Select nrseq from tbdependentes where matricula = '{matricula}' order by nrseq"
-        tbaux3 = RecebeTabela(sql)
-
-        Dim x As Integer = 1
-
-        For Each row As DataRow In tbaux3.Rows
-            If nome.ToUpper().Trim() = row("nome").ToString().ToUpper().Trim() Then
-                Return x
-            End If
-            x += 1
-        Next
-
-        Return 0
-    End Function
-    Public Function administrador(ByVal nome As String) As Boolean
-        Dim sql As String = $"Select * from vwUsuariosAdministradores where nome = '{nome}'"
-        tbaux = RecebeTabela(sql)
-
-        Return tbaux.Rows.Count > 0
-    End Function
-    Public Function caixaaberto(ByVal funcionario As String) As Integer
-        If Not existecaixa() Then
-            Return 0
-        End If
-
-        Dim sql As String = $"Select nrseqcaixa from tbcaixa where funcionario = '{funcionario}' and not fechado order by nrseqcaixa desc"
-        tbcaixa = RecebeTabela(sql)
-
-        If tbcaixa.Rows.Count > 0 Then
-            Return Convert.ToInt32(tbcaixa.Rows(0)("nrseqcaixa"))
-        Else
-            Return -1
-        End If
-    End Function
-    Public Function existecaixa() As Boolean
-        tbconfig = RecebeTabela("select * from tbconfig")
-
-        If tbconfig.Rows.Count > 0 AndAlso Not IsDBNull(tbconfig.Rows(0)("temporario")) Then
-            Return File.Exists(tbconfig.Rows(0)("temporario").ToString())
-        End If
-
-        Return False
-    End Function
-    Public Function meucaixa(ByVal nrcaixa As Integer) As Decimal
-        Dim sql As String
-        Dim wcvalor As Decimal = 0
-
-        sql = $"Select valorinicial from tbcaixa where nrseqcaixa = {nrcaixa}"
-        tbcaixa = RecebeTabela(sql)
-
-        If tbcaixa.Rows.Count > 0 AndAlso Not IsDBNull(tbcaixa.Rows(0)("valorinicial")) Then
-            wcvalor = Convert.ToDecimal(tbcaixa.Rows(0)("valorinicial"))
-        End If
-
-        sql = $"Select valor from tbcaixadth where nrseqcaixa = {nrcaixa}"
-        tbcaixa = RecebeTabela(sql)
-
-        For Each row As DataRow In tbcaixa.Rows
-            wcvalor += Convert.ToDecimal(row("valor"))
-        Next
-
-        Return wcvalor
-    End Function
-
-    Public Function ContarRegistros() As String
-        Dim tbClientes As DataTable
-        Dim temp As Integer
-        Dim mov As String
-
-        tbClientes = RecebeTabela("select count(*) as total_clientes from tbClientes")
-        If tbClientes.Rows.Count > 0 AndAlso Not IsDBNull(tbClientes.Rows(0)("total_clientes")) Then
-            temp = Convert.ToInt32(tbClientes.Rows(0)("total_clientes"))
-        Else
-            temp = 0
-        End If
-
-        If temp = 1 Then
-            mov = temp & " Cliente Cadastrado"
-        Else
-            mov = temp & " Clientes Cadastrados"
-        End If
-
-        frmClientes.lblRegistro.Text = mov
-        Return mov
-    End Function
     Public Function pegamenus(ByVal listbox1 As CheckedListBox, ByVal menustrip1 As MenuStrip)
         Dim x, y, z As Integer
         Dim v As System.Windows.Forms.ToolStripMenuItem
@@ -701,18 +545,7 @@ ByRef nSize As Integer) As Integer
         Next
         pegamenus = ""
     End Function
-    'Function GeraCodigo() As String
-    '    Dim Soma = frmCaderneta.Label2.Text
-    '    Dim Anotar As Integer
-    '    Dim Numero As String
-    '    Try
-    '        Anotar = CInt(Soma.Substring(Soma.IndexOf("-") + 1, Soma.Length - Soma.IndexOf("-")) + 1
-    '        Numero = Anotar.ToString()
-    '        Return string(4 - Numero.Length,"0") + Trim(Numero)
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "error")
-    '    End Try
-    'End Function
+
     Public Function GeraCodigo()
 
         Dim Soma = frmCaderneta.Label2.Text

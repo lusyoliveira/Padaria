@@ -91,127 +91,113 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="frmFaturamento.Designer.vb">
-      <DependentUpon>frmFaturamento.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmFaturamento.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmSobre.Designer.vb">
+    <Compile Include="Classes\clsCaderneta.vb" />
+    <Compile Include="Classes\clsClientes.vb" />
+    <Compile Include="Classes\clsConfiguracao.vb" />
+    <Compile Include="Classes\clsDependente.vb" />
+    <Compile Include="Classes\clsEstoque.vb" />
+    <Compile Include="Classes\clsFornecedores.vb" />
+    <Compile Include="Classes\clsFuncionarios.vb" />
+    <Compile Include="Classes\clsProdutos.vb" />
+    <Compile Include="Classes\clsUsuario.vb" />
+    <Compile Include="Classes\clsConexao.vb" />
+    <Compile Include="Classes\clsCaixa.vb" />
+    <Compile Include="Forms\frmSobre.Designer.vb">
       <DependentUpon>frmSobre.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmSobre.vb">
+    <Compile Include="Forms\frmSobre.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAbrirCaixa.Designer.vb">
+    <Compile Include="Forms\frmAbrirCaixa.Designer.vb">
       <DependentUpon>frmAbrirCaixa.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmAbrirCaixa.vb">
+    <Compile Include="Forms\frmAbrirCaixa.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCaderneta.Designer.vb">
+    <Compile Include="Forms\frmCaderneta.Designer.vb">
       <DependentUpon>frmCaderneta.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmCaderneta.vb">
+    <Compile Include="Forms\frmCaderneta.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmFechaCaixa.Designer.vb">
+    <Compile Include="Forms\frmFechaCaixa.Designer.vb">
       <DependentUpon>frmFechaCaixa.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmFechaCaixa.vb">
+    <Compile Include="Forms\frmFechaCaixa.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmClientes.Designer.vb">
+    <Compile Include="Forms\frmClientes.Designer.vb">
       <DependentUpon>frmClientes.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmClientes.vb">
+    <Compile Include="Forms\frmClientes.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmConfig.designer.vb">
+    <Compile Include="Forms\frmConfig.designer.vb">
       <DependentUpon>frmConfig.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmConfig.vb">
+    <Compile Include="Forms\frmConfig.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDependentes.designer.vb">
-      <DependentUpon>frmDependentes.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmDependentes.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmEstoque.Designer.vb">
+    <Compile Include="Forms\frmEstoque.Designer.vb">
       <DependentUpon>frmEstoque.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmEstoque.vb">
+    <Compile Include="Forms\frmEstoque.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmFornecedores.designer.vb">
+    <Compile Include="Forms\frmFornecedores.designer.vb">
       <DependentUpon>frmFornecedores.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmFornecedores.vb">
+    <Compile Include="Forms\frmFornecedores.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmFuncionarios.Designer.vb">
+    <Compile Include="Forms\frmFuncionarios.Designer.vb">
       <DependentUpon>frmFuncionarios.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmFuncionarios.vb">
+    <Compile Include="Forms\frmFuncionarios.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLocalizar.designer.vb">
+    <Compile Include="Forms\frmLocalizar.designer.vb">
       <DependentUpon>frmLocalizar.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmLocalizar.vb">
+    <Compile Include="Forms\frmLocalizar.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.designer.vb">
+    <Compile Include="Forms\frmLogin.designer.vb">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.vb">
+    <Compile Include="Forms\frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPagoPendente.Designer.vb">
+    <Compile Include="Forms\frmPagoPendente.Designer.vb">
       <DependentUpon>frmPagoPendente.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmPagoPendente.vb">
+    <Compile Include="Forms\frmPagoPendente.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPermissao.designer.vb">
+    <Compile Include="Forms\frmPermissao.designer.vb">
       <DependentUpon>frmPermissao.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmPermissao.vb">
+    <Compile Include="Forms\frmPermissao.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPrincipal.Designer.vb">
+    <Compile Include="Forms\frmPrincipal.Designer.vb">
       <DependentUpon>frmPrincipal.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmPrincipal.vb">
+    <Compile Include="Forms\frmPrincipal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProdutos.Designer.vb">
+    <Compile Include="Forms\frmProdutos.Designer.vb">
       <DependentUpon>frmProdutos.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmProdutos.vb">
+    <Compile Include="Forms\frmProdutos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRelatorios.designer.vb">
-      <DependentUpon>frmRelatorios.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmRelatorios.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmUsuarios.designer.vb">
+    <Compile Include="Forms\frmUsuarios.designer.vb">
       <DependentUpon>frmUsuarios.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmUsuarios.vb">
+    <Compile Include="Forms\frmUsuarios.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmVendas.Designer.vb">
-      <DependentUpon>frmVendas.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmVendas.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="mdlConexao.vb" />
     <Compile Include="mdlFuncoes.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -229,92 +215,76 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="frmRetiraCaixa.Designer.vb">
+    <Compile Include="Forms\frmRetiraCaixa.Designer.vb">
       <DependentUpon>frmRetiraCaixa.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmRetiraCaixa.vb">
+    <Compile Include="Forms\frmRetiraCaixa.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmFaturamento.resx">
-      <DependentUpon>frmFaturamento.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSobre.resx">
+    <EmbeddedResource Include="Forms\frmSobre.resx">
       <DependentUpon>frmSobre.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAbrirCaixa.resx">
+    <EmbeddedResource Include="Forms\frmAbrirCaixa.resx">
       <DependentUpon>frmAbrirCaixa.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCaderneta.resx">
+    <EmbeddedResource Include="Forms\frmCaderneta.resx">
       <DependentUpon>frmCaderneta.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmFechaCaixa.resx">
+    <EmbeddedResource Include="Forms\frmFechaCaixa.resx">
       <DependentUpon>frmFechaCaixa.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmClientes.resx">
+    <EmbeddedResource Include="Forms\frmClientes.resx">
       <DependentUpon>frmClientes.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmConfig.resx">
+    <EmbeddedResource Include="Forms\frmConfig.resx">
       <DependentUpon>frmConfig.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDependentes.resx">
-      <DependentUpon>frmDependentes.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmEstoque.resx">
+    <EmbeddedResource Include="Forms\frmEstoque.resx">
       <DependentUpon>frmEstoque.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmFornecedores.resx">
+    <EmbeddedResource Include="Forms\frmFornecedores.resx">
       <DependentUpon>frmFornecedores.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmFuncionarios.resx">
+    <EmbeddedResource Include="Forms\frmFuncionarios.resx">
       <DependentUpon>frmFuncionarios.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLocalizar.resx">
+    <EmbeddedResource Include="Forms\frmLocalizar.resx">
       <DependentUpon>frmLocalizar.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
+    <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPagoPendente.resx">
+    <EmbeddedResource Include="Forms\frmPagoPendente.resx">
       <DependentUpon>frmPagoPendente.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPermissao.resx">
+    <EmbeddedResource Include="Forms\frmPermissao.resx">
       <DependentUpon>frmPermissao.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPrincipal.resx">
+    <EmbeddedResource Include="Forms\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProdutos.resx">
+    <EmbeddedResource Include="Forms\frmProdutos.resx">
       <DependentUpon>frmProdutos.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRelatorios.resx">
-      <DependentUpon>frmRelatorios.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmUsuarios.resx">
+    <EmbeddedResource Include="Forms\frmUsuarios.resx">
       <DependentUpon>frmUsuarios.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmVendas.resx">
-      <DependentUpon>frmVendas.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -323,7 +293,7 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRetiraCaixa.resx">
+    <EmbeddedResource Include="Forms\frmRetiraCaixa.resx">
       <DependentUpon>frmRetiraCaixa.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -331,9 +301,7 @@
     <EmbeddedResource Include="obj\Debug\Padaria.frmCaderneta.resources" />
     <EmbeddedResource Include="obj\Debug\Padaria.frmClientes.resources" />
     <EmbeddedResource Include="obj\Debug\Padaria.frmConfig.resources" />
-    <EmbeddedResource Include="obj\Debug\Padaria.frmDependentes.resources" />
     <EmbeddedResource Include="obj\Debug\Padaria.frmEstoque.resources" />
-    <EmbeddedResource Include="obj\Debug\Padaria.frmFaturamento.resources" />
     <EmbeddedResource Include="obj\Debug\Padaria.frmFechaCaixa.resources" />
     <EmbeddedResource Include="obj\Debug\Padaria.frmFornecedores.resources" />
     <EmbeddedResource Include="obj\Debug\Padaria.frmFuncionarios.resources" />
@@ -343,11 +311,9 @@
     <EmbeddedResource Include="obj\Debug\Padaria.frmPermissao.resources" />
     <EmbeddedResource Include="obj\Debug\Padaria.frmPrincipal.resources" />
     <EmbeddedResource Include="obj\Debug\Padaria.frmProdutos.resources" />
-    <EmbeddedResource Include="obj\Debug\Padaria.frmRelatorios.resources" />
     <EmbeddedResource Include="obj\Debug\Padaria.frmRetiraCaixa.resources" />
     <EmbeddedResource Include="obj\Debug\Padaria.frmSobre.resources" />
     <EmbeddedResource Include="obj\Debug\Padaria.frmUsuarios.resources" />
-    <EmbeddedResource Include="obj\Debug\Padaria.frmVendas.resources" />
     <EmbeddedResource Include="obj\Debug\Padaria.Resources.resources" />
   </ItemGroup>
   <ItemGroup>
@@ -371,7 +337,6 @@
     <None Include="obj\Debug\Padaria.vbproj.CoreCompileInputs.cache" />
     <None Include="obj\Debug\Padaria.vbproj.GenerateResource.cache" />
     <None Include="obj\Debug\Padaria.vbproj.ResolveComReference.cache" />
-    <None Include="obj\Debug\ResolveAssemblyReference.cache" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
