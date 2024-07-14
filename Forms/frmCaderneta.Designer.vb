@@ -95,11 +95,9 @@ Partial Class frmCaderneta
         Me.grpCaderneta.Controls.Add(Me.lstReservas)
         Me.grpCaderneta.Controls.Add(Me.lblProdutos2)
         Me.grpCaderneta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.grpCaderneta.Location = New System.Drawing.Point(21, 254)
-        Me.grpCaderneta.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grpCaderneta.Location = New System.Drawing.Point(14, 168)
         Me.grpCaderneta.Name = "grpCaderneta"
-        Me.grpCaderneta.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.grpCaderneta.Size = New System.Drawing.Size(992, 486)
+        Me.grpCaderneta.Size = New System.Drawing.Size(744, 385)
         Me.grpCaderneta.TabIndex = 2
         Me.grpCaderneta.TabStop = False
         Me.grpCaderneta.Tag = "0"
@@ -108,20 +106,19 @@ Partial Class frmCaderneta
         'lblDataVencimento
         '
         Me.lblDataVencimento.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblDataVencimento.Location = New System.Drawing.Point(521, 69)
-        Me.lblDataVencimento.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblDataVencimento.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDataVencimento.Location = New System.Drawing.Point(129, 47)
         Me.lblDataVencimento.Name = "lblDataVencimento"
-        Me.lblDataVencimento.Size = New System.Drawing.Size(168, 28)
+        Me.lblDataVencimento.Size = New System.Drawing.Size(133, 23)
         Me.lblDataVencimento.TabIndex = 92
         '
         'lblDataVencimento2
         '
         Me.lblDataVencimento2.AutoSize = True
         Me.lblDataVencimento2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblDataVencimento2.Location = New System.Drawing.Point(517, 44)
-        Me.lblDataVencimento2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblDataVencimento2.Location = New System.Drawing.Point(126, 27)
         Me.lblDataVencimento2.Name = "lblDataVencimento2"
-        Me.lblDataVencimento2.Size = New System.Drawing.Size(161, 20)
+        Me.lblDataVencimento2.Size = New System.Drawing.Size(136, 17)
         Me.lblDataVencimento2.TabIndex = 91
         Me.lblDataVencimento2.Text = "Data da Vencimento"
         '
@@ -129,20 +126,18 @@ Partial Class frmCaderneta
         '
         Me.lblTotalFinal2.AutoSize = True
         Me.lblTotalFinal2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblTotalFinal2.Location = New System.Drawing.Point(640, 398)
-        Me.lblTotalFinal2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblTotalFinal2.Location = New System.Drawing.Point(530, 296)
         Me.lblTotalFinal2.Name = "lblTotalFinal2"
-        Me.lblTotalFinal2.Size = New System.Drawing.Size(87, 20)
+        Me.lblTotalFinal2.Size = New System.Drawing.Size(74, 17)
         Me.lblTotalFinal2.TabIndex = 88
         Me.lblTotalFinal2.Text = "Total Final"
         '
         'lblTotalFinal
         '
         Me.lblTotalFinal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblTotalFinal.Location = New System.Drawing.Point(625, 431)
-        Me.lblTotalFinal.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblTotalFinal.Location = New System.Drawing.Point(610, 289)
         Me.lblTotalFinal.Name = "lblTotalFinal"
-        Me.lblTotalFinal.Size = New System.Drawing.Size(141, 30)
+        Me.lblTotalFinal.Size = New System.Drawing.Size(106, 24)
         Me.lblTotalFinal.TabIndex = 87
         Me.lblTotalFinal.Text = "R$ 0,00"
         Me.lblTotalFinal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -150,20 +145,19 @@ Partial Class frmCaderneta
         'lblProdutos
         '
         Me.lblProdutos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblProdutos.Location = New System.Drawing.Point(27, 144)
-        Me.lblProdutos.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblProdutos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblProdutos.Location = New System.Drawing.Point(76, 90)
         Me.lblProdutos.Name = "lblProdutos"
-        Me.lblProdutos.Size = New System.Drawing.Size(517, 28)
+        Me.lblProdutos.Size = New System.Drawing.Size(399, 19)
         Me.lblProdutos.TabIndex = 86
         '
         'lblCodProd2
         '
         Me.lblCodProd2.AutoSize = True
         Me.lblCodProd2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblCodProd2.Location = New System.Drawing.Point(23, 44)
-        Me.lblCodProd2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblCodProd2.Location = New System.Drawing.Point(12, 70)
         Me.lblCodProd2.Name = "lblCodProd2"
-        Me.lblCodProd2.Size = New System.Drawing.Size(61, 20)
+        Me.lblCodProd2.Size = New System.Drawing.Size(52, 17)
         Me.lblCodProd2.TabIndex = 85
         Me.lblCodProd2.Text = "Código"
         '
@@ -171,31 +165,28 @@ Partial Class frmCaderneta
         '
         Me.btnMostrar.BackgroundImage = Global.Padaria.My.Resources.Resources.folder_open
         Me.btnMostrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnMostrar.Location = New System.Drawing.Point(312, 398)
-        Me.btnMostrar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnMostrar.Location = New System.Drawing.Point(331, 313)
         Me.btnMostrar.Name = "btnMostrar"
-        Me.btnMostrar.Size = New System.Drawing.Size(71, 68)
+        Me.btnMostrar.Size = New System.Drawing.Size(53, 55)
         Me.btnMostrar.TabIndex = 84
         Me.ToolTip1.SetToolTip(Me.btnMostrar, "Mostrar Pagamentos Pendentes")
         Me.btnMostrar.UseVisualStyleBackColor = True
         '
         'txtQuantidade
         '
-        Me.txtQuantidade.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.txtQuantidade.Location = New System.Drawing.Point(716, 144)
-        Me.txtQuantidade.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtQuantidade.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtQuantidade.Location = New System.Drawing.Point(559, 90)
         Me.txtQuantidade.Name = "txtQuantidade"
-        Me.txtQuantidade.Size = New System.Drawing.Size(104, 26)
+        Me.txtQuantidade.Size = New System.Drawing.Size(79, 20)
         Me.txtQuantidade.TabIndex = 3
         '
         'btnCancelar
         '
         Me.btnCancelar.BackgroundImage = Global.Padaria.My.Resources.Resources.ball_stop
         Me.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnCancelar.Location = New System.Drawing.Point(859, 44)
-        Me.btnCancelar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnCancelar.Location = New System.Drawing.Point(390, 313)
         Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(71, 68)
+        Me.btnCancelar.Size = New System.Drawing.Size(53, 55)
         Me.btnCancelar.TabIndex = 7
         Me.ToolTip1.SetToolTip(Me.btnCancelar, "Cancelar")
         Me.btnCancelar.UseVisualStyleBackColor = True
@@ -204,10 +195,9 @@ Partial Class frmCaderneta
         '
         Me.btnFazer.BackgroundImage = Global.Padaria.My.Resources.Resources.add
         Me.btnFazer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnFazer.Location = New System.Drawing.Point(769, 44)
-        Me.btnFazer.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnFazer.Location = New System.Drawing.Point(449, 313)
         Me.btnFazer.Name = "btnFazer"
-        Me.btnFazer.Size = New System.Drawing.Size(71, 68)
+        Me.btnFazer.Size = New System.Drawing.Size(53, 55)
         Me.btnFazer.TabIndex = 4
         Me.ToolTip1.SetToolTip(Me.btnFazer, "Fazer Resera")
         Me.btnFazer.UseVisualStyleBackColor = True
@@ -216,39 +206,36 @@ Partial Class frmCaderneta
         '
         Me.lblQuantidade.AutoSize = True
         Me.lblQuantidade.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblQuantidade.Location = New System.Drawing.Point(712, 123)
-        Me.lblQuantidade.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblQuantidade.Location = New System.Drawing.Point(556, 69)
         Me.lblQuantidade.Name = "lblQuantidade"
-        Me.lblQuantidade.Size = New System.Drawing.Size(94, 20)
+        Me.lblQuantidade.Size = New System.Drawing.Size(82, 17)
         Me.lblQuantidade.TabIndex = 83
         Me.lblQuantidade.Text = "Quantidade"
         '
         'txtCodProd
         '
-        Me.txtCodProd.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.txtCodProd.Location = New System.Drawing.Point(27, 69)
-        Me.txtCodProd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtCodProd.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCodProd.Location = New System.Drawing.Point(15, 90)
         Me.txtCodProd.Name = "txtCodProd"
-        Me.txtCodProd.Size = New System.Drawing.Size(255, 26)
+        Me.txtCodProd.Size = New System.Drawing.Size(55, 20)
         Me.txtCodProd.TabIndex = 2
         '
         'lblDataCompra
         '
         Me.lblDataCompra.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblDataCompra.Location = New System.Drawing.Point(329, 69)
-        Me.lblDataCompra.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblDataCompra.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDataCompra.Location = New System.Drawing.Point(15, 47)
         Me.lblDataCompra.Name = "lblDataCompra"
-        Me.lblDataCompra.Size = New System.Drawing.Size(144, 28)
+        Me.lblDataCompra.Size = New System.Drawing.Size(108, 23)
         Me.lblDataCompra.TabIndex = 78
         '
         'lblDataCompra2
         '
         Me.lblDataCompra2.AutoSize = True
         Me.lblDataCompra2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblDataCompra2.Location = New System.Drawing.Point(325, 44)
-        Me.lblDataCompra2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblDataCompra2.Location = New System.Drawing.Point(12, 27)
         Me.lblDataCompra2.Name = "lblDataCompra2"
-        Me.lblDataCompra2.Size = New System.Drawing.Size(132, 20)
+        Me.lblDataCompra2.Size = New System.Drawing.Size(111, 17)
         Me.lblDataCompra2.TabIndex = 76
         Me.lblDataCompra2.Text = "Data da Compra"
         '
@@ -257,10 +244,9 @@ Partial Class frmCaderneta
         Me.btnSalvar.BackgroundImage = Global.Padaria.My.Resources.Resources.ok
         Me.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnSalvar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalvar.Location = New System.Drawing.Point(136, 398)
-        Me.btnSalvar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnSalvar.Location = New System.Drawing.Point(213, 313)
         Me.btnSalvar.Name = "btnSalvar"
-        Me.btnSalvar.Size = New System.Drawing.Size(71, 68)
+        Me.btnSalvar.Size = New System.Drawing.Size(53, 55)
         Me.btnSalvar.TabIndex = 5
         Me.ToolTip1.SetToolTip(Me.btnSalvar, "Salvar")
         Me.btnSalvar.UseVisualStyleBackColor = True
@@ -269,50 +255,47 @@ Partial Class frmCaderneta
         '
         Me.lblTotal1.AutoSize = True
         Me.lblTotal1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblTotal1.Location = New System.Drawing.Point(861, 124)
-        Me.lblTotal1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblTotal1.Location = New System.Drawing.Point(644, 69)
         Me.lblTotal1.Name = "lblTotal1"
-        Me.lblTotal1.Size = New System.Drawing.Size(46, 20)
+        Me.lblTotal1.Size = New System.Drawing.Size(40, 17)
         Me.lblTotal1.TabIndex = 77
         Me.lblTotal1.Text = "Total"
         '
         'lblTotal
         '
         Me.lblTotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblTotal.Location = New System.Drawing.Point(859, 145)
-        Me.lblTotal.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotal.Location = New System.Drawing.Point(644, 90)
         Me.lblTotal.Name = "lblTotal"
-        Me.lblTotal.Size = New System.Drawing.Size(96, 30)
+        Me.lblTotal.Size = New System.Drawing.Size(72, 22)
         Me.lblTotal.TabIndex = 76
         '
         'lblValor1
         '
         Me.lblValor1.AutoSize = True
         Me.lblValor1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblValor1.Location = New System.Drawing.Point(576, 123)
-        Me.lblValor1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblValor1.Location = New System.Drawing.Point(478, 69)
         Me.lblValor1.Name = "lblValor1"
-        Me.lblValor1.Size = New System.Drawing.Size(48, 20)
+        Me.lblValor1.Size = New System.Drawing.Size(41, 17)
         Me.lblValor1.TabIndex = 75
         Me.lblValor1.Text = "Valor"
         '
         'lblValor
         '
         Me.lblValor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblValor.Location = New System.Drawing.Point(580, 144)
-        Me.lblValor.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblValor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblValor.Location = New System.Drawing.Point(481, 90)
         Me.lblValor.Name = "lblValor"
-        Me.lblValor.Size = New System.Drawing.Size(96, 30)
+        Me.lblValor.Size = New System.Drawing.Size(72, 19)
         Me.lblValor.TabIndex = 74
         '
         'btnImprimir
         '
         Me.btnImprimir.BackgroundImage = Global.Padaria.My.Resources.Resources.print_view
         Me.btnImprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnImprimir.Location = New System.Drawing.Point(221, 398)
-        Me.btnImprimir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnImprimir.Location = New System.Drawing.Point(272, 313)
         Me.btnImprimir.Name = "btnImprimir"
-        Me.btnImprimir.Size = New System.Drawing.Size(71, 68)
+        Me.btnImprimir.Size = New System.Drawing.Size(53, 55)
         Me.btnImprimir.TabIndex = 8
         Me.ToolTip1.SetToolTip(Me.btnImprimir, "Imprimir")
         Me.btnImprimir.UseVisualStyleBackColor = True
@@ -323,11 +306,10 @@ Partial Class frmCaderneta
         Me.lstReservas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
         Me.lstReservas.FullRowSelect = True
         Me.lstReservas.HideSelection = False
-        Me.lstReservas.Location = New System.Drawing.Point(27, 180)
-        Me.lstReservas.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lstReservas.Location = New System.Drawing.Point(15, 115)
         Me.lstReservas.MultiSelect = False
         Me.lstReservas.Name = "lstReservas"
-        Me.lstReservas.Size = New System.Drawing.Size(933, 210)
+        Me.lstReservas.Size = New System.Drawing.Size(701, 171)
         Me.lstReservas.TabIndex = 10
         Me.lstReservas.UseCompatibleStateImageBehavior = False
         Me.lstReservas.View = System.Windows.Forms.View.Details
@@ -366,10 +348,9 @@ Partial Class frmCaderneta
         '
         Me.lblProdutos2.AutoSize = True
         Me.lblProdutos2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblProdutos2.Location = New System.Drawing.Point(23, 123)
-        Me.lblProdutos2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblProdutos2.Location = New System.Drawing.Point(73, 70)
         Me.lblProdutos2.Name = "lblProdutos2"
-        Me.lblProdutos2.Size = New System.Drawing.Size(67, 20)
+        Me.lblProdutos2.Size = New System.Drawing.Size(58, 17)
         Me.lblProdutos2.TabIndex = 12
         Me.lblProdutos2.Text = "Produto"
         '
@@ -379,9 +360,8 @@ Partial Class frmCaderneta
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.ForeColor = System.Drawing.Color.DarkRed
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1029, 92)
+        Me.Panel1.Size = New System.Drawing.Size(772, 75)
         Me.Panel1.TabIndex = 4
         '
         'Panel2
@@ -390,28 +370,25 @@ Partial Class frmCaderneta
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.ForeColor = System.Drawing.Color.DarkRed
-        Me.Panel2.Location = New System.Drawing.Point(0, 38)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel2.Location = New System.Drawing.Point(0, 31)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1029, 38)
+        Me.Panel2.Size = New System.Drawing.Size(772, 31)
         Me.Panel2.TabIndex = 39
         '
         'Label2
         '
         Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label2.Location = New System.Drawing.Point(56, 2)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(42, 2)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(133, 28)
+        Me.Label2.Size = New System.Drawing.Size(100, 23)
         Me.Label2.TabIndex = 6
         '
         'Label1
         '
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label1.Location = New System.Drawing.Point(849, 2)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(637, 2)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(133, 28)
+        Me.Label1.Size = New System.Drawing.Size(100, 23)
         Me.Label1.TabIndex = 5
         '
         'grpDados
@@ -423,11 +400,9 @@ Partial Class frmCaderneta
         Me.grpDados.Controls.Add(Me.lblNrFicha2)
         Me.grpDados.Controls.Add(Me.lblCliente2)
         Me.grpDados.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grpDados.Location = New System.Drawing.Point(19, 100)
-        Me.grpDados.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grpDados.Location = New System.Drawing.Point(14, 81)
         Me.grpDados.Name = "grpDados"
-        Me.grpDados.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.grpDados.Size = New System.Drawing.Size(995, 146)
+        Me.grpDados.Size = New System.Drawing.Size(746, 81)
         Me.grpDados.TabIndex = 40
         Me.grpDados.TabStop = False
         Me.grpDados.Tag = "0"
@@ -435,50 +410,48 @@ Partial Class frmCaderneta
         '
         'cboDependentes
         '
+        Me.cboDependentes.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboDependentes.FormattingEnabled = True
-        Me.cboDependentes.Location = New System.Drawing.Point(656, 74)
-        Me.cboDependentes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cboDependentes.Location = New System.Drawing.Point(461, 43)
         Me.cboDependentes.Name = "cboDependentes"
-        Me.cboDependentes.Size = New System.Drawing.Size(307, 33)
+        Me.cboDependentes.Size = New System.Drawing.Size(279, 21)
         Me.cboDependentes.TabIndex = 1
         '
         'lblNrFicha
         '
         Me.lblNrFicha.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblNrFicha.Location = New System.Drawing.Point(455, 74)
-        Me.lblNrFicha.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblNrFicha.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNrFicha.Location = New System.Drawing.Point(15, 43)
         Me.lblNrFicha.Name = "lblNrFicha"
-        Me.lblNrFicha.Size = New System.Drawing.Size(148, 34)
+        Me.lblNrFicha.Size = New System.Drawing.Size(111, 21)
         Me.lblNrFicha.TabIndex = 84
         '
         'cboClientes
         '
+        Me.cboClientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboClientes.FormattingEnabled = True
-        Me.cboClientes.Location = New System.Drawing.Point(29, 74)
-        Me.cboClientes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cboClientes.Location = New System.Drawing.Point(132, 43)
         Me.cboClientes.Name = "cboClientes"
-        Me.cboClientes.Size = New System.Drawing.Size(375, 33)
+        Me.cboClientes.Size = New System.Drawing.Size(323, 21)
         Me.cboClientes.TabIndex = 0
         '
         'lblDependentes
         '
         Me.lblDependentes.AutoSize = True
         Me.lblDependentes.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblDependentes.Location = New System.Drawing.Point(653, 44)
-        Me.lblDependentes.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblDependentes.Location = New System.Drawing.Point(458, 23)
         Me.lblDependentes.Name = "lblDependentes"
-        Me.lblDependentes.Size = New System.Drawing.Size(273, 20)
+        Me.lblDependentes.Size = New System.Drawing.Size(86, 17)
         Me.lblDependentes.TabIndex = 81
-        Me.lblDependentes.Text = "Dependente que realizou a Compra"
+        Me.lblDependentes.Text = "Dependente"
         '
         'lblNrFicha2
         '
         Me.lblNrFicha2.AutoSize = True
         Me.lblNrFicha2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblNrFicha2.Location = New System.Drawing.Point(448, 44)
-        Me.lblNrFicha2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblNrFicha2.Location = New System.Drawing.Point(12, 26)
         Me.lblNrFicha2.Name = "lblNrFicha2"
-        Me.lblNrFicha2.Size = New System.Drawing.Size(137, 20)
+        Me.lblNrFicha2.Size = New System.Drawing.Size(116, 17)
         Me.lblNrFicha2.TabIndex = 75
         Me.lblNrFicha2.Text = "Número da Ficha"
         '
@@ -486,10 +459,9 @@ Partial Class frmCaderneta
         '
         Me.lblCliente2.AutoSize = True
         Me.lblCliente2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblCliente2.Location = New System.Drawing.Point(25, 44)
-        Me.lblCliente2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblCliente2.Location = New System.Drawing.Point(129, 26)
         Me.lblCliente2.Name = "lblCliente2"
-        Me.lblCliente2.Size = New System.Drawing.Size(61, 20)
+        Me.lblCliente2.Size = New System.Drawing.Size(51, 17)
         Me.lblCliente2.TabIndex = 77
         Me.lblCliente2.Text = "Cliente"
         '
@@ -510,15 +482,14 @@ Partial Class frmCaderneta
         '
         'frmCaderneta
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1029, 756)
+        Me.ClientSize = New System.Drawing.Size(772, 566)
         Me.Controls.Add(Me.grpDados)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.grpCaderneta)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MaximizeBox = False
         Me.Name = "frmCaderneta"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

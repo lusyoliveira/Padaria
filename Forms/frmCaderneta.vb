@@ -1,5 +1,5 @@
 Public Class frmCaderneta
-    Dim ClasseCaderneta As New clsCaderneta, ClasseCliente As New clsClientes, ClasseProduto As New clsProdutos, ClasseDependente As New clsDependente, tbCaderneta, tbClientes, TbProdutos, tbDependentes As DataTable
+    Dim ClasseCaderneta As New clsCaderneta, ClasseCombo As New clsCombo, ClasseCliente As New clsClientes, ClasseProduto As New clsProdutos, ClasseDependente As New clsDependente, tbCaderneta, tbClientes, TbProdutos, tbDependentes As DataTable
 
     Private Sub Limpar()
         grpCaderneta.Tag = 0
@@ -58,48 +58,14 @@ Public Class frmCaderneta
         PreencheCaderneta()
         lblNrFicha.Focus()
     End Sub
-
-    Private Sub frmCaderneta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Label2.Text = ClasseCaderneta.GerarCodCaderneta()
-
-        Label1.Text = GeraCodigo()
-        cboClientes.Focus()
-        lblValor.Text = FormatCurrency(0)
-        lblDataCompra.Text = Date.Now.Date
-    End Sub
-
-    Private Sub btnSalvar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalvar.Click
-        Dim MsgResult As DialogResult = MessageBox.Show("Tem certeza que deseja salvar?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-
-        If MsgResult = DialogResult.Yes Then
-            ClasseCaderneta.SalvarCaderneta(lblNrFicha.Text, cboClientes.Text, Convert.ToDateTime(lblDataCompra.Text), cboDependentes.Text, Convert.ToDateTime(lblDataVencimento.Text), Convert.ToDecimal(lblTotalFinal.Text))
-        Else
+    Private Sub cboDependentes_Enter(sender As Object, e As EventArgs) Handles cboDependentes.Enter
+        If cboClientes.SelectedValue = 0 Then
             Exit Sub
-        End If
-        Limpar()
-    End Sub
-    Private Sub cboClientes_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboClientes.GotFocus
-        'tbClientes = ClasseCliente.ConsultaCliente(0, "")
-        cboClientes.Items.Clear()
-
-        If tbClientes.Rows.Count > 0 Then
-            For Each row As DataRow In tbClientes.Rows
-                cboClientes.Items.Add(row("Nome").ToString())
-            Next
-        End If
-    End Sub
-    Private Sub cboClientes_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboClientes.LostFocus
-        If cboClientes.Text <> "" Then
-            lblDataVencimento.Text = ClasseCaderneta.ConsultaNumeroCaderneta(lblNrFicha.Text)
-            cboDependentes.Focus()
         Else
-            MessageBox.Show("Por favor digite um nome válido!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            cboClientes.Text = ""
-            cboClientes.Focus()
+            ClasseCombo.CarregaCombo(cboDependentes, "SELECT Codigo, Nome FROM tbDependentes WHERE codigocliente = " & ClasseCaderneta.CodCliente & "  ORDER BY Nome")
         End If
     End Sub
-
-    Private Sub txtQuantidade_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtQuantidade.LostFocus
+    Private Sub txtQuantidade_Leave(sender As Object, e As EventArgs) Handles txtQuantidade.Leave
         If IsNumeric(txtQuantidade.Text) Then
             If txtQuantidade.Text = "" Then
                 MessageBox.Show("Insira uma quantidade!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -114,47 +80,55 @@ Public Class frmCaderneta
             txtQuantidade.Focus()
         End If
     End Sub
-    Private Sub btnMostrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnMostrar.Click
-        frmPagoPendente.Show()
-    End Sub
-    Private Sub txtCodProd_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtCodProd.LostFocus
-        ' TbProdutos = ClasseProduto.ConsultaProduto(Val(txtCodProd.Text), "")
-
-        If txtCodProd.Text <> "" Then
-            If TbProdutos.Rows.Count > 0 Then
-                lblProdutos.Text = TbProdutos.Rows(0)("produto").ToString()
-                lblValor.Text = FormatCurrency(TbProdutos.Rows(0)("valorunit").ToString())
-            End If
-        Else
-            txtCodProd.Focus()
-        End If
-    End Sub
-    Private Sub cboDependentes_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboDependentes.GotFocus
-        cboDependentes.Items.Clear()
-
-        'tbDependentes = classeDependente.ConsultaDependente(lblNrFicha.Text, "")
-
-        If tbDependentes.Rows.Count > 0 Then
-            For Each row As DataRow In tbDependentes.Rows
-                cboDependentes.Items.Add(row("Nome").ToString())
-            Next
-        End If
-    End Sub
-    Private Sub cboDependentes_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboDependentes.LostFocus
-        'tbDependentes = ClasseDependente.ConsultaDependente(0, cboDependentes.Text)
-
-        If cboDependentes.Text = "" Then
-            MessageBox.Show("Escolha um Dependente!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            cboDependentes.Focus()
+    Private Sub txtCodProd_Leave(sender As Object, e As EventArgs) Handles txtCodProd.Leave
+        If Val(txtCodProd.Text) = 0 Then
             Exit Sub
         Else
-            If tbDependentes.Rows.Count = 0 Then
-                MessageBox.Show("O dependente não existe", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                cboDependentes.Focus()
-                Exit Sub
-            End If
+            ClasseProduto.ConsultaProdCodigo(Val(txtCodProd.Text), ClasseProduto)
+            lblProdutos.Text = ClasseProduto.Produto
+            lblValor.Text = ClasseProduto.Valor
         End If
-        cboDependentes.Tag = tbDependentes.Rows(0)("codigo").ToString()
+    End Sub
+
+    Private Sub cboClientes_Leave(sender As Object, e As EventArgs) Handles cboClientes.Leave
+        If cboClientes.Text <> "" Then
+            lblDataVencimento.Text = ClasseCaderneta.ConsultaNumeroCaderneta(Val(lblNrFicha.Text))
+            ClasseCaderneta.CodCliente = cboClientes.SelectedValue
+            cboDependentes.Focus()
+        Else
+            MessageBox.Show("Por favor digite um nome válido!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            cboClientes.Text = ""
+            cboClientes.Focus()
+        End If
+    End Sub
+
+    Private Sub frmCaderneta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Label2.Text = ClasseCaderneta.GerarCodCaderneta()
+
+        '  Label1.Text = GeraCodigo()
+        cboClientes.Focus()
+        lblValor.Text = FormatCurrency(0)
+        lblDataCompra.Text = Date.Now.Date
+    End Sub
+
+    Private Sub cboClientes_Enter(sender As Object, e As EventArgs) Handles cboClientes.Enter
+        ClasseCombo.CarregaCombo(cboClientes, "SELECT Codigo, Nome FROM tbClientes ORDER BY Nome")
+
+    End Sub
+
+    Private Sub btnSalvar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalvar.Click
+        Dim MsgResult As DialogResult = MessageBox.Show("Tem certeza que deseja salvar?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        If MsgResult = DialogResult.Yes Then
+            ClasseCaderneta.SalvarCaderneta(lblNrFicha.Text, cboClientes.Text, Convert.ToDateTime(lblDataCompra.Text), cboDependentes.Text, Convert.ToDateTime(lblDataVencimento.Text), Convert.ToDecimal(lblTotalFinal.Text))
+        Else
+            Exit Sub
+        End If
+        Limpar()
+    End Sub
+
+    Private Sub btnMostrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnMostrar.Click
+        frmPagoPendente.Show()
     End Sub
 
 End Class

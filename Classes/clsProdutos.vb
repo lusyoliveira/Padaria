@@ -4,6 +4,24 @@ Public Class clsProdutos
     Dim ClasseConexao As New clsConexao, tbProdutos As New DataTable()
 
 #Region "PROPRIEDADES"
+    Private Property _Produto As String
+    Public Property Produto As String
+        Get
+            Return _Produto
+        End Get
+        Set(value As String)
+            _Produto = value
+        End Set
+    End Property
+    Private Property _Valor As Decimal
+    Public Property Valor As Decimal
+        Get
+            Return _Valor
+        End Get
+        Set(value As Decimal)
+            _Valor = value
+        End Set
+    End Property
 #End Region
 #Region "CONSTRUTORES"
 
@@ -118,7 +136,29 @@ Public Class clsProdutos
             MessageBox.Show("Erro ao excluir produto: " & ex.Message)
         End Try
     End Sub
-
-
+    Public Sub ConsultaProdCodigo(Codigo As Integer, ByRef DadosProd As clsProdutos)
+        Try
+            Using connection As New SqlConnection(ClasseConexao.connectionString)
+                connection.Open()
+                Dim sql As String = "Select * tbProdutos WHERE Codigo = @Codigo"
+                Using command As New SqlCommand(sql, connection)
+                    command.Parameters.AddWithValue("@Codigo", Codigo)
+                    Using adapter As New SqlDataAdapter(command)
+                        adapter.Fill(tbProdutos)
+                        If tbProdutos.Rows.Count > 0 Then
+                            DadosProd.Produto = tbProdutos.Rows(0)("Produto").ToString
+                            DadosProd.Valor = Convert.ToDecimal(tbProdutos.Rows(0)("valorunit"))
+                        Else
+                            MessageBox.Show("Produto não encontrado!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            Exit Sub
+                        End If
+                    End Using
+                End Using
+                connection.Close()
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Erro ao consultar o produto: " & ex.Message)
+        End Try
+    End Sub
 #End Region
 End Class

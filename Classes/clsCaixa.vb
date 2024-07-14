@@ -71,7 +71,7 @@ Public Class clsCaixa
             MessageBox.Show("Erro ao consultar o Administrador: " & ex.Message)
         End Try
     End Function
-    Public Function meucaixa(nrcaixa As Integer) As Decimal
+    Public Function MeuCaixa(nrcaixa As Integer) As Decimal
         Dim wcvalor As Decimal = 0
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)

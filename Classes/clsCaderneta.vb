@@ -4,6 +4,9 @@ Imports System.Text
 
 Public Class clsCaderneta
     Dim ClasseConexao As New clsConexao, tbCaderneta As New DataTable()
+#Region "PROPRIEDADES"
+    Public Property CodCliente As Integer
+#End Region
 #Region "METODOS"
     Public Function ConsultaCaderneta()
         Try
@@ -108,14 +111,27 @@ Public Class clsCaderneta
         End Try
     End Sub
     Public Function GerarCodCaderneta()
-        Dim NoFicha As Integer
-        tbcaderneta = ConsultaCaderneta()
-        If tbcaderneta.Rows.Count = 0 Then
-            NoFicha = "0"
-        Else
-            NoFicha = tbcaderneta.Rows(0)("codigo").ToString()
-        End If
-        Return NoFicha
+        Dim codigo As String
+
+        Try
+            Using connection As New SqlConnection(ClasseConexao.connectionString)
+                connection.Open()
+                Dim sql As String = "SELECT codigo+1 AS Codigo FROM tbClientes ORDER BY codigo DESC"
+                Using command As New SqlCommand(sql, connection)
+                    Using adapter As New SqlDataAdapter(command)
+                        adapter.Fill(tbCaderneta)
+                        If tbCaderneta.Rows.Count > 0 Then
+                            ' Obter o código do último cliente
+                            codigo = tbCaderneta.Rows(0)("codigo").ToString()
+                        End If
+                    End Using
+                End Using
+                connection.Close()
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Erro ao consultar o código da caderneta: " & ex.Message)
+        End Try
+        Return codigo
     End Function
     Public Sub SalvarCaderneta(nrficha As Integer, cliente As String, datacompra As Date, dependente As String, datavencimento As Date, totalfinal As Decimal)
         Try

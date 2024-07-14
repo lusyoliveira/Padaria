@@ -93,6 +93,7 @@
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Classes\clsCaderneta.vb" />
     <Compile Include="Classes\clsClientes.vb" />
+    <Compile Include="Classes\clsCombo.vb" />
     <Compile Include="Classes\clsConfiguracao.vb" />
     <Compile Include="Classes\clsDependente.vb" />
     <Compile Include="Classes\clsEstoque.vb" />
