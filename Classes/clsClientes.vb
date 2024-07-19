@@ -3,6 +3,24 @@ Imports System.Text
 Public Class clsClientes
     Dim ClasseConexao As New clsConexao, tbClientes, TbDependentes As New DataTable()
 #Region "PROPRIEDADES"
+    Private Property _CodCli As Integer
+    Public Property CodCli As Integer
+        Get
+            Return _CodCli
+        End Get
+        Set(value As Integer)
+            _CodCli = value
+        End Set
+    End Property
+    Private Property _NumeroFicha As Integer
+    Public Property NumeroFicha As Integer
+        Get
+            Return _NumeroFicha
+        End Get
+        Set(value As Integer)
+            _NumeroFicha = value
+        End Set
+    End Property
 #End Region
 #Region "CONSTRUTORES"
 
@@ -58,6 +76,26 @@ Public Class clsClientes
         End Try
         Return tbClientes
     End Function
+    Public Sub ConsultaDadosClientes(Codcli As Integer, ByRef DadosCliente As clsClientes)
+        Try
+            Using connection As New SqlConnection(ClasseConexao.connectionString)
+                connection.Open()
+                Dim sql As String = "SELECT * FROM tbClientes WHERE Codigo = @Codcli"
+                Using cmd As New SqlCommand(sql, connection)
+                    cmd.Parameters.AddWithValue("@Codcli", Codcli)
+                    Using reader As SqlDataReader = cmd.ExecuteReader()
+                        While reader.Read()
+                            DadosCliente._CodCli = reader.GetInt32(0)
+                            DadosCliente._NumeroFicha = reader.GetInt32(1)
+                        End While
+                    End Using
+                End Using
+                connection.Close()
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Erro ao consultar o Caderneta: " & ex.Message)
+        End Try
+    End Sub
     Public Sub SalvarCliente(nrficha As Integer, nome As String, endereco As String, bairro As String, telefone As String)
         Using connection As New SqlConnection(ClasseConexao.connectionString)
             connection.Open()

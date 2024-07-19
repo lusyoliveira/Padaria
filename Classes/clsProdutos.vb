@@ -57,7 +57,7 @@ Public Class clsProdutos
                     Dim x As Integer = 0
                     If tbProdutos.Rows.Count > 0 Then
                         For Each row As DataRow In tbProdutos.Rows
-                            lstGrade.Items.Add(row("codprod").ToString())
+                            lstGrade.Items.Add(row("Codigo").ToString())
                             lstGrade.Items(x).SubItems.Add(row("produto").ToString())
                             lstGrade.Items(x).SubItems.Add(FormatCurrency(row("valorunit")))
                             lstGrade.Items(x).SubItems.Add(row("validade").ToString())
@@ -80,16 +80,17 @@ Public Class clsProdutos
         End Try
         Return tbProdutos
     End Function
-    Public Sub SalvarProduto(Codprod As Integer, Produto As String, Validade As Date, ValorUnit As Decimal)
+    Public Sub SalvarProduto(Produto As String, Validade As Date, ValorUnit As Decimal, Quantidade As Integer)
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
-                Dim sql As String = "INSERT INTO tbProdutos (codprod, produto, validade, valorunit) VALUES (@codprod, @produto, @validade, @valorunit)"
+                Dim sql As String = "INSERT INTO tbProdutos (produto, validade, valorunit,Quantidade) VALUES (@produto, @validade, @valorunit,@Quantidade)"
 
                 Using command As New SqlCommand(sql, connection)
-                    command.Parameters.AddWithValue("@Codprod", Codprod)
+                    command.Parameters.AddWithValue("@Produto", Produto)
                     command.Parameters.AddWithValue("@Validade", Validade)
                     command.Parameters.AddWithValue("@ValorUnit", ValorUnit)
+                    command.Parameters.AddWithValue("@Quantidade", Quantidade)
 
                     command.ExecuteNonQuery()
                     MessageBox.Show("Produto salvo com sucesso!")
@@ -104,12 +105,12 @@ Public Class clsProdutos
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
-                Dim sql As String = "UPDATE tbProdutos SET codprod = @codprod, produto = @produto, validade = @validade, valorunit = @valorunit WHERE codprod = @codprod"
+                Dim sql As String = "UPDATE tbProdutos SET produto = @produto, validade = @validade, valorunit = @valorunit WHERE Codigo = @codprod"
                 Using command As New SqlCommand(sql, connection)
                     command.Parameters.AddWithValue("@Codprod", Codprod)
+                    command.Parameters.AddWithValue("@Produto", Produto)
                     command.Parameters.AddWithValue("@Validade", Validade)
                     command.Parameters.AddWithValue("@ValorUnit", ValorUnit)
-
                     command.ExecuteNonQuery()
                     MessageBox.Show("Produto alterado com sucesso!")
                 End Using
@@ -117,7 +118,6 @@ Public Class clsProdutos
             End Using
         Catch ex As Exception
             MessageBox.Show("Erro ao alterar produto: " & ex.Message)
-
         End Try
     End Sub
     Public Sub ExcluirProduto(Codigo As Integer)
@@ -140,18 +140,14 @@ Public Class clsProdutos
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
-                Dim sql As String = "Select * tbProdutos WHERE Codigo = @Codigo"
+                Dim sql As String = "SELECT * FROM tbProdutos WHERE Codigo = @Codigo"
                 Using command As New SqlCommand(sql, connection)
                     command.Parameters.AddWithValue("@Codigo", Codigo)
-                    Using adapter As New SqlDataAdapter(command)
-                        adapter.Fill(tbProdutos)
-                        If tbProdutos.Rows.Count > 0 Then
-                            DadosProd.Produto = tbProdutos.Rows(0)("Produto").ToString
-                            DadosProd.Valor = Convert.ToDecimal(tbProdutos.Rows(0)("valorunit"))
-                        Else
-                            MessageBox.Show("Produto não encontrado!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                            Exit Sub
-                        End If
+                    Using reader As SqlDataReader = command.ExecuteReader()
+                        While reader.Read()
+                            DadosProd._Produto = reader.GetString(2) 'tbProdutos.Rows(0)("Produto").ToString
+                            DadosProd._Valor = reader.GetDecimal(4) ' Convert.ToDecimal(tbProdutos.Rows(0)("valorunit"))
+                        End While
                     End Using
                 End Using
                 connection.Close()

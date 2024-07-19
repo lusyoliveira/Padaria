@@ -78,6 +78,7 @@ Partial Class frmFuncionarios
         Me.lblPIS = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Codigo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.grpFuncionarios.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -120,7 +121,7 @@ Partial Class frmFuncionarios
         '
         'lstFuncionarios
         '
-        Me.lstFuncionarios.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.nome, Me.endereco, Me.bairro, Me.cidade, Me.estado, Me.cep, Me.cpf, Me.rg, Me.telefone, Me.celular, Me.registro, Me.cargo, Me.salario, Me.carteira, Me.pis})
+        Me.lstFuncionarios.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Codigo, Me.nome, Me.endereco, Me.bairro, Me.cidade, Me.estado, Me.cep, Me.cpf, Me.rg, Me.telefone, Me.celular, Me.registro, Me.cargo, Me.salario, Me.carteira, Me.pis})
         Me.lstFuncionarios.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstFuncionarios.FullRowSelect = True
         Me.lstFuncionarios.HideSelection = False
@@ -631,6 +632,10 @@ Partial Class frmFuncionarios
         Me.Panel2.Size = New System.Drawing.Size(1012, 38)
         Me.Panel2.TabIndex = 44
         '
+        'Codigo
+        '
+        Me.Codigo.Text = "Código"
+        '
         'frmFuncionarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -714,4 +719,5 @@ Partial Class frmFuncionarios
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Label7 As Label
     Friend WithEvents lblCodigo As Label
+    Friend WithEvents Codigo As ColumnHeader
 End Class

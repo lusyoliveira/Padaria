@@ -9,21 +9,21 @@ Public Class clsFuncionarios
 
 #End Region
 #Region "METODOS"
-    Public Function ConsultaFuncionario(lstGrade As ListView, Codigo As Integer, Matricula As String) As DataTable
+    Public Function ConsultaFuncionario(lstGrade As ListView, Codigo As Integer, Nome As String) As DataTable
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
                 Dim sql As New StringBuilder("SELECT * FROM tbFuncionarios WHERE 1=1 ")
 
                 If Codigo <> 0 Then
-                    sql.AppendLine("AND codfunc = @Codigo")
+                    sql.AppendLine("AND Codigo = @Codigo")
                 End If
 
-                If Not String.IsNullOrEmpty(Matricula) Then
-                    sql.AppendLine("AND numeroregistro LIKE @Matricula")
+                If Not String.IsNullOrEmpty(Nome) Then
+                    sql.AppendLine("AND nome LIKE @nome")
                 End If
 
-                sql.AppendLine("ORDER BY Matricula")
+                sql.AppendLine("ORDER BY nome")
 
                 Using command As New SqlCommand(sql.ToString(), connection)
 
@@ -31,12 +31,13 @@ Public Class clsFuncionarios
                         command.Parameters.AddWithValue("@Codigo", Codigo)
                     End If
 
-                    If Not String.IsNullOrEmpty(Matricula) Then
-                        command.Parameters.AddWithValue("@Matricula", "%" & Matricula & "%")
+                    If Not String.IsNullOrEmpty(Nome) Then
+                        command.Parameters.AddWithValue("@nome", "%" & Nome & "%")
                     End If
                     Using reader As SqlDataReader = command.ExecuteReader()
                         While reader.Read()
-                            lstGrade.Items.Add(reader("nome").ToString())
+                            lstGrade.Items.Add(reader("Codigo").ToString())
+                            lstGrade.Items(lstGrade.Items.Count - 1).SubItems.Add(reader("nome").ToString())
                             lstGrade.Items(lstGrade.Items.Count - 1).SubItems.Add(reader("endereco").ToString())
                             lstGrade.Items(lstGrade.Items.Count - 1).SubItems.Add(reader("bairro").ToString())
                             lstGrade.Items(lstGrade.Items.Count - 1).SubItems.Add(reader("cidade").ToString())
@@ -62,65 +63,79 @@ Public Class clsFuncionarios
         Return tbFuncionarios
     End Function
     Public Sub SalvarFuncionario(nome As String, endereco As String, bairro As String, cidade As String, uf As String, cpf As String, rg As String, cep As String, telefone As String, numeroregistro As String, celular As String, numerocarteira As String, cargo As String, salario As Decimal, pis As String)
-        Using connection As New SqlConnection(ClasseConexao.connectionString)
-            connection.Open()
-            Dim sql As String = "INSERT INTO tbFuncionarios (nome, endereco, bairro, cidade, estado, cep, cpf, rg, telefone, celular, numeroregistro, cargo, salario, pis, numerocarteira) VALUES (@nome, @endereco, @bairro, @cidade, @estado, @cep, @cpf, @rg, @telefone, @celular, @numeroregistro, @cargo, @salario, @pis, @numerocarteira)"
-            Using cmd As New SqlCommand(sql, connection)
-                cmd.Parameters.AddWithValue("@nome", nome)
-                cmd.Parameters.AddWithValue("@endereco", endereco)
-                cmd.Parameters.AddWithValue("@bairro", bairro)
-                cmd.Parameters.AddWithValue("@cidade", cidade)
-                cmd.Parameters.AddWithValue("@estado", uf)
-                cmd.Parameters.AddWithValue("@cep", cep)
-                cmd.Parameters.AddWithValue("@cpf", cpf)
-                cmd.Parameters.AddWithValue("@rg", rg)
-                cmd.Parameters.AddWithValue("@telefone", telefone)
-                cmd.Parameters.AddWithValue("@celular", celular)
-                cmd.Parameters.AddWithValue("@numeroregistro", numeroregistro)
-                cmd.Parameters.AddWithValue("@cargo", cargo)
-                cmd.Parameters.AddWithValue("@salario", salario)
-                cmd.Parameters.AddWithValue("@pis", pis)
-                cmd.Parameters.AddWithValue("@numerocarteira", numerocarteira)
-                cmd.ExecuteNonQuery()
+        Try
+            Using connection As New SqlConnection(ClasseConexao.connectionString)
+                connection.Open()
+                Dim sql As String = "INSERT INTO tbFuncionarios (nome, endereco, bairro, cidade, estado, cep, cpf, rg, telefone, celular, numeroregistro, cargo, salario, pis, numerocarteira) VALUES (@nome, @endereco, @bairro, @cidade, @estado, @cep, @cpf, @rg, @telefone, @celular, @numeroregistro, @cargo, @salario, @pis, @numerocarteira)"
+                Using cmd As New SqlCommand(sql, connection)
+                    cmd.Parameters.AddWithValue("@nome", nome)
+                    cmd.Parameters.AddWithValue("@endereco", endereco)
+                    cmd.Parameters.AddWithValue("@bairro", bairro)
+                    cmd.Parameters.AddWithValue("@cidade", cidade)
+                    cmd.Parameters.AddWithValue("@estado", uf)
+                    cmd.Parameters.AddWithValue("@cep", cep)
+                    cmd.Parameters.AddWithValue("@cpf", cpf)
+                    cmd.Parameters.AddWithValue("@rg", rg)
+                    cmd.Parameters.AddWithValue("@telefone", telefone)
+                    cmd.Parameters.AddWithValue("@celular", celular)
+                    cmd.Parameters.AddWithValue("@numeroregistro", numeroregistro)
+                    cmd.Parameters.AddWithValue("@cargo", cargo)
+                    cmd.Parameters.AddWithValue("@salario", salario)
+                    cmd.Parameters.AddWithValue("@pis", pis)
+                    cmd.Parameters.AddWithValue("@numerocarteira", numerocarteira)
+                    cmd.ExecuteNonQuery()
+                End Using
+                connection.Close()
             End Using
-        End Using
+        Catch ex As Exception
+            MessageBox.Show("Erro ao salvar Funcionarios: " & ex.Message)
+        End Try
     End Sub
 
     Public Sub AlterarFuncionario(codigo As Integer, nome As String, endereco As String, bairro As String, cidade As String, uf As String, cpf As String, rg As String, cep As String, telefone As String, numeroregistro As String, celular As String, numerocarteira As String, cargo As String, salario As Decimal, pis As String)
-        Using connection As New SqlConnection(ClasseConexao.connectionString)
-            connection.Open()
-            Dim sql As String = "UPDATE tbFuncionarios SET matricula = @matricula, nome = @nome, estadocivil = @estadoCivil, endereco = @endereco, complemento = @complemento, bairro = @bairro, cidade = @cidade, uf = @uf, cep = @cep, sexo = @sexo, telefone1 = @telefone1, telefone2 = @telefone2, celular = @celular, email = @email, rg = @rg, cpf = @cpf, carteiraprofissional = @carteiraProfissional, cargo = @cargo, salario = @salario, expediente = @expediente, obs = @obs WHERE codfunc = @codigo"
-            Using cmd As New SqlCommand(sql, connection)
-                cmd.Parameters.AddWithValue("@codigo", codigo)
-                cmd.Parameters.AddWithValue("@nome", nome)
-                cmd.Parameters.AddWithValue("@endereco", endereco)
-                cmd.Parameters.AddWithValue("@bairro", bairro)
-                cmd.Parameters.AddWithValue("@cidade", cidade)
-                cmd.Parameters.AddWithValue("@estado", uf)
-                cmd.Parameters.AddWithValue("@cep", cep)
-                cmd.Parameters.AddWithValue("@cpf", cpf)
-                cmd.Parameters.AddWithValue("@rg", rg)
-                cmd.Parameters.AddWithValue("@telefone", telefone)
-                cmd.Parameters.AddWithValue("@celular", celular)
-                cmd.Parameters.AddWithValue("@numeroregistro", numeroregistro)
-                cmd.Parameters.AddWithValue("@cargo", cargo)
-                cmd.Parameters.AddWithValue("@salario", salario)
-                cmd.Parameters.AddWithValue("@pis", pis)
-                cmd.Parameters.AddWithValue("@numerocarteira", numerocarteira)
-                cmd.ExecuteNonQuery()
+        Try
+            Using connection As New SqlConnection(ClasseConexao.connectionString)
+                connection.Open()
+                Dim sql As String = "UPDATE tbFuncionarios SET nome = @nome, endereco = @endereco, bairro = @bairro, cidade = @cidade, estado = @estado, cep = @cep, cpf = @cpf, rg = @rg, telefone = @telefone, celular = @celular, numeroregistro = @numeroregistro, cargo = @cargo, salario = @salario, pis = @pis, numerocarteira = @numerocarteira WHERE Codigo = @codigo"
+                Using cmd As New SqlCommand(sql, connection)
+                    cmd.Parameters.AddWithValue("@codigo", codigo)
+                    cmd.Parameters.AddWithValue("@nome", nome)
+                    cmd.Parameters.AddWithValue("@endereco", endereco)
+                    cmd.Parameters.AddWithValue("@bairro", bairro)
+                    cmd.Parameters.AddWithValue("@cidade", cidade)
+                    cmd.Parameters.AddWithValue("@estado", uf)
+                    cmd.Parameters.AddWithValue("@cep", cep)
+                    cmd.Parameters.AddWithValue("@cpf", cpf)
+                    cmd.Parameters.AddWithValue("@rg", rg)
+                    cmd.Parameters.AddWithValue("@telefone", telefone)
+                    cmd.Parameters.AddWithValue("@celular", celular)
+                    cmd.Parameters.AddWithValue("@numeroregistro", numeroregistro)
+                    cmd.Parameters.AddWithValue("@cargo", cargo)
+                    cmd.Parameters.AddWithValue("@salario", salario)
+                    cmd.Parameters.AddWithValue("@pis", pis)
+                    cmd.Parameters.AddWithValue("@numerocarteira", numerocarteira)
+                    cmd.ExecuteNonQuery()
+                End Using
+                connection.Close()
             End Using
-        End Using
+        Catch ex As Exception
+            MessageBox.Show("Erro ao alterar Funcionarios: " & ex.Message)
+        End Try
     End Sub
     Public Sub ExcluirFuncionario(codigo As Integer)
-        Using connection As New SqlConnection(ClasseConexao.connectionString)
-            connection.Open()
-            Dim sql As String = "DELETE FROM tbFuncionarios WHERE codfunc = @codigo"
-            Using command As New SqlCommand(sql, connection)
-                command.Parameters.AddWithValue("@codigo", codigo)
-                command.ExecuteNonQuery()
+        Try
+            Using connection As New SqlConnection(ClasseConexao.connectionString)
+                connection.Open()
+                Dim sql As String = "DELETE FROM tbFuncionarios WHERE Codigo = @codigo"
+                Using command As New SqlCommand(sql, connection)
+                    command.Parameters.AddWithValue("@codigo", codigo)
+                    command.ExecuteNonQuery()
+                End Using
+                connection.Close()
             End Using
-        End Using
+        Catch ex As Exception
+            MessageBox.Show("Erro ao excluir Funcionarios: " & ex.Message)
+        End Try
     End Sub
-
 #End Region
 End Class

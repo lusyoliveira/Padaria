@@ -35,7 +35,8 @@ Public Class clsFornecedores
                     End If
                     Using reader As SqlDataReader = command.ExecuteReader()
                         While reader.Read()
-                            lstGrade.Items.Add(reader("empresa").ToString())
+                            lstGrade.Items.Add(reader("Codigo").ToString())
+                            lstGrade.Items(lstGrade.Items.Count - 1).SubItems.Add(reader("empresa").ToString())
                             lstGrade.Items(lstGrade.Items.Count - 1).SubItems.Add(reader("endereco").ToString())
                             lstGrade.Items(lstGrade.Items.Count - 1).SubItems.Add(reader("bairro").ToString())
                             lstGrade.Items(lstGrade.Items.Count - 1).SubItems.Add(reader("complemento").ToString())
@@ -60,8 +61,7 @@ Public Class clsFornecedores
     Public Sub SalvarFornecedor(Fornecedor As String, Empresa As String, CNPJ As String, endereco As String, bairro As String, complemento As String, cidade As String, UF As String, CEP As String, Telefone As String, Celular As String, site As String, email As String)
         Using connection As New SqlConnection(ClasseConexao.connectionString)
             connection.Open()
-            Dim sql As String = "INSERT INTO tbFornecedores (Codigo, Fornecedor, Empresa, CNPJ,endereco, bairro, complemento, cidade, UF, CEP, Telefone, Celular,site, email) VALUES (@Codigo, @Fornecedor, @Empresa, @CNPJ, @UF, @CEP, @Telefone, @Celular)"
-
+            Dim sql As String = "INSERT INTO tbFornecedores (Fornecedor, Empresa, CNPJ,endereco, bairro, complemento, cidade, UF, CEP, Telefone, Celular,site, email) VALUES (@Fornecedor, @Empresa, @CNPJ,@endereco, @bairro, @complemento, @cidade, @UF, @CEP, @Telefone, @Celular,@site, @email)"
             Using command As New SqlCommand(sql.ToString(), connection)
                 command.Parameters.AddWithValue("@Fornecedor", Fornecedor)
                 command.Parameters.AddWithValue("@Empresa", Empresa)
@@ -83,9 +83,10 @@ Public Class clsFornecedores
     Public Sub AlterarFornecedor(Codigo As Integer, Fornecedor As String, Empresa As String, CNPJ As String, endereco As String, bairro As String, complemento As String, cidade As String, UF As String, CEP As String, Telefone As String, Celular As String, site As String, email As String)
         Using connection As New SqlConnection(ClasseConexao.connectionString)
             connection.Open()
-            Dim sql As String = "UPDATE tbFornecedores SET Fornecedor = @Fornecedor, Empresa = @Empresa, CNPJ = @CNPJ, endereco = @endereco, bairro = @bairro, complemento = @complemento, cidade = @cidade,UF = @UF, CEP = @CEP, Telefone = @Telefone, Celular = @Celular site = @site, email = @email WHERE Codigo = @Codigo"
+            Dim sql As String = "UPDATE tbFornecedores SET Fornecedor = @Fornecedor, Empresa = @Empresa, CNPJ = @CNPJ, endereco = @endereco, bairro = @bairro, complemento = @complemento, cidade = @cidade,UF = @UF, CEP = @CEP, Telefone = @Telefone, Celular = @Celular, site = @site, email = @email WHERE Codigo = @Codigo"
 
             Using command As New SqlCommand(sql.ToString(), connection)
+                command.Parameters.AddWithValue("@Codigo", Codigo)
                 command.Parameters.AddWithValue("@Fornecedor", Fornecedor)
                 command.Parameters.AddWithValue("@Empresa", Empresa)
                 command.Parameters.AddWithValue("@CNPJ", CNPJ)

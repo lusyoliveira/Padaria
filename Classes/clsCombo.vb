@@ -15,7 +15,6 @@ Public Class clsCombo
         Descricao = NovaDescricao
     End Sub
 #End Region
-
 #Region "METODOS"
     Public Function Listar(ByVal Sql As String)
         Dim dt As New DataTable()

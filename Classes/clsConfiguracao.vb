@@ -3,18 +3,6 @@ Imports System.Diagnostics.Eventing
 Public Class clsConfiguracao
     Dim ClasseConexao As New clsConexao, tbConfiguracao As New DataTable()
 #Region "METODOS"
-    Public Function ConsultaConfiguracao() As DataTable
-        Using connection As New SqlConnection(ClasseConexao.connectionString)
-            Dim sql As String = "SELECT * FROM tbconfig"
-            connection.Open()
-            Using command As New SqlCommand(sql, connection)
-                Using adapter As New SqlDataAdapter(command)
-                    adapter.Fill(tbConfiguracao)
-                End Using
-            End Using
-        End Using
-        Return tbConfiguracao
-    End Function
     Public Sub SalvarConfiguracao(Cliente As String, Esconder As Boolean)
         Using connection As New SqlConnection(ClasseConexao.connectionString)
             connection.Open()
@@ -67,7 +55,6 @@ Public Class clsConfiguracao
                 End Select
 
                 Using cmd As New SqlCommand(sql, connection)
-                    connection.Open()
                     Using reader As SqlDataReader = cmd.ExecuteReader()
 
                         While reader.Read()
@@ -102,10 +89,26 @@ Public Class clsConfiguracao
                         reader.Close()
                     End Using
                 End Using
+                connection.Close()
             End Using
         Catch ex As Exception
             MessageBox.Show("Erro ao consultar: " & ex.Message)
         End Try
     End Sub
+#End Region
+#Region "FUNÇÕES"
+    Public Function ConsultaConfiguracao() As DataTable
+        Using connection As New SqlConnection(ClasseConexao.connectionString)
+            Dim sql As String = "SELECT * FROM tbconfig"
+            connection.Open()
+            Using command As New SqlCommand(sql, connection)
+                Using adapter As New SqlDataAdapter(command)
+                    adapter.Fill(tbConfiguracao)
+                End Using
+            End Using
+            connection.Close()
+        End Using
+        Return tbConfiguracao
+    End Function
 #End Region
 End Class

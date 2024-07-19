@@ -3,7 +3,28 @@ Imports System.Text
 
 Public Class clsEstoque
     Dim ClasseConexao As New clsConexao
-    Public Sub CarregarEstoque(lstGrade As ListView, CodProd As Integer, Produto As String)
+#Region "PROPRIEDADES"
+    Private Property _CodProd As Integer
+    Public Property CodProd As Integer
+        Get
+            Return _CodProd
+        End Get
+        Set(value As Integer)
+            _CodProd = value
+        End Set
+    End Property
+    Private Property _CodForn As Integer
+    Public Property CodForn As Integer
+        Get
+            Return _CodForn
+        End Get
+        Set(value As Integer)
+            _CodForn = value
+        End Set
+    End Property
+#End Region
+#Region "METODOS"
+    Public Sub PesquisaEstoque(lstGrade As ListView, CodProd As Integer, Produto As String)
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
@@ -20,7 +41,8 @@ Public Class clsEstoque
                     sql.AppendLine("ORDER BY Nome")
                     Using reader As SqlDataReader = cmd.ExecuteReader()
                         While reader.Read()
-                            lstGrade.Items.Add(reader("produto").ToString())
+                            lstGrade.Items.Add(reader("Codigo").ToString())
+                            lstGrade.Items(lstGrade.Items.Count - 1).SubItems.Add(reader("produto").ToString())
                             lstGrade.Items(lstGrade.Items.Count - 1).SubItems.Add(reader("quantidade").ToString())
                             lstGrade.Items(lstGrade.Items.Count - 1).SubItems.Add(reader("tipo").ToString())
                             lstGrade.Items(lstGrade.Items.Count - 1).SubItems.Add(reader("dataentrada").ToString())
@@ -88,9 +110,8 @@ Public Class clsEstoque
                 connection.Close()
             End Using
         Catch ex As Exception
-            MessageBox.Show("Erro ao excluirestoque: " & ex.Message)
+            MessageBox.Show("Erro ao excluir estoque: " & ex.Message)
         End Try
     End Sub
-
-
+#End Region
 End Class

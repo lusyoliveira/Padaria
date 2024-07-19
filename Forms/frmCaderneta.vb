@@ -36,16 +36,7 @@ Public Class frmCaderneta
             Next
         End If
     End Sub
-    Private Sub btnFazer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFazer.Click
-        ClasseCaderneta.Fazer(Val(lblNrFicha.Text), lblProdutos.Text, lblValor.Text, Val(txtQuantidade.Text), lblDataCompra.Text, lblTotal.Text, Label1.Text)
-        txtCodProd.Text = ""
-        lblProdutos.Text = ""
-        lblValor.Text = ""
-        lblTotal.Text = ""
-        txtQuantidade.Text = ""
-        txtCodProd.Focus()
-        PreencheCaderneta()
-    End Sub
+
     Private Sub btnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelar.Click
         Dim MsgResult As DialogResult = MessageBox.Show("Confirma o cancelamento?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
@@ -58,26 +49,54 @@ Public Class frmCaderneta
         PreencheCaderneta()
         lblNrFicha.Focus()
     End Sub
+
     Private Sub cboDependentes_Enter(sender As Object, e As EventArgs) Handles cboDependentes.Enter
-        If cboClientes.SelectedValue = 0 Then
+        If ClasseCaderneta.CodCliente = 0 Then
             Exit Sub
         Else
-            ClasseCombo.CarregaCombo(cboDependentes, "SELECT Codigo, Nome FROM tbDependentes WHERE codigocliente = " & ClasseCaderneta.CodCliente & "  ORDER BY Nome")
+            ClasseCombo.CarregaCombo(cboDependentes, "SELECT Codigo, Nome FROM tbDependentes WHERE codigocliente = " & Val(lblNrFicha.Text) & "  ORDER BY Nome")
         End If
     End Sub
     Private Sub txtQuantidade_Leave(sender As Object, e As EventArgs) Handles txtQuantidade.Leave
-        If IsNumeric(txtQuantidade.Text) Then
-            If txtQuantidade.Text = "" Then
-                MessageBox.Show("Insira uma quantidade!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                Exit Sub
-                txtQuantidade.Focus()
-            Else
-                lblTotal.Text = FormatCurrency(txtQuantidade.Text * lblValor.Text)
-            End If
-        Else
-            MessageBox.Show("Dado Inválido!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            txtQuantidade.Text = ""
+        If txtCodProd.Text Is Nothing Or txtCodProd.Text = "" Then
+            MessageBox.Show("Por favor, preencha todos os campos.")
+            Exit Sub
+        ElseIf IsNumeric(txtQuantidade.Text) = False Then
+            MessageBox.Show("Insira uma quantidade válida!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
             txtQuantidade.Focus()
+        ElseIf txtQuantidade.Text.Trim() = "" Then
+            MessageBox.Show("Insira uma quantidade!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+            txtQuantidade.Focus()
+            'ElseIf lblTotal.Text.Trim() = "" Then
+            '    MessageBox.Show("É necessário calcular o total!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            '    Exit Sub
+            '    txtQuantidade.Focus()
+        Else
+            lblTotal.Text = FormatCurrency(txtQuantidade.Text * lblValor.Text)
+
+            ' Captura os valores dos controles
+            Dim codigo As Integer = Integer.Parse(txtCodProd.Text.ToString())
+            Dim Produtos As String = lblProdutos.Text.ToString()
+            Dim valorUnitario As Decimal = Decimal.Parse(lblValor.Text)
+            Dim quantidade As Integer = Integer.Parse(txtQuantidade.Text)
+            Dim Total As Decimal = quantidade * valorUnitario
+
+            ' Cria um novo item para adicionar ao ListView
+            Dim novoItem As New ListViewItem(codigo)
+            novoItem.SubItems.Add(Produtos.ToString())
+            novoItem.SubItems.Add(FormatCurrency(valorUnitario))
+            novoItem.SubItems.Add(quantidade.ToString())
+            novoItem.SubItems.Add(FormatCurrency(Total)) ' Calcula o total
+
+            ' Adiciona o item ao ListView
+            lstReservas.Items.Add(novoItem)
+            txtCodProd.Text = ""
+            lblProdutos.Text = ""
+            lblValor.Text = ""
+            txtQuantidade.Text = ""
+            lblTotal.Text = ""
         End If
     End Sub
     Private Sub txtCodProd_Leave(sender As Object, e As EventArgs) Handles txtCodProd.Leave
@@ -92,8 +111,11 @@ Public Class frmCaderneta
 
     Private Sub cboClientes_Leave(sender As Object, e As EventArgs) Handles cboClientes.Leave
         If cboClientes.Text <> "" Then
-            lblDataVencimento.Text = ClasseCaderneta.ConsultaNumeroCaderneta(Val(lblNrFicha.Text))
-            ClasseCaderneta.CodCliente = cboClientes.SelectedValue
+            cboDependentes.Text = ""
+            ClasseCaderneta.CodCliente = ClasseCombo.LerCombo(cboClientes)
+            ClasseCliente.ConsultaDadosClientes(ClasseCaderneta.CodCliente, ClasseCliente)
+            lblNrFicha.Text = ClasseCliente.NumeroFicha
+            lblDataVencimento.Text = ClasseCaderneta.ConsultaVencCaderneta(Val(lblNrFicha.Text))
             cboDependentes.Focus()
         Else
             MessageBox.Show("Por favor digite um nome válido!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -103,9 +125,7 @@ Public Class frmCaderneta
     End Sub
 
     Private Sub frmCaderneta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Label2.Text = ClasseCaderneta.GerarCodCaderneta()
-
-        '  Label1.Text = GeraCodigo()
+        lblNumeroCaderneta.Text = ClasseCaderneta.GerarCodCaderneta()
         cboClientes.Focus()
         lblValor.Text = FormatCurrency(0)
         lblDataCompra.Text = Date.Now.Date
@@ -113,7 +133,6 @@ Public Class frmCaderneta
 
     Private Sub cboClientes_Enter(sender As Object, e As EventArgs) Handles cboClientes.Enter
         ClasseCombo.CarregaCombo(cboClientes, "SELECT Codigo, Nome FROM tbClientes ORDER BY Nome")
-
     End Sub
 
     Private Sub btnSalvar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalvar.Click
@@ -121,6 +140,9 @@ Public Class frmCaderneta
 
         If MsgResult = DialogResult.Yes Then
             ClasseCaderneta.SalvarCaderneta(lblNrFicha.Text, cboClientes.Text, Convert.ToDateTime(lblDataCompra.Text), cboDependentes.Text, Convert.ToDateTime(lblDataVencimento.Text), Convert.ToDecimal(lblTotalFinal.Text))
+            For Each item As ListViewItem In lstReservas.Items
+                ClasseCaderneta.SalvarDetCaderneta(Val(lblNrFicha.Text), Val(lblNumeroCaderneta.Text), item.SubItems(0).Text, item.SubItems(2).Text, item.SubItems(3).Text, item.SubItems(4).Text)
+            Next
         Else
             Exit Sub
         End If

@@ -41,6 +41,9 @@ Partial Class frmPagoPendente
         Me.Data = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Total = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Pago = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Codigo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.lblCodigo = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.grpPagamento.SuspendLayout()
         Me.SuspendLayout()
@@ -50,7 +53,7 @@ Partial Class frmPagoPendente
         Me.Panel2.BackColor = System.Drawing.Color.White
         Me.Panel2.ForeColor = System.Drawing.Color.DarkRed
         Me.Panel2.Location = New System.Drawing.Point(0, 39)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1112, 37)
         Me.Panel2.TabIndex = 41
@@ -62,13 +65,15 @@ Partial Class frmPagoPendente
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.ForeColor = System.Drawing.Color.DarkRed
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1112, 92)
+        Me.Panel1.Size = New System.Drawing.Size(938, 92)
         Me.Panel1.TabIndex = 40
         '
         'grpPagamento
         '
+        Me.grpPagamento.Controls.Add(Me.Label2)
+        Me.grpPagamento.Controls.Add(Me.lblCodigo)
         Me.grpPagamento.Controls.Add(Me.btnConsultar)
         Me.grpPagamento.Controls.Add(Me.lblTotalPagar2)
         Me.grpPagamento.Controls.Add(Me.lblTotalPagar)
@@ -80,10 +85,10 @@ Partial Class frmPagoPendente
         Me.grpPagamento.Controls.Add(Me.txtNrficha)
         Me.grpPagamento.Controls.Add(Me.lstPagamento)
         Me.grpPagamento.Location = New System.Drawing.Point(16, 100)
-        Me.grpPagamento.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grpPagamento.Margin = New System.Windows.Forms.Padding(4)
         Me.grpPagamento.Name = "grpPagamento"
-        Me.grpPagamento.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.grpPagamento.Size = New System.Drawing.Size(1079, 581)
+        Me.grpPagamento.Padding = New System.Windows.Forms.Padding(4)
+        Me.grpPagamento.Size = New System.Drawing.Size(902, 452)
         Me.grpPagamento.TabIndex = 41
         Me.grpPagamento.TabStop = False
         Me.grpPagamento.Tag = "0"
@@ -93,8 +98,8 @@ Partial Class frmPagoPendente
         '
         Me.btnConsultar.BackgroundImage = Global.Padaria.My.Resources.Resources.binoculars
         Me.btnConsultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnConsultar.Location = New System.Drawing.Point(524, 487)
-        Me.btnConsultar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnConsultar.Location = New System.Drawing.Point(461, 365)
+        Me.btnConsultar.Margin = New System.Windows.Forms.Padding(4)
         Me.btnConsultar.Name = "btnConsultar"
         Me.btnConsultar.Size = New System.Drawing.Size(71, 68)
         Me.btnConsultar.TabIndex = 100
@@ -104,7 +109,7 @@ Partial Class frmPagoPendente
         '
         Me.lblTotalPagar2.AutoSize = True
         Me.lblTotalPagar2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblTotalPagar2.Location = New System.Drawing.Point(658, 32)
+        Me.lblTotalPagar2.Location = New System.Drawing.Point(708, 33)
         Me.lblTotalPagar2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTotalPagar2.Name = "lblTotalPagar2"
         Me.lblTotalPagar2.Size = New System.Drawing.Size(95, 20)
@@ -114,7 +119,7 @@ Partial Class frmPagoPendente
         'lblTotalPagar
         '
         Me.lblTotalPagar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblTotalPagar.Location = New System.Drawing.Point(662, 59)
+        Me.lblTotalPagar.Location = New System.Drawing.Point(712, 60)
         Me.lblTotalPagar.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTotalPagar.Name = "lblTotalPagar"
         Me.lblTotalPagar.Size = New System.Drawing.Size(91, 26)
@@ -126,8 +131,8 @@ Partial Class frmPagoPendente
         '
         Me.cbxPago.AutoSize = True
         Me.cbxPago.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbxPago.Location = New System.Drawing.Point(761, 59)
-        Me.cbxPago.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cbxPago.Location = New System.Drawing.Point(811, 60)
+        Me.cbxPago.Margin = New System.Windows.Forms.Padding(4)
         Me.cbxPago.Name = "cbxPago"
         Me.cbxPago.Size = New System.Drawing.Size(69, 24)
         Me.cbxPago.TabIndex = 88
@@ -138,8 +143,8 @@ Partial Class frmPagoPendente
         '
         Me.btnPagar.BackgroundImage = Global.Padaria.My.Resources.Resources.ok
         Me.btnPagar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnPagar.Location = New System.Drawing.Point(445, 487)
-        Me.btnPagar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnPagar.Location = New System.Drawing.Point(382, 365)
+        Me.btnPagar.Margin = New System.Windows.Forms.Padding(4)
         Me.btnPagar.Name = "btnPagar"
         Me.btnPagar.Size = New System.Drawing.Size(71, 68)
         Me.btnPagar.TabIndex = 85
@@ -149,7 +154,7 @@ Partial Class frmPagoPendente
         '
         Me.lblCliente2.AutoSize = True
         Me.lblCliente2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblCliente2.Location = New System.Drawing.Point(169, 32)
+        Me.lblCliente2.Location = New System.Drawing.Point(219, 33)
         Me.lblCliente2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblCliente2.Name = "lblCliente2"
         Me.lblCliente2.Size = New System.Drawing.Size(61, 20)
@@ -159,7 +164,7 @@ Partial Class frmPagoPendente
         'lblClientes
         '
         Me.lblClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblClientes.Location = New System.Drawing.Point(173, 59)
+        Me.lblClientes.Location = New System.Drawing.Point(223, 60)
         Me.lblClientes.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblClientes.Name = "lblClientes"
         Me.lblClientes.Size = New System.Drawing.Size(481, 26)
@@ -169,30 +174,30 @@ Partial Class frmPagoPendente
         '
         Me.lblNrFicha.AutoSize = True
         Me.lblNrFicha.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblNrFicha.Location = New System.Drawing.Point(16, 32)
+        Me.lblNrFicha.Location = New System.Drawing.Point(126, 33)
         Me.lblNrFicha.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblNrFicha.Name = "lblNrFicha"
-        Me.lblNrFicha.Size = New System.Drawing.Size(137, 20)
+        Me.lblNrFicha.Size = New System.Drawing.Size(73, 20)
         Me.lblNrFicha.TabIndex = 77
-        Me.lblNrFicha.Text = "Número da Ficha"
+        Me.lblNrFicha.Text = "Nº Ficha"
         '
         'txtNrficha
         '
         Me.txtNrficha.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.txtNrficha.Location = New System.Drawing.Point(20, 59)
-        Me.txtNrficha.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtNrficha.Location = New System.Drawing.Point(130, 59)
+        Me.txtNrficha.Margin = New System.Windows.Forms.Padding(4)
         Me.txtNrficha.Name = "txtNrficha"
-        Me.txtNrficha.Size = New System.Drawing.Size(145, 26)
+        Me.txtNrficha.Size = New System.Drawing.Size(85, 26)
         Me.txtNrficha.TabIndex = 76
         '
         'lstPagamento
         '
-        Me.lstPagamento.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.NrFicha, Me.Cliente, Me.Dependente, Me.Data, Me.Total, Me.Pago})
+        Me.lstPagamento.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Codigo, Me.NrFicha, Me.Cliente, Me.Dependente, Me.Data, Me.Total, Me.Pago})
         Me.lstPagamento.HideSelection = False
         Me.lstPagamento.Location = New System.Drawing.Point(20, 96)
-        Me.lstPagamento.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lstPagamento.Margin = New System.Windows.Forms.Padding(4)
         Me.lstPagamento.Name = "lstPagamento"
-        Me.lstPagamento.Size = New System.Drawing.Size(1037, 383)
+        Me.lstPagamento.Size = New System.Drawing.Size(861, 261)
         Me.lstPagamento.TabIndex = 0
         Me.lstPagamento.UseCompatibleStateImageBehavior = False
         Me.lstPagamento.View = System.Windows.Forms.View.Details
@@ -226,14 +231,38 @@ Partial Class frmPagoPendente
         '
         Me.Pago.Text = "Pago"
         '
+        'Codigo
+        '
+        Me.Codigo.Text = "Código"
+        '
+        'lblCodigo
+        '
+        Me.lblCodigo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblCodigo.Location = New System.Drawing.Point(20, 58)
+        Me.lblCodigo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblCodigo.Name = "lblCodigo"
+        Me.lblCodigo.Size = New System.Drawing.Size(88, 26)
+        Me.lblCodigo.TabIndex = 101
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.Label2.Location = New System.Drawing.Point(16, 33)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(61, 20)
+        Me.Label2.TabIndex = 102
+        Me.Label2.Text = "Codigo"
+        '
         'frmPagoPendente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1112, 699)
+        Me.ClientSize = New System.Drawing.Size(938, 570)
         Me.Controls.Add(Me.grpPagamento)
         Me.Controls.Add(Me.Panel1)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.Name = "frmPagoPendente"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -263,4 +292,7 @@ Partial Class frmPagoPendente
     Friend WithEvents lblTotalPagar2 As System.Windows.Forms.Label
     Friend WithEvents lblTotalPagar As System.Windows.Forms.Label
     Friend WithEvents btnConsultar As System.Windows.Forms.Button
+    Friend WithEvents Label2 As Label
+    Friend WithEvents lblCodigo As Label
+    Friend WithEvents Codigo As ColumnHeader
 End Class

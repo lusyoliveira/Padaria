@@ -22,7 +22,6 @@ Partial Class frmClientes
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmClientes))
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnVerifica = New System.Windows.Forms.Button()
         Me.lblData = New System.Windows.Forms.Label()
         Me.lblRegistro = New System.Windows.Forms.Label()
         Me.lblDatacd = New System.Windows.Forms.Label()
@@ -51,7 +50,6 @@ Partial Class frmClientes
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.lblCodigo = New System.Windows.Forms.Label()
         Me.lstCliente = New System.Windows.Forms.ListView()
         Me.clCodigo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -71,6 +69,7 @@ Partial Class frmClientes
         Me.lblParentesco = New System.Windows.Forms.Label()
         Me.txtDependente = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -81,24 +80,12 @@ Partial Class frmClientes
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(783, 391)
+        Me.Label1.Location = New System.Drawing.Point(774, 391)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(202, 20)
         Me.Label1.TabIndex = 37
         Me.Label1.Text = "Qtd Clientes Cadastrados"
-        '
-        'btnVerifica
-        '
-        Me.btnVerifica.BackgroundImage = Global.Padaria.My.Resources.Resources.guy_blue
-        Me.btnVerifica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnVerifica.Location = New System.Drawing.Point(735, 565)
-        Me.btnVerifica.Margin = New System.Windows.Forms.Padding(4)
-        Me.btnVerifica.Name = "btnVerifica"
-        Me.btnVerifica.Size = New System.Drawing.Size(71, 66)
-        Me.btnVerifica.TabIndex = 1
-        Me.ToolTip1.SetToolTip(Me.btnVerifica, "Verificar Número de Ficha")
-        Me.btnVerifica.UseVisualStyleBackColor = True
         '
         'lblData
         '
@@ -106,7 +93,7 @@ Partial Class frmClientes
         Me.lblData.Location = New System.Drawing.Point(607, 41)
         Me.lblData.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblData.Name = "lblData"
-        Me.lblData.Size = New System.Drawing.Size(148, 24)
+        Me.lblData.Size = New System.Drawing.Size(137, 26)
         Me.lblData.TabIndex = 33
         '
         'lblRegistro
@@ -152,7 +139,7 @@ Partial Class frmClientes
         'txtBairro
         '
         Me.txtBairro.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBairro.Location = New System.Drawing.Point(374, 94)
+        Me.txtBairro.Location = New System.Drawing.Point(25, 94)
         Me.txtBairro.Margin = New System.Windows.Forms.Padding(4)
         Me.txtBairro.Name = "txtBairro"
         Me.txtBairro.Size = New System.Drawing.Size(208, 26)
@@ -162,7 +149,7 @@ Partial Class frmClientes
         '
         Me.lblBairro.AutoSize = True
         Me.lblBairro.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBairro.Location = New System.Drawing.Point(347, 70)
+        Me.lblBairro.Location = New System.Drawing.Point(21, 70)
         Me.lblBairro.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblBairro.Name = "lblBairro"
         Me.lblBairro.Size = New System.Drawing.Size(55, 20)
@@ -172,7 +159,7 @@ Partial Class frmClientes
         'txtEndereco
         '
         Me.txtEndereco.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEndereco.Location = New System.Drawing.Point(25, 94)
+        Me.txtEndereco.Location = New System.Drawing.Point(752, 41)
         Me.txtEndereco.Margin = New System.Windows.Forms.Padding(4)
         Me.txtEndereco.Name = "txtEndereco"
         Me.txtEndereco.Size = New System.Drawing.Size(341, 26)
@@ -182,7 +169,7 @@ Partial Class frmClientes
         '
         Me.lblEndereco.AutoSize = True
         Me.lblEndereco.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEndereco.Location = New System.Drawing.Point(22, 70)
+        Me.lblEndereco.Location = New System.Drawing.Point(752, 17)
         Me.lblEndereco.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblEndereco.Name = "lblEndereco"
         Me.lblEndereco.Size = New System.Drawing.Size(80, 20)
@@ -228,7 +215,7 @@ Partial Class frmClientes
         '
         Me.btnLimpar.BackgroundImage = Global.Padaria.My.Resources.Resources.trash
         Me.btnLimpar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnLimpar.Location = New System.Drawing.Point(656, 565)
+        Me.btnLimpar.Location = New System.Drawing.Point(699, 565)
         Me.btnLimpar.Margin = New System.Windows.Forms.Padding(4)
         Me.btnLimpar.Name = "btnLimpar"
         Me.btnLimpar.Size = New System.Drawing.Size(71, 66)
@@ -240,7 +227,7 @@ Partial Class frmClientes
         '
         Me.btnconsultar.BackgroundImage = Global.Padaria.My.Resources.Resources.binoculars
         Me.btnconsultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnconsultar.Location = New System.Drawing.Point(568, 564)
+        Me.btnconsultar.Location = New System.Drawing.Point(620, 564)
         Me.btnconsultar.Margin = New System.Windows.Forms.Padding(4)
         Me.btnconsultar.Name = "btnconsultar"
         Me.btnconsultar.Size = New System.Drawing.Size(71, 68)
@@ -252,7 +239,7 @@ Partial Class frmClientes
         '
         Me.btnSalvar.BackgroundImage = Global.Padaria.My.Resources.Resources.ok
         Me.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnSalvar.Location = New System.Drawing.Point(287, 564)
+        Me.btnSalvar.Location = New System.Drawing.Point(383, 563)
         Me.btnSalvar.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSalvar.Name = "btnSalvar"
         Me.btnSalvar.Size = New System.Drawing.Size(71, 68)
@@ -264,7 +251,7 @@ Partial Class frmClientes
         '
         Me.btnExcluir.BackgroundImage = Global.Padaria.My.Resources.Resources.ball_stop
         Me.btnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnExcluir.Location = New System.Drawing.Point(470, 564)
+        Me.btnExcluir.Location = New System.Drawing.Point(541, 563)
         Me.btnExcluir.Margin = New System.Windows.Forms.Padding(4)
         Me.btnExcluir.Name = "btnExcluir"
         Me.btnExcluir.Size = New System.Drawing.Size(71, 68)
@@ -276,7 +263,7 @@ Partial Class frmClientes
         '
         Me.btnAlterar.BackgroundImage = Global.Padaria.My.Resources.Resources.document
         Me.btnAlterar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnAlterar.Location = New System.Drawing.Point(376, 564)
+        Me.btnAlterar.Location = New System.Drawing.Point(462, 563)
         Me.btnAlterar.Margin = New System.Windows.Forms.Padding(4)
         Me.btnAlterar.Name = "btnAlterar"
         Me.btnAlterar.Size = New System.Drawing.Size(71, 68)
@@ -313,7 +300,7 @@ Partial Class frmClientes
         'mkdTelefone
         '
         Me.mkdTelefone.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.mkdTelefone.Location = New System.Drawing.Point(595, 94)
+        Me.mkdTelefone.Location = New System.Drawing.Point(241, 94)
         Me.mkdTelefone.Margin = New System.Windows.Forms.Padding(4)
         Me.mkdTelefone.Mask = "(000) 0000 - 0000"
         Me.mkdTelefone.Name = "mkdTelefone"
@@ -324,7 +311,7 @@ Partial Class frmClientes
         '
         Me.lblTelefone1.AutoSize = True
         Me.lblTelefone1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTelefone1.Location = New System.Drawing.Point(590, 70)
+        Me.lblTelefone1.Location = New System.Drawing.Point(237, 70)
         Me.lblTelefone1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTelefone1.Name = "lblTelefone1"
         Me.lblTelefone1.Size = New System.Drawing.Size(73, 20)
@@ -366,7 +353,7 @@ Partial Class frmClientes
         '
         'TabPage1
         '
-        Me.TabPage1.Controls.Add(Me.Label7)
+        Me.TabPage1.Controls.Add(Me.Label4)
         Me.TabPage1.Controls.Add(Me.lblCodigo)
         Me.TabPage1.Controls.Add(Me.lstCliente)
         Me.TabPage1.Controls.Add(Me.txtNome)
@@ -390,16 +377,6 @@ Partial Class frmClientes
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Cadastro"
         Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(22, 21)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(51, 16)
-        Me.Label7.TabIndex = 57
-        Me.Label7.Text = "Código"
         '
         'lblCodigo
         '
@@ -564,13 +541,23 @@ Partial Class frmClientes
         Me.Label2.TabIndex = 39
         Me.Label2.Text = "Nome"
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(21, 16)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(61, 20)
+        Me.Label4.TabIndex = 57
+        Me.Label4.Text = "Código"
+        '
         'frmClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1155, 644)
-        Me.Controls.Add(Me.btnVerifica)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.btnLimpar)
         Me.Controls.Add(Me.Panel1)
@@ -611,7 +598,6 @@ Partial Class frmClientes
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents lblData As System.Windows.Forms.Label
     Friend WithEvents lblDatacd As System.Windows.Forms.Label
-    Friend WithEvents btnVerifica As System.Windows.Forms.Button
     Friend WithEvents mkdTelefone As System.Windows.Forms.MaskedTextBox
     Friend WithEvents lblTelefone1 As System.Windows.Forms.Label
     Friend WithEvents btnconsultar As System.Windows.Forms.Button
@@ -640,8 +626,8 @@ Partial Class frmClientes
     Friend WithEvents clTelefone As ColumnHeader
     Friend WithEvents clEndereco As ColumnHeader
     Friend WithEvents clBairro As ColumnHeader
-    Friend WithEvents Label7 As Label
     Friend WithEvents lblCodigo As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents lblCodDep As Label
+    Friend WithEvents Label4 As Label
 End Class

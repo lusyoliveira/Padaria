@@ -21,6 +21,8 @@ Partial Class frmEstoque
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.grpEstoque = New System.Windows.Forms.GroupBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.lblCodigo = New System.Windows.Forms.Label()
         Me.btnExcluir = New System.Windows.Forms.Button()
         Me.btnSaida = New System.Windows.Forms.Button()
         Me.cboFornecedores = New System.Windows.Forms.ComboBox()
@@ -31,11 +33,13 @@ Partial Class frmEstoque
         Me.txtValor = New System.Windows.Forms.TextBox()
         Me.lblValor = New System.Windows.Forms.Label()
         Me.lstEstoque = New System.Windows.Forms.ListView()
+        Me.Codigo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.produtos = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.quantidade = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.tip = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.dataentrada = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.valor = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Fornecedor = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.txtQuantidade = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cboTipo = New System.Windows.Forms.ComboBox()
@@ -50,6 +54,8 @@ Partial Class frmEstoque
         '
         'grpEstoque
         '
+        Me.grpEstoque.Controls.Add(Me.Label7)
+        Me.grpEstoque.Controls.Add(Me.lblCodigo)
         Me.grpEstoque.Controls.Add(Me.btnExcluir)
         Me.grpEstoque.Controls.Add(Me.btnSaida)
         Me.grpEstoque.Controls.Add(Me.cboFornecedores)
@@ -67,21 +73,45 @@ Partial Class frmEstoque
         Me.grpEstoque.Controls.Add(Me.txtProdutos)
         Me.grpEstoque.Controls.Add(Me.Label1)
         Me.grpEstoque.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grpEstoque.Location = New System.Drawing.Point(12, 81)
+        Me.grpEstoque.Location = New System.Drawing.Point(16, 100)
+        Me.grpEstoque.Margin = New System.Windows.Forms.Padding(4)
         Me.grpEstoque.Name = "grpEstoque"
-        Me.grpEstoque.Size = New System.Drawing.Size(553, 375)
+        Me.grpEstoque.Padding = New System.Windows.Forms.Padding(4)
+        Me.grpEstoque.Size = New System.Drawing.Size(737, 447)
         Me.grpEstoque.TabIndex = 12
         Me.grpEstoque.TabStop = False
         Me.grpEstoque.Tag = "0"
         Me.grpEstoque.Text = "Estoque"
         '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(24, 32)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(56, 18)
+        Me.Label7.TabIndex = 63
+        Me.Label7.Text = "Código"
+        '
+        'lblCodigo
+        '
+        Me.lblCodigo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCodigo.Location = New System.Drawing.Point(27, 56)
+        Me.lblCodigo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblCodigo.Name = "lblCodigo"
+        Me.lblCodigo.Size = New System.Drawing.Size(53, 26)
+        Me.lblCodigo.TabIndex = 62
+        '
         'btnExcluir
         '
         Me.btnExcluir.BackgroundImage = Global.Padaria.My.Resources.Resources.ball_stop
         Me.btnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnExcluir.Location = New System.Drawing.Point(343, 303)
+        Me.btnExcluir.Location = New System.Drawing.Point(395, 354)
+        Me.btnExcluir.Margin = New System.Windows.Forms.Padding(4)
         Me.btnExcluir.Name = "btnExcluir"
-        Me.btnExcluir.Size = New System.Drawing.Size(53, 55)
+        Me.btnExcluir.Size = New System.Drawing.Size(71, 68)
         Me.btnExcluir.TabIndex = 16
         Me.ToolTip1.SetToolTip(Me.btnExcluir, "Entrar no Estoque")
         Me.btnExcluir.UseVisualStyleBackColor = True
@@ -90,9 +120,10 @@ Partial Class frmEstoque
         '
         Me.btnSaida.BackgroundImage = Global.Padaria.My.Resources.Resources.folder_open
         Me.btnSaida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnSaida.Location = New System.Drawing.Point(254, 303)
+        Me.btnSaida.Location = New System.Drawing.Point(316, 354)
+        Me.btnSaida.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSaida.Name = "btnSaida"
-        Me.btnSaida.Size = New System.Drawing.Size(53, 55)
+        Me.btnSaida.Size = New System.Drawing.Size(71, 68)
         Me.btnSaida.TabIndex = 15
         Me.ToolTip1.SetToolTip(Me.btnSaida, "Entrar no Estoque")
         Me.btnSaida.UseVisualStyleBackColor = True
@@ -101,18 +132,20 @@ Partial Class frmEstoque
         '
         Me.cboFornecedores.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
         Me.cboFornecedores.FormattingEnabled = True
-        Me.cboFornecedores.Location = New System.Drawing.Point(260, 104)
+        Me.cboFornecedores.Location = New System.Drawing.Point(278, 122)
+        Me.cboFornecedores.Margin = New System.Windows.Forms.Padding(4)
         Me.cboFornecedores.Name = "cboFornecedores"
-        Me.cboFornecedores.Size = New System.Drawing.Size(273, 23)
+        Me.cboFornecedores.Size = New System.Drawing.Size(432, 26)
         Me.cboFornecedores.TabIndex = 14
         '
         'lblFornecedor
         '
         Me.lblFornecedor.AutoSize = True
         Me.lblFornecedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFornecedor.Location = New System.Drawing.Point(257, 79)
+        Me.lblFornecedor.Location = New System.Drawing.Point(274, 98)
+        Me.lblFornecedor.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblFornecedor.Name = "lblFornecedor"
-        Me.lblFornecedor.Size = New System.Drawing.Size(77, 16)
+        Me.lblFornecedor.Size = New System.Drawing.Size(94, 20)
         Me.lblFornecedor.TabIndex = 13
         Me.lblFornecedor.Text = "Fornecedor"
         '
@@ -120,9 +153,10 @@ Partial Class frmEstoque
         '
         Me.btnEntrada.BackgroundImage = Global.Padaria.My.Resources.Resources.add
         Me.btnEntrada.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnEntrada.Location = New System.Drawing.Point(159, 303)
+        Me.btnEntrada.Location = New System.Drawing.Point(231, 354)
+        Me.btnEntrada.Margin = New System.Windows.Forms.Padding(4)
         Me.btnEntrada.Name = "btnEntrada"
-        Me.btnEntrada.Size = New System.Drawing.Size(53, 55)
+        Me.btnEntrada.Size = New System.Drawing.Size(71, 68)
         Me.btnEntrada.TabIndex = 5
         Me.ToolTip1.SetToolTip(Me.btnEntrada, "Entrar no Estoque")
         Me.btnEntrada.UseVisualStyleBackColor = True
@@ -130,52 +164,61 @@ Partial Class frmEstoque
         'txtDataentrada
         '
         Me.txtDataentrada.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDataentrada.Location = New System.Drawing.Point(129, 104)
+        Me.txtDataentrada.Location = New System.Drawing.Point(134, 121)
+        Me.txtDataentrada.Margin = New System.Windows.Forms.Padding(4)
         Me.txtDataentrada.Name = "txtDataentrada"
-        Me.txtDataentrada.Size = New System.Drawing.Size(103, 22)
+        Me.txtDataentrada.Size = New System.Drawing.Size(136, 26)
         Me.txtDataentrada.TabIndex = 4
         '
         'lblDataentrada
         '
         Me.lblDataentrada.AutoSize = True
         Me.lblDataentrada.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDataentrada.Location = New System.Drawing.Point(126, 79)
+        Me.lblDataentrada.Location = New System.Drawing.Point(130, 97)
+        Me.lblDataentrada.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblDataentrada.Name = "lblDataentrada"
-        Me.lblDataentrada.Size = New System.Drawing.Size(105, 16)
+        Me.lblDataentrada.Size = New System.Drawing.Size(131, 20)
         Me.lblDataentrada.TabIndex = 10
         Me.lblDataentrada.Text = "Data da Entrada"
         '
         'txtValor
         '
         Me.txtValor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValor.Location = New System.Drawing.Point(20, 104)
+        Me.txtValor.Location = New System.Drawing.Point(27, 120)
+        Me.txtValor.Margin = New System.Windows.Forms.Padding(4)
         Me.txtValor.Name = "txtValor"
-        Me.txtValor.Size = New System.Drawing.Size(75, 22)
+        Me.txtValor.Size = New System.Drawing.Size(99, 26)
         Me.txtValor.TabIndex = 3
         '
         'lblValor
         '
         Me.lblValor.AutoSize = True
         Me.lblValor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblValor.Location = New System.Drawing.Point(17, 79)
+        Me.lblValor.Location = New System.Drawing.Point(23, 97)
+        Me.lblValor.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblValor.Name = "lblValor"
-        Me.lblValor.Size = New System.Drawing.Size(39, 16)
+        Me.lblValor.Size = New System.Drawing.Size(48, 20)
         Me.lblValor.TabIndex = 9
         Me.lblValor.Text = "Valor"
         '
         'lstEstoque
         '
-        Me.lstEstoque.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.produtos, Me.quantidade, Me.tip, Me.dataentrada, Me.valor})
+        Me.lstEstoque.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Codigo, Me.produtos, Me.quantidade, Me.tip, Me.dataentrada, Me.valor, Me.Fornecedor})
         Me.lstEstoque.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstEstoque.FullRowSelect = True
         Me.lstEstoque.HideSelection = False
-        Me.lstEstoque.Location = New System.Drawing.Point(20, 141)
+        Me.lstEstoque.Location = New System.Drawing.Point(27, 155)
+        Me.lstEstoque.Margin = New System.Windows.Forms.Padding(4)
         Me.lstEstoque.MultiSelect = False
         Me.lstEstoque.Name = "lstEstoque"
-        Me.lstEstoque.Size = New System.Drawing.Size(513, 156)
+        Me.lstEstoque.Size = New System.Drawing.Size(683, 191)
         Me.lstEstoque.TabIndex = 11
         Me.lstEstoque.UseCompatibleStateImageBehavior = False
         Me.lstEstoque.View = System.Windows.Forms.View.Details
+        '
+        'Codigo
+        '
+        Me.Codigo.Text = "Código"
         '
         'produtos
         '
@@ -202,21 +245,27 @@ Partial Class frmEstoque
         Me.valor.Text = "Valor"
         Me.valor.Width = 80
         '
+        'Fornecedor
+        '
+        Me.Fornecedor.Text = "Fornecedor"
+        '
         'txtQuantidade
         '
         Me.txtQuantidade.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtQuantidade.Location = New System.Drawing.Point(322, 50)
+        Me.txtQuantidade.Location = New System.Drawing.Point(395, 55)
+        Me.txtQuantidade.Margin = New System.Windows.Forms.Padding(4)
         Me.txtQuantidade.Name = "txtQuantidade"
-        Me.txtQuantidade.Size = New System.Drawing.Size(75, 22)
+        Me.txtQuantidade.Size = New System.Drawing.Size(99, 26)
         Me.txtQuantidade.TabIndex = 1
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(319, 25)
+        Me.Label4.Location = New System.Drawing.Point(391, 31)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(77, 16)
+        Me.Label4.Size = New System.Drawing.Size(94, 20)
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Quantidade"
         '
@@ -225,36 +274,40 @@ Partial Class frmEstoque
         Me.cboTipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboTipo.FormattingEnabled = True
         Me.cboTipo.Items.AddRange(New Object() {"CD", "DVD", "Jogos"})
-        Me.cboTipo.Location = New System.Drawing.Point(422, 49)
+        Me.cboTipo.Location = New System.Drawing.Point(502, 56)
+        Me.cboTipo.Margin = New System.Windows.Forms.Padding(4)
         Me.cboTipo.Name = "cboTipo"
-        Me.cboTipo.Size = New System.Drawing.Size(111, 23)
+        Me.cboTipo.Size = New System.Drawing.Size(208, 26)
         Me.cboTipo.TabIndex = 2
         '
         'lblTipo
         '
         Me.lblTipo.AutoSize = True
         Me.lblTipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTipo.Location = New System.Drawing.Point(419, 24)
+        Me.lblTipo.Location = New System.Drawing.Point(499, 34)
+        Me.lblTipo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTipo.Name = "lblTipo"
-        Me.lblTipo.Size = New System.Drawing.Size(31, 15)
+        Me.lblTipo.Size = New System.Drawing.Size(37, 18)
         Me.lblTipo.TabIndex = 8
         Me.lblTipo.Text = "Tipo"
         '
         'txtProdutos
         '
         Me.txtProdutos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProdutos.Location = New System.Drawing.Point(20, 50)
+        Me.txtProdutos.Location = New System.Drawing.Point(88, 55)
+        Me.txtProdutos.Margin = New System.Windows.Forms.Padding(4)
         Me.txtProdutos.Name = "txtProdutos"
-        Me.txtProdutos.Size = New System.Drawing.Size(271, 22)
+        Me.txtProdutos.Size = New System.Drawing.Size(299, 26)
         Me.txtProdutos.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(17, 25)
+        Me.Label1.Location = New System.Drawing.Point(88, 33)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(61, 16)
+        Me.Label1.Size = New System.Drawing.Size(76, 20)
         Me.Label1.TabIndex = 6
         Me.Label1.Text = "Produtos"
         '
@@ -264,30 +317,33 @@ Partial Class frmEstoque
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.ForeColor = System.Drawing.Color.DarkRed
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(579, 75)
+        Me.Panel1.Size = New System.Drawing.Size(772, 92)
         Me.Panel1.TabIndex = 13
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.White
         Me.Panel2.ForeColor = System.Drawing.Color.DarkRed
-        Me.Panel2.Location = New System.Drawing.Point(0, 31)
+        Me.Panel2.Location = New System.Drawing.Point(0, 38)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(579, 31)
+        Me.Panel2.Size = New System.Drawing.Size(772, 38)
         Me.Panel2.TabIndex = 39
         '
         'frmEstoque
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(579, 469)
+        Me.ClientSize = New System.Drawing.Size(772, 564)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.grpEstoque)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.Name = "frmEstoque"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -322,4 +378,8 @@ Partial Class frmEstoque
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents btnExcluir As System.Windows.Forms.Button
     Friend WithEvents btnSaida As System.Windows.Forms.Button
+    Friend WithEvents Label7 As Label
+    Friend WithEvents lblCodigo As Label
+    Friend WithEvents Codigo As ColumnHeader
+    Friend WithEvents Fornecedor As ColumnHeader
 End Class

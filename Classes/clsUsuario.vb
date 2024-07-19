@@ -1,7 +1,5 @@
 ﻿Imports System.Data.SqlClient
-Imports System.Net.Mime.MediaTypeNames
 Imports System.Text
-Imports Microsoft.Office.Core
 Public Class clsUsuario
     Dim ClasseConexao As New clsConexao, tbUsuarios, tbPermissao As New DataTable()
 #Region "PROPRIEDADES"
@@ -9,7 +7,7 @@ Public Class clsUsuario
 #Region "CONSTRUTORES"
 
 #End Region
-#Region "METODOS"
+#Region "FUNÇÕES"
     Public Function ConsultaUsuario(lstGrade As ListView, Codigo As Integer, Nome As String) As DataTable
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
@@ -39,9 +37,10 @@ Public Class clsUsuario
                         Dim x As Integer = 0
 
                         While reader.Read()
-                            lstGrade.Items.Add(reader("funcionario").ToString())
+                            lstGrade.Items.Add(reader("Codigo").ToString())
                             lstGrade.Items(x).SubItems.Add(reader("nome").ToString())
                             lstGrade.Items(x).SubItems.Add(reader("permissao").ToString())
+                            lstGrade.Items(x).SubItems.Add(reader("Funcionario").ToString())
 
                             If x Mod 2 = 0 Then
                                 lstGrade.Items(x).ForeColor = Color.Black
@@ -62,76 +61,6 @@ Public Class clsUsuario
         End Try
         Return tbUsuarios
     End Function
-    Public Sub SalvarUsuario(Nome As String, Permissao As String, Senha As String, ConfSenha As String)
-        Using connection As New SqlConnection(ClasseConexao.connectionString)
-            connection.Open()
-
-            Dim sql As String = "INSERT INTO tbUsuarios (Nome, Permissao, Senha, ConfSenha) VALUES (@Nome, @Permissao, @Senha, @ConfSenha)"
-
-            Using command As New SqlCommand(sql, connection)
-                command.Parameters.AddWithValue("@Nome", Nome)
-                command.Parameters.AddWithValue("@Permissao", Permissao)
-                command.Parameters.AddWithValue("@Senha", Senha)
-                command.Parameters.AddWithValue("@ConfSenha", ConfSenha)
-                command.ExecuteNonQuery()
-            End Using
-        End Using
-    End Sub
-    Public Sub AlterarUsuario(codigo As Integer, Nome As String, Permissao As String, Senha As String, ConfSenha As String)
-        Using connection As New SqlConnection(ClasseConexao.connectionString)
-            connection.Open()
-            Dim sql As String = "UPDATE tbUsuarios SET Nome = @Nome, Permissao = @Permissao, Senha = @Senha, ConfSenha = @ConfSenha WHERE Codigo = @Codigo"
-            Using command As New SqlCommand(sql, connection)
-                command.Parameters.AddWithValue("@Codigo", codigo)
-                command.Parameters.AddWithValue("@Nome", Nome)
-                command.Parameters.AddWithValue("@Permissao", Permissao)
-                command.Parameters.AddWithValue("@Senha", Senha)
-                command.Parameters.AddWithValue("@ConfSenha", ConfSenha)
-                command.ExecuteNonQuery()
-            End Using
-        End Using
-    End Sub
-    Public Sub ExcluirUsuario(codigo As Integer)
-        Using connection As New SqlConnection(ClasseConexao.connectionString)
-            connection.Open()
-            Dim sql As String = "DELETE FROM tbUsuarios WHERE Codigo = @Codigo"
-            Using command As New SqlCommand(sql, connection)
-                command.Parameters.AddWithValue("@Codigo", codigo)
-                command.ExecuteNonQuery()
-            End Using
-        End Using
-    End Sub
-    Public Sub Autenticar(Login As String, Senha As String)
-        Dim Tentativas As Integer = 3, esconde As Boolean
-
-        Using connection As New SqlConnection(ClasseConexao.connectionString)
-            Dim sql As String = "SELECT * FROM tbusuarios ORDER BY nome"
-            connection.Open()
-            Using command As New SqlCommand(sql, connection)
-                command.Parameters.AddWithValue("@Login", Login)
-                Using adapter As New SqlDataAdapter(command)
-                    adapter.Fill(tbUsuarios)
-                    If tbUsuarios.Rows.Count = 0 Then
-                        MessageBox.Show("Usuário não existe!!", "Bem Vindo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        Exit Sub
-                    ElseIf mcripto(Senha).ToUpper = tbUsuarios.Rows(0)("senha").ToString().ToUpper() Then
-                        Tentativas = Tentativas - 1
-                        CtrlMenu(tbUsuarios.Rows(0)("permissao").ToString(), esconde)
-                        MessageBox.Show("Seja Bem-Vindo a Loctech Sistema!", "Bem Vindo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        frmPrincipal.StatusStrip1.Items(7).Text = tbUsuarios.Rows(0)("funcionario").ToString()
-                        frmPrincipal.Show()
-                    Else
-                        Tentativas = Tentativas - 1
-                        MessageBox.Show("A senha não confere!.Por favor, tente novamente." & vbCrLf & vbCrLf & "Restam: " & Tentativas & vbTab & "tentativas.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                        ' Me.StatusStrip1.Items(1).Text = Tentativas
-                        Beep()
-                    End If
-
-                End Using
-            End Using
-        End Using
-    End Sub
-
     Public Function CtrlMenuSubmenu(ByVal menu As System.Windows.Forms.ToolStripMenuItem, ByVal permissao As String, Optional ByVal esconder As Boolean = False) As Boolean
         Dim z As Integer
 
@@ -172,6 +101,7 @@ Public Class clsUsuario
                             End If
                         End Using
                     End Using
+                    connection.Close()
                 End Using
                 ' Recursivamente chama a função para os submenus
                 CtrlMenuSubmenu(menu.DropDownItems(z), permissao, esconder)
@@ -180,7 +110,159 @@ Public Class clsUsuario
 
         Return True
     End Function
-    Public Sub SalvarPermissao(Permissao As String, lstBox As ListBox, Ativo As Boolean)
+    Public Function CtrlMenu(ByVal permissao As String, Optional ByVal esconder As Boolean = False) As Boolean
+        Try
+            For Each item As ToolStripItem In frmPrincipal.MenuStrip1.Items
+                If TypeOf item Is ToolStripMenuItem Then
+                    Dim menu As ToolStripMenuItem = DirectCast(item, ToolStripMenuItem)
+                    Using connection As New SqlConnection(ClasseConexao.connectionString)
+                        connection.Open()
+                        Dim sql As String = $"Select * from tbpermissoes where permissao = '{permissao}' and menu = '{menu.Text}'"
+                        Using command As New SqlCommand(sql, connection)
+                            Using adapter As New SqlDataAdapter(command)
+                                adapter.Fill(tbPermissao)
+                            End Using
+                            If tbPermissao.Rows.Count > 0 Then
+                                If Convert.ToBoolean(tbPermissao.Rows(0)("ativo")) Then
+                                    If Not esconder Then
+                                        menu.Enabled = True
+                                    Else
+                                        menu.Visible = True
+                                    End If
+                                Else
+                                    If Not esconder Then
+                                        menu.Enabled = False
+                                    Else
+                                        menu.Visible = False
+                                    End If
+                                End If
+                            Else
+                                If Not esconder Then
+                                    menu.Enabled = True
+                                Else
+                                    menu.Visible = True
+                                End If
+                            End If
+                        End Using
+                        connection.Close()
+                    End Using
+                    CtrlMenuSubmenu(menu, permissao, esconder)
+                End If
+            Next
+        Catch ex As Exception
+            MessageBox.Show("Erro ao consultar permissão: " & ex.Message)
+        End Try
+
+        Return True
+    End Function
+    Public Function VerificaAdministrador(Nome As String) As Boolean
+        Try
+            Using connection As New SqlConnection(ClasseConexao.connectionString)
+                connection.Open()
+                Dim sql As String = "Select * from vwUsuariosAdministradores where nome = @Nome"
+                Using command As New SqlCommand(sql, connection)
+                    command.Parameters.AddWithValue("@Nome", Nome)
+                    Using adapter As New SqlDataAdapter(command)
+                        adapter.Fill(tbUsuarios)
+                        If tbUsuarios.Rows.Count > 0 Then
+                            Return True
+                        Else
+                            Return False
+                        End If
+                    End Using
+                End Using
+                connection.Close()
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Erro ao consultar o Administrador: " & ex.Message)
+        End Try
+    End Function
+#End Region
+#Region "METODOS"
+    Public Sub SalvarUsuario(Nome As String, Permissao As String, Senha As String, Funcionario As String)
+        Try
+            Using connection As New SqlConnection(ClasseConexao.connectionString)
+                connection.Open()
+                Dim sql As String = "INSERT INTO tbUsuarios (Nome, Permissao, Senha, funcionario) VALUES (@Nome, @Permissao, @Senha, @funcionario)"
+                Using command As New SqlCommand(sql, connection)
+                    command.Parameters.AddWithValue("@Nome", Nome)
+                    command.Parameters.AddWithValue("@Permissao", Permissao)
+                    command.Parameters.AddWithValue("@Senha", Senha)
+                    command.Parameters.AddWithValue("@funcionario", Funcionario)
+                    command.ExecuteNonQuery()
+                End Using
+                connection.Close()
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Erro ao salvar usuário: " & ex.Message)
+        End Try
+    End Sub
+    Public Sub AlterarUsuario(codigo As Integer, Nome As String, Permissao As String, Senha As String, Funcionario As String)
+        Try
+            Using connection As New SqlConnection(ClasseConexao.connectionString)
+                connection.Open()
+                Dim sql As String = "UPDATE tbUsuarios SET Nome = @Nome, Permissao = @Permissao, Senha = @Senha, Funcionario = @Funcionario WHERE Codigo = @Codigo"
+                Using command As New SqlCommand(sql, connection)
+                    command.Parameters.AddWithValue("@Codigo", codigo)
+                    command.Parameters.AddWithValue("@Nome", Nome)
+                    command.Parameters.AddWithValue("@Permissao", Permissao)
+                    command.Parameters.AddWithValue("@Senha", Senha)
+                    command.Parameters.AddWithValue("@funcionario", Funcionario)
+                    command.ExecuteNonQuery()
+                End Using
+                connection.Close()
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Erro ao alterar o usuário: " & ex.Message)
+        End Try
+    End Sub
+    Public Sub ExcluirUsuario(codigo As Integer)
+        Try
+            Using connection As New SqlConnection(ClasseConexao.connectionString)
+                connection.Open()
+                Dim sql As String = "DELETE FROM tbUsuarios WHERE Codigo = @Codigo"
+                Using command As New SqlCommand(sql, connection)
+                    command.Parameters.AddWithValue("@Codigo", codigo)
+                    command.ExecuteNonQuery()
+                End Using
+                connection.Close()
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Erro ao excluir o usuário: " & ex.Message)
+        End Try
+    End Sub
+    Public Sub Autenticar(Login As String, Senha As String)
+        Dim Tentativas As Integer = 3, esconde As Boolean
+
+        Using connection As New SqlConnection(ClasseConexao.connectionString)
+            Dim sql As String = "SELECT * FROM tbusuarios ORDER BY nome"
+            connection.Open()
+            Using command As New SqlCommand(sql, connection)
+                command.Parameters.AddWithValue("@Login", Login)
+                Using adapter As New SqlDataAdapter(command)
+                    adapter.Fill(tbUsuarios)
+                    If tbUsuarios.Rows.Count = 0 Then
+                        MessageBox.Show("Usuário não existe!!", "Bem Vindo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Exit Sub
+                    ElseIf mcripto(Senha).ToUpper = tbUsuarios.Rows(0)("senha").ToString().ToUpper() Then
+                        Tentativas = Tentativas - 1
+                        CtrlMenu(tbUsuarios.Rows(0)("permissao").ToString(), esconde)
+                        MessageBox.Show("Seja Bem-Vindo a Loctech Sistema!", "Bem Vindo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        frmPrincipal.StatusStrip1.Items(7).Text = tbUsuarios.Rows(0)("funcionario").ToString()
+                        frmPrincipal.Show()
+                    Else
+                        Tentativas = Tentativas - 1
+                        MessageBox.Show("A senha não confere!.Por favor, tente novamente." & vbCrLf & vbCrLf & "Restam: " & Tentativas & vbTab & "tentativas.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        ' Me.StatusStrip1.Items(1).Text = Tentativas
+                        Beep()
+                    End If
+                End Using
+            End Using
+            connection.Close()
+        End Using
+    End Sub
+
+    Public Sub SalvarPermissao(Permissao As String, lstBox As CheckedListBox, Ativo As Boolean)
 
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
@@ -214,7 +296,7 @@ Public Class clsUsuario
             MessageBox.Show("Erro ao salvar permimssão: " & ex.Message)
         End Try
     End Sub
-    Public Sub ConsultaPermissoes(Permissao As String, lstBox As ListBox)
+    Public Sub ConsultaPermissoes(Permissao As String, lstBox As CheckedListBox)
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
@@ -224,23 +306,21 @@ Public Class clsUsuario
                     command.Parameters.AddWithValue("@permissao", Permissao)
 
                     Using reader As SqlDataReader = command.ExecuteReader()
-                        If reader.HasRows Then
-                            While reader.Read()
-                                Dim Codigo As Integer = reader("Codigo").ToString()
-                                Dim menuNome As String = reader("menu").ToString()
-                                Dim ativo As Boolean = Convert.ToBoolean(reader("ativo"))
-
-                                For x = 0 To lstBox.Items.Count - 1
-                                    If menuNome.ToUpper() = lstBox.Items(x).ToString().ToUpper() Then
-                                        lstBox.SetSelected(x, ativo)
-                                        Exit For ' Como o menu é único por permissão, podemos sair do loop interno.
-                                    End If
-                                Next
-                            End While
-                        End If
+                        While reader.Read()
+                            Dim menuNome As String = reader("menu").ToString()
+                            Dim ativo As Boolean = Convert.ToBoolean(reader("ativo"))
+                            ' Iterar sobre os itens do CheckedListBox
+                            For x = 0 To lstBox.Items.Count - 1
+                                Dim itemText As String = lstBox.Items(x).ToString()
+                                If menuNome.ToUpper() = itemText.ToUpper() And ativo = True Then
+                                    ' Marcar o item
+                                    lstBox.SetItemChecked(x, True)
+                                    Exit For
+                                End If
+                            Next
+                        End While
                     End Using
                 End Using
-
                 connection.Close()
             End Using
         Catch ex As Exception
@@ -251,82 +331,16 @@ Public Class clsUsuario
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
-                Dim sql As String = "DELETE FROM tbPermissoes WHERE Codigo = @Codigo"
+                Dim sql As String = "DELETE FROM tbPermissoes WHERE nrseq = @Codigo"
                 Using command As New SqlCommand(sql, connection)
                     command.Parameters.AddWithValue("@Codigo", Codigo)
                     command.ExecuteNonQuery()
                 End Using
+                connection.Close()
             End Using
         Catch ex As Exception
             MessageBox.Show("Erro ao excluir permissões: " & ex.Message)
         End Try
     End Sub
-    Public Function CtrlMenu(ByVal permissao As String, Optional ByVal esconder As Boolean = False) As Boolean
-        Try
-            For Each item As ToolStripItem In frmPrincipal.MenuStrip1.Items
-                If TypeOf item Is ToolStripMenuItem Then
-                    Dim menu As ToolStripMenuItem = DirectCast(item, ToolStripMenuItem)
-                    Using connection As New SqlConnection(ClasseConexao.connectionString)
-                        connection.Open()
-                        Dim sql As String = $"Select * from tbpermissoes where permissao = '{permissao}' and menu = '{menu.Text}'"
-                        Using command As New SqlCommand(sql, connection)
-                            Using adapter As New SqlDataAdapter(command)
-                                adapter.Fill(tbpermissao)
-                            End Using
-                            If tbpermissao.Rows.Count > 0 Then
-                                If Convert.ToBoolean(tbpermissao.Rows(0)("ativo")) Then
-                                    If Not esconder Then
-                                        menu.Enabled = True
-                                    Else
-                                        menu.Visible = True
-                                    End If
-                                Else
-                                    If Not esconder Then
-                                        menu.Enabled = False
-                                    Else
-                                        menu.Visible = False
-                                    End If
-                                End If
-                            Else
-                                If Not esconder Then
-                                    menu.Enabled = True
-                                Else
-                                    menu.Visible = True
-                                End If
-                            End If
-                        End Using
-                        connection.Close()
-                    End Using
-                    CtrlMenuSubmenu(menu, permissao, esconder)
-                End If
-            Next
-        Catch ex As Exception
-            MessageBox.Show("Erro ao consultar o produto: " & ex.Message)
-        End Try
-
-        Return True
-    End Function
-    Public Function VerificaAdministrador(Nome As String) As Boolean
-        Try
-            Using connection As New SqlConnection(ClasseConexao.connectionString)
-                connection.Open()
-                Dim sql As String = "Select * from vwUsuariosAdministradores where nome = @Nome"
-                Using command As New SqlCommand(sql, connection)
-                    command.Parameters.AddWithValue("@Nome", Nome)
-                    Using adapter As New SqlDataAdapter(command)
-                        adapter.Fill(tbUsuarios)
-                        If tbUsuarios.Rows.Count > 0 Then
-                            Return True
-                        Else
-                            Return False
-                        End If
-                    End Using
-                End Using
-                connection.Close()
-            End Using
-        Catch ex As Exception
-            MessageBox.Show("Erro ao consultar o Administrador: " & ex.Message)
-        End Try
-    End Function
 #End Region
 End Class

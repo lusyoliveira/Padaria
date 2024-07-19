@@ -28,12 +28,12 @@ Partial Class frmRetiraCaixa
         Me.btnConfirmar = New System.Windows.Forms.Button()
         Me.txtValorAbrir = New System.Windows.Forms.TextBox()
         Me.lblValorAbrir = New System.Windows.Forms.Label()
-        Me.txtData = New System.Windows.Forms.TextBox()
-        Me.lblData = New System.Windows.Forms.Label()
-        Me.lblFuncionario = New System.Windows.Forms.Label()
-        Me.txtFuncionario = New System.Windows.Forms.TextBox()
         Me.txtCaixa = New System.Windows.Forms.TextBox()
         Me.lblCaixa = New System.Windows.Forms.Label()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.cboFuncionario = New System.Windows.Forms.ComboBox()
+        Me.lblData = New System.Windows.Forms.Label()
+        Me.lblFuncionario = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -42,9 +42,10 @@ Partial Class frmRetiraCaixa
         '
         Me.Panel2.BackColor = System.Drawing.Color.White
         Me.Panel2.ForeColor = System.Drawing.Color.DarkRed
-        Me.Panel2.Location = New System.Drawing.Point(0, 28)
+        Me.Panel2.Location = New System.Drawing.Point(0, 34)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(481, 31)
+        Me.Panel2.Size = New System.Drawing.Size(641, 38)
         Me.Panel2.TabIndex = 41
         '
         'Panel1
@@ -54,24 +55,27 @@ Partial Class frmRetiraCaixa
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.ForeColor = System.Drawing.Color.DarkRed
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(484, 75)
+        Me.Panel1.Size = New System.Drawing.Size(564, 92)
         Me.Panel1.TabIndex = 40
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
+        Me.GroupBox1.Controls.Add(Me.cboFuncionario)
+        Me.GroupBox1.Controls.Add(Me.lblData)
+        Me.GroupBox1.Controls.Add(Me.lblFuncionario)
         Me.GroupBox1.Controls.Add(Me.btnConfirmar)
         Me.GroupBox1.Controls.Add(Me.txtValorAbrir)
         Me.GroupBox1.Controls.Add(Me.lblValorAbrir)
-        Me.GroupBox1.Controls.Add(Me.txtData)
-        Me.GroupBox1.Controls.Add(Me.lblData)
-        Me.GroupBox1.Controls.Add(Me.lblFuncionario)
-        Me.GroupBox1.Controls.Add(Me.txtFuncionario)
         Me.GroupBox1.Controls.Add(Me.txtCaixa)
         Me.GroupBox1.Controls.Add(Me.lblCaixa)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 81)
+        Me.GroupBox1.Location = New System.Drawing.Point(16, 100)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(460, 151)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(532, 190)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Retirada"
@@ -80,86 +84,95 @@ Partial Class frmRetiraCaixa
         '
         Me.btnConfirmar.BackgroundImage = Global.Padaria.My.Resources.Resources.ok
         Me.btnConfirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnConfirmar.Location = New System.Drawing.Point(373, 88)
+        Me.btnConfirmar.Location = New System.Drawing.Point(428, 92)
+        Me.btnConfirmar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnConfirmar.Name = "btnConfirmar"
-        Me.btnConfirmar.Size = New System.Drawing.Size(58, 55)
+        Me.btnConfirmar.Size = New System.Drawing.Size(77, 68)
         Me.btnConfirmar.TabIndex = 22
         Me.btnConfirmar.UseVisualStyleBackColor = True
         '
         'txtValorAbrir
         '
-        Me.txtValorAbrir.Location = New System.Drawing.Point(24, 106)
+        Me.txtValorAbrir.Location = New System.Drawing.Point(33, 122)
+        Me.txtValorAbrir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtValorAbrir.Name = "txtValorAbrir"
-        Me.txtValorAbrir.Size = New System.Drawing.Size(105, 20)
+        Me.txtValorAbrir.Size = New System.Drawing.Size(139, 22)
         Me.txtValorAbrir.TabIndex = 21
         '
         'lblValorAbrir
         '
         Me.lblValorAbrir.AutoSize = True
-        Me.lblValorAbrir.Location = New System.Drawing.Point(21, 90)
+        Me.lblValorAbrir.Location = New System.Drawing.Point(29, 103)
+        Me.lblValorAbrir.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblValorAbrir.Name = "lblValorAbrir"
-        Me.lblValorAbrir.Size = New System.Drawing.Size(89, 13)
+        Me.lblValorAbrir.Size = New System.Drawing.Size(112, 16)
         Me.lblValorAbrir.TabIndex = 20
         Me.lblValorAbrir.Text = "Valor do Abertura"
-        '
-        'txtData
-        '
-        Me.txtData.Location = New System.Drawing.Point(160, 106)
-        Me.txtData.Name = "txtData"
-        Me.txtData.Size = New System.Drawing.Size(106, 20)
-        Me.txtData.TabIndex = 19
-        '
-        'lblData
-        '
-        Me.lblData.AutoSize = True
-        Me.lblData.Location = New System.Drawing.Point(157, 90)
-        Me.lblData.Name = "lblData"
-        Me.lblData.Size = New System.Drawing.Size(30, 13)
-        Me.lblData.TabIndex = 18
-        Me.lblData.Text = "Data"
-        '
-        'lblFuncionario
-        '
-        Me.lblFuncionario.AutoSize = True
-        Me.lblFuncionario.Location = New System.Drawing.Point(102, 35)
-        Me.lblFuncionario.Name = "lblFuncionario"
-        Me.lblFuncionario.Size = New System.Drawing.Size(62, 13)
-        Me.lblFuncionario.TabIndex = 17
-        Me.lblFuncionario.Text = "Funcionário"
-        '
-        'txtFuncionario
-        '
-        Me.txtFuncionario.Enabled = False
-        Me.txtFuncionario.Location = New System.Drawing.Point(105, 51)
-        Me.txtFuncionario.Name = "txtFuncionario"
-        Me.txtFuncionario.Size = New System.Drawing.Size(326, 20)
-        Me.txtFuncionario.TabIndex = 16
         '
         'txtCaixa
         '
         Me.txtCaixa.Enabled = False
-        Me.txtCaixa.Location = New System.Drawing.Point(24, 51)
+        Me.txtCaixa.Location = New System.Drawing.Point(32, 63)
+        Me.txtCaixa.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtCaixa.Name = "txtCaixa"
-        Me.txtCaixa.Size = New System.Drawing.Size(56, 20)
+        Me.txtCaixa.Size = New System.Drawing.Size(73, 22)
         Me.txtCaixa.TabIndex = 15
         Me.txtCaixa.Text = "1"
         '
         'lblCaixa
         '
         Me.lblCaixa.AutoSize = True
-        Me.lblCaixa.Location = New System.Drawing.Point(21, 35)
+        Me.lblCaixa.Location = New System.Drawing.Point(28, 43)
+        Me.lblCaixa.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblCaixa.Name = "lblCaixa"
-        Me.lblCaixa.Size = New System.Drawing.Size(33, 13)
+        Me.lblCaixa.Size = New System.Drawing.Size(41, 16)
         Me.lblCaixa.TabIndex = 14
         Me.lblCaixa.Text = "Caixa"
         '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(393, 63)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(112, 22)
+        Me.DateTimePicker1.TabIndex = 26
+        '
+        'cboFuncionario
+        '
+        Me.cboFuncionario.FormattingEnabled = True
+        Me.cboFuncionario.Location = New System.Drawing.Point(112, 63)
+        Me.cboFuncionario.Name = "cboFuncionario"
+        Me.cboFuncionario.Size = New System.Drawing.Size(271, 24)
+        Me.cboFuncionario.TabIndex = 25
+        '
+        'lblData
+        '
+        Me.lblData.AutoSize = True
+        Me.lblData.Location = New System.Drawing.Point(390, 43)
+        Me.lblData.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblData.Name = "lblData"
+        Me.lblData.Size = New System.Drawing.Size(36, 16)
+        Me.lblData.TabIndex = 24
+        Me.lblData.Text = "Data"
+        '
+        'lblFuncionario
+        '
+        Me.lblFuncionario.AutoSize = True
+        Me.lblFuncionario.Location = New System.Drawing.Point(109, 43)
+        Me.lblFuncionario.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblFuncionario.Name = "lblFuncionario"
+        Me.lblFuncionario.Size = New System.Drawing.Size(77, 16)
+        Me.lblFuncionario.TabIndex = 23
+        Me.lblFuncionario.Text = "Funcionário"
+        '
         'frmRetiraCaixa
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(484, 246)
+        Me.ClientSize = New System.Drawing.Size(564, 303)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Panel1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmRetiraCaixa"
         Me.Text = "RetiraCaixa"
         Me.Panel1.ResumeLayout(False)
@@ -174,10 +187,10 @@ Partial Class frmRetiraCaixa
     Friend WithEvents btnConfirmar As System.Windows.Forms.Button
     Friend WithEvents txtValorAbrir As System.Windows.Forms.TextBox
     Friend WithEvents lblValorAbrir As System.Windows.Forms.Label
-    Friend WithEvents txtData As System.Windows.Forms.TextBox
-    Friend WithEvents lblData As System.Windows.Forms.Label
-    Friend WithEvents lblFuncionario As System.Windows.Forms.Label
-    Friend WithEvents txtFuncionario As System.Windows.Forms.TextBox
     Friend WithEvents txtCaixa As System.Windows.Forms.TextBox
     Friend WithEvents lblCaixa As System.Windows.Forms.Label
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents cboFuncionario As ComboBox
+    Friend WithEvents lblData As Label
+    Friend WithEvents lblFuncionario As Label
 End Class

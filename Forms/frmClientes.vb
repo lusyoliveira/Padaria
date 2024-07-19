@@ -47,12 +47,11 @@ Public Class frmClientes
     End Sub
 
     Private Sub lstDependente_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstDependente.SelectedIndexChanged
-        If lstDependente.SelectedItems.Count = 0 Then
-            Exit Sub
+        If lstDependente.SelectedItems.Count > 0 Then
+            lblCodDep.Text = Val(lstDependente.SelectedItems(0).ToString)
+            txtNome.Text = lstDependente.SelectedItems(1).ToString
+            cboParentesco.Text = lstDependente.SelectedItems(2).ToString
         End If
-        lblCodDep.Text = Val(lstDependente.SelectedItems(0).ToString)
-        txtNome.Text = lstDependente.SelectedItems(1).ToString
-        cboParentesco.Text = lstDependente.SelectedItems(2).ToString
     End Sub
 
     Private Sub btnAdicionar_Click(sender As Object, e As EventArgs) Handles btnAdicionar.Click
@@ -70,7 +69,7 @@ Public Class frmClientes
         ClasseDependente.ExcluirDependente(Val(lblCodDep.Text), Val(lblCodigo.Text))
     End Sub
 
-    Private Sub btnVerifica_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerifica.Click
+    Private Sub btnVerifica_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) 
         tbClientes = ClasseCliente.ConsultaCliente(lstCliente, 0, txtNome.Text)
         If tbClientes.Rows.Count <> 0 Then
             MessageBox.Show("O número de ficha já existe!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information)

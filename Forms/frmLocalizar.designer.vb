@@ -136,7 +136,7 @@ Partial Class frmLocalizar
         Me.lstLocalizar.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.codigo, Me.nome, Me.dados})
         Me.lstLocalizar.FullRowSelect = True
         Me.lstLocalizar.HideSelection = False
-        Me.lstLocalizar.Location = New System.Drawing.Point(32, 95)
+        Me.lstLocalizar.Location = New System.Drawing.Point(33, 77)
         Me.lstLocalizar.Margin = New System.Windows.Forms.Padding(4)
         Me.lstLocalizar.MultiSelect = False
         Me.lstLocalizar.Name = "lstLocalizar"
@@ -174,7 +174,7 @@ Partial Class frmLocalizar
         Me.cboItens.Location = New System.Drawing.Point(32, 47)
         Me.cboItens.Margin = New System.Windows.Forms.Padding(4)
         Me.cboItens.Name = "cboItens"
-        Me.cboItens.Size = New System.Drawing.Size(160, 24)
+        Me.cboItens.Size = New System.Drawing.Size(195, 24)
         Me.cboItens.TabIndex = 0
         Me.cboItens.Text = "Selecione..."
         '

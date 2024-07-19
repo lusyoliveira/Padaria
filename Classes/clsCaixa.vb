@@ -2,6 +2,26 @@
 
 Public Class clsCaixa
     Dim ClasseConexao As New clsConexao, tbCaixa, tbConfig As New DataTable()
+#Region "PROPRIEDADES"
+    Private Property _CodCaixa As Integer
+    Public Property CodCaixa As Integer
+        Get
+            Return _CodCaixa
+        End Get
+        Set(value As Integer)
+            _CodCaixa = value
+        End Set
+    End Property
+    Private Property _CodFunc As Integer
+    Public Property CodFunc As Integer
+        Get
+            Return _CodFunc
+        End Get
+        Set(value As Integer)
+            _CodFunc = value
+        End Set
+    End Property
+#End Region
 #Region "METODOS"
     Public Sub VerificaCaixa()
         Try
@@ -9,7 +29,6 @@ Public Class clsCaixa
                 connection.Open()
                 Dim sql As New String("SELECT * FROM tbcaderneta ORDER BY codigo DESC")
                 Dim MsgResult As DialogResult = MessageBox.Show("Deseja Sair do Sistema?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-
                 Using command As New SqlCommand(sql, connection)
                     Dim adapter As New SqlDataAdapter(command)
                     adapter.Fill(tbCaixa)
@@ -27,7 +46,7 @@ Public Class clsCaixa
         End Try
     End Sub
     Public Function VerificaCaixaAberto(Funcionario As String) As Integer
-        If Not existecaixa() Then
+        If Not ExisteCaixa() Then
             Return 0
         End If
         Try

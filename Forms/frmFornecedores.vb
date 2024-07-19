@@ -15,34 +15,33 @@ Public Class frmFornecedores
         txtEmail.Text = ""
         mkdTelefone.Text = ""
         mkdCelular.Text = ""
+        lstFornecedores.Items.Clear()
     End Sub
     Private Sub lstFornecedores_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstFornecedores.SelectedIndexChanged
-        If lstFornecedores.SelectedItems.Count = 0 Then
-            limpar()
-            Exit Sub
+        If lstFornecedores.SelectedItems.Count > 0 Then
+            lblCodigo.Text = Val(lstFornecedores.SelectedItems(0).SubItems(0).Text)
+            txtEmpresa.Text = lstFornecedores.SelectedItems(0).SubItems(1).Text
+            txtBairro.Text = lstFornecedores.SelectedItems(0).SubItems(2).Text
+            txtComplemento.Text = lstFornecedores.SelectedItems(0).SubItems(3).Text
+            cboCidade.Text = lstFornecedores.SelectedItems(0).SubItems(4).Text
+            mkdCNPJ.Text = lstFornecedores.SelectedItems(0).SubItems(5).Text
+            txtEndereco.Text = lstFornecedores.SelectedItems(0).SubItems(6).Text
+            cbouf.Text = lstFornecedores.SelectedItems(0).SubItems(7).Text
+            mkdCEP.Text = lstFornecedores.SelectedItems(0).SubItems(8).Text
+            txtFornecedor.Text = lstFornecedores.SelectedItems(0).SubItems(9).Text
+            mkdTelefone.Text = lstFornecedores.SelectedItems(0).SubItems(10).Text
+            mkdCelular.Text = lstFornecedores.SelectedItems(0).SubItems(11).Text
+            txtSite.Text = lstFornecedores.SelectedItems(0).SubItems(12).Text
+            txtEmail.Text = lstFornecedores.SelectedItems(0).SubItems(13).Text
         End If
-        grpFornecedores.Tag = Val(lstFornecedores.SelectedItems(0).SubItems(0).Text)
-        txtEmpresa.Text = lstFornecedores.SelectedItems(0).SubItems(0).Text
-        txtEndereco.Text = lstFornecedores.SelectedItems(0).SubItems(1).Text
-        txtBairro.Text = lstFornecedores.SelectedItems(0).SubItems(2).Text
-        txtComplemento.Text = lstFornecedores.SelectedItems(0).SubItems(3).Text
-        cboCidade.Text = lstFornecedores.SelectedItems(0).SubItems(4).Text
-        mkdCNPJ.Text = lstFornecedores.SelectedItems(0).SubItems(5).Text
-        cbouf.Text = lstFornecedores.SelectedItems(0).SubItems(6).Text
-        mkdCEP.Text = lstFornecedores.SelectedItems(0).SubItems(7).Text
-        txtFornecedor.Text = lstFornecedores.SelectedItems(0).SubItems(8).Text
-        mkdTelefone.Text = lstFornecedores.SelectedItems(0).SubItems(9).Text
-        mkdCelular.Text = lstFornecedores.SelectedItems(0).SubItems(10).Text
-        txtSite.Text = lstFornecedores.SelectedItems(0).SubItems(11).Text
-        txtEmail.Text = lstFornecedores.SelectedItems(0).SubItems(12).Text
     End Sub
     Private Sub btnSalvar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalvar.Click
         Dim MsgResult As DialogResult = MessageBox.Show("Confirma a inclusão do fornecedor?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
         If MsgResult = DialogResult.Yes Then
             ClasseFornecedores.SalvarFornecedor(txtFornecedor.Text, txtEmpresa.Text, txtEndereco.Text, txtBairro.Text, txtComplemento.Text, cboCidade.Text, mkdCNPJ.Text, cbouf.Text, mkdCEP.Text, mkdTelefone.Text, mkdCelular.Text, txtSite.Text, txtEmail.Text)
-            ClasseFornecedores.ConsultaFornecedor(lstFornecedores, Val(lblCodigo.Text), txtFornecedor.Text)
             limpar()
+            ClasseFornecedores.ConsultaFornecedor(lstFornecedores, Val(lblCodigo.Text), txtFornecedor.Text)
         Else
             Exit Sub
         End If
@@ -52,8 +51,8 @@ Public Class frmFornecedores
 
         If MsgResult = DialogResult.Yes Then
             ClasseFornecedores.AlterarFornecedor(Val(lblCodigo.Text), txtFornecedor.Text, txtEmpresa.Text, txtEndereco.Text, txtBairro.Text, txtComplemento.Text, cboCidade.Text, mkdCNPJ.Text, cbouf.Text, mkdCEP.Text, mkdTelefone.Text, mkdCelular.Text, txtSite.Text, txtEmail.Text)
-            ClasseFornecedores.ConsultaFornecedor(lstFornecedores, Val(lblCodigo.Text), txtFornecedor.Text)
             limpar()
+            ClasseFornecedores.ConsultaFornecedor(lstFornecedores, Val(lblCodigo.Text), txtFornecedor.Text)
         Else
             Exit Sub
         End If
@@ -63,8 +62,8 @@ Public Class frmFornecedores
 
         If MsgResult = DialogResult.Yes Then
             ClasseFornecedores.ExcluirFornecedor(Val(lblCodigo.Text))
-            ClasseFornecedores.ConsultaFornecedor(lstFornecedores, Val(lblCodigo.Text), txtFornecedor.Text)
             limpar()
+            ClasseFornecedores.ConsultaFornecedor(lstFornecedores, Val(lblCodigo.Text), txtFornecedor.Text)
         Else
             Exit Sub
         End If

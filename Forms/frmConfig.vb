@@ -28,7 +28,5 @@ Public Class frmConfig
         btnAlterar.Enabled = True
         btnSalvar.Enabled = False
     End Sub
-    Private Sub btnAlterar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAlterar.Click
-        grpConfig.Enabled = True
-    End Sub
+
 End Class

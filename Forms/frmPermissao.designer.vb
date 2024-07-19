@@ -28,13 +28,14 @@ Partial Class frmPermissao
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnSalvar = New System.Windows.Forms.Button()
         Me.btnExcluir = New System.Windows.Forms.Button()
-        Me.lstMenus = New System.Windows.Forms.CheckedListBox()
         Me.grpPermissoes = New System.Windows.Forms.GroupBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.lblCodigo = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.lblCodigo = New System.Windows.Forms.Label()
+        Me.btnconsultar = New System.Windows.Forms.Button()
+        Me.clbPermissoes = New System.Windows.Forms.CheckedListBox()
         Me.grpPermissoes.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -53,10 +54,11 @@ Partial Class frmPermissao
         '
         Me.cboPermissao.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.cboPermissao.FormattingEnabled = True
+        Me.cboPermissao.Items.AddRange(New Object() {"ADMINISTRADOR", "USUARIO LIMITADO", "VENDEDOR"})
         Me.cboPermissao.Location = New System.Drawing.Point(90, 62)
         Me.cboPermissao.Margin = New System.Windows.Forms.Padding(4)
         Me.cboPermissao.Name = "cboPermissao"
-        Me.cboPermissao.Size = New System.Drawing.Size(341, 28)
+        Me.cboPermissao.Size = New System.Drawing.Size(499, 28)
         Me.cboPermissao.TabIndex = 1
         '
         'Label2
@@ -75,7 +77,7 @@ Partial Class frmPermissao
         Me.btnSalvar.BackgroundImage = Global.Padaria.My.Resources.Resources.ok
         Me.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnSalvar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.btnSalvar.Location = New System.Drawing.Point(518, 43)
+        Me.btnSalvar.Location = New System.Drawing.Point(268, 477)
         Me.btnSalvar.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSalvar.Name = "btnSalvar"
         Me.btnSalvar.Size = New System.Drawing.Size(71, 68)
@@ -88,7 +90,7 @@ Partial Class frmPermissao
         Me.btnExcluir.BackgroundImage = Global.Padaria.My.Resources.Resources.ball_stop
         Me.btnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnExcluir.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.btnExcluir.Location = New System.Drawing.Point(439, 43)
+        Me.btnExcluir.Location = New System.Drawing.Point(189, 477)
         Me.btnExcluir.Margin = New System.Windows.Forms.Padding(4)
         Me.btnExcluir.Name = "btnExcluir"
         Me.btnExcluir.Size = New System.Drawing.Size(71, 68)
@@ -96,21 +98,12 @@ Partial Class frmPermissao
         Me.ToolTip1.SetToolTip(Me.btnExcluir, "Excluir")
         Me.btnExcluir.UseVisualStyleBackColor = True
         '
-        'lstMenus
-        '
-        Me.lstMenus.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lstMenus.FormattingEnabled = True
-        Me.lstMenus.Location = New System.Drawing.Point(29, 127)
-        Me.lstMenus.Margin = New System.Windows.Forms.Padding(4)
-        Me.lstMenus.Name = "lstMenus"
-        Me.lstMenus.Size = New System.Drawing.Size(560, 340)
-        Me.lstMenus.TabIndex = 7
-        '
         'grpPermissoes
         '
+        Me.grpPermissoes.Controls.Add(Me.clbPermissoes)
+        Me.grpPermissoes.Controls.Add(Me.btnconsultar)
         Me.grpPermissoes.Controls.Add(Me.Label7)
         Me.grpPermissoes.Controls.Add(Me.lblCodigo)
-        Me.grpPermissoes.Controls.Add(Me.lstMenus)
         Me.grpPermissoes.Controls.Add(Me.btnSalvar)
         Me.grpPermissoes.Controls.Add(Me.btnExcluir)
         Me.grpPermissoes.Controls.Add(Me.Label2)
@@ -121,11 +114,31 @@ Partial Class frmPermissao
         Me.grpPermissoes.Margin = New System.Windows.Forms.Padding(4)
         Me.grpPermissoes.Name = "grpPermissoes"
         Me.grpPermissoes.Padding = New System.Windows.Forms.Padding(4)
-        Me.grpPermissoes.Size = New System.Drawing.Size(617, 495)
+        Me.grpPermissoes.Size = New System.Drawing.Size(617, 561)
         Me.grpPermissoes.TabIndex = 8
         Me.grpPermissoes.TabStop = False
         Me.grpPermissoes.Tag = "0"
         Me.grpPermissoes.Text = "Permissões de Usuários"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(26, 38)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(56, 18)
+        Me.Label7.TabIndex = 63
+        Me.Label7.Text = "Código"
+        '
+        'lblCodigo
+        '
+        Me.lblCodigo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblCodigo.Location = New System.Drawing.Point(29, 62)
+        Me.lblCodigo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblCodigo.Name = "lblCodigo"
+        Me.lblCodigo.Size = New System.Drawing.Size(53, 28)
+        Me.lblCodigo.TabIndex = 62
         '
         'Panel1
         '
@@ -148,31 +161,31 @@ Partial Class frmPermissao
         Me.Panel2.Size = New System.Drawing.Size(649, 33)
         Me.Panel2.TabIndex = 39
         '
-        'Label7
+        'btnconsultar
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(26, 38)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(56, 18)
-        Me.Label7.TabIndex = 63
-        Me.Label7.Text = "Código"
+        Me.btnconsultar.BackgroundImage = Global.Padaria.My.Resources.Resources.binoculars
+        Me.btnconsultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnconsultar.Location = New System.Drawing.Point(347, 477)
+        Me.btnconsultar.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnconsultar.Name = "btnconsultar"
+        Me.btnconsultar.Size = New System.Drawing.Size(71, 68)
+        Me.btnconsultar.TabIndex = 64
+        Me.ToolTip1.SetToolTip(Me.btnconsultar, "Consultar")
+        Me.btnconsultar.UseVisualStyleBackColor = True
         '
-        'lblCodigo
+        'clbPermissoes
         '
-        Me.lblCodigo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblCodigo.Location = New System.Drawing.Point(29, 62)
-        Me.lblCodigo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblCodigo.Name = "lblCodigo"
-        Me.lblCodigo.Size = New System.Drawing.Size(53, 28)
-        Me.lblCodigo.TabIndex = 62
+        Me.clbPermissoes.FormattingEnabled = True
+        Me.clbPermissoes.Location = New System.Drawing.Point(29, 130)
+        Me.clbPermissoes.Name = "clbPermissoes"
+        Me.clbPermissoes.Size = New System.Drawing.Size(560, 329)
+        Me.clbPermissoes.TabIndex = 65
         '
         'frmPermissao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(649, 607)
+        Me.ClientSize = New System.Drawing.Size(649, 674)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.grpPermissoes)
@@ -191,11 +204,12 @@ Partial Class frmPermissao
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents btnSalvar As System.Windows.Forms.Button
     Friend WithEvents btnExcluir As System.Windows.Forms.Button
-    Friend WithEvents lstMenus As System.Windows.Forms.CheckedListBox
     Friend WithEvents grpPermissoes As System.Windows.Forms.GroupBox
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Label7 As Label
     Friend WithEvents lblCodigo As Label
+    Friend WithEvents btnconsultar As Button
+    Friend WithEvents clbPermissoes As CheckedListBox
 End Class

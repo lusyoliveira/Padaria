@@ -1,11 +1,7 @@
 ﻿Imports System.IO
-Imports System.Threading.Thread
-Imports System.Globalization
-Imports System.Data.SqlClient
 Module mdlFuncoes
     'Public meuServidor As String = "SJFPA008\DEV"
     Public total2
-    Dim tbaux3, tabela, tbcaixa, rs, tbconfig, tbaux, tbpermissao, tbClientes
 
     Declare Function GetUserName Lib "advapi32.dll" Alias _
 "GetUserNameA" (ByVal lpBuffer As String,
@@ -55,7 +51,6 @@ ByRef nSize As Integer) As Integer
         Next
 
         mcripto = wvRETORNA
-
     End Function
     Public Function muncripto(ByVal wvTEXTO As String)
         Dim X, Y, INDICE As Integer
@@ -77,23 +72,19 @@ ByRef nSize As Integer) As Integer
             wvRETORNA = wvRETORNA + Right(Left(wvTEXTO2, INDICE), 1)
 
         Next
-
         muncripto = wvRETORNA
-
     End Function
     Public Function carregalista(ByVal lista As CheckedListBox, ByVal sql As String, ByVal campo As String, Optional ByVal checa As Boolean = False) As Boolean
         Dim tbLista As DataTable
-        'tbLista = RecebeTabela(sql)
 
         If tbLista.Rows.Count = 0 Then
             Return False
+        Else
+            For Each row As DataRow In tbLista.Rows
+                lista.Items.Add(row(campo).ToString())
+            Next
+            Return True
         End If
-
-        For Each row As DataRow In tbLista.Rows
-            lista.Items.Add(row(campo).ToString())
-        Next
-
-        Return True
     End Function
 
 
@@ -147,33 +138,6 @@ ByRef nSize As Integer) As Integer
         montadata = CDate(novadata)
 
     End Function
-    Public Function montargrade(ByVal sql As String, ByVal grade As DataGridView, ByVal textodestino As TextBox, ByVal ParamArray conteudo() As Object) As Boolean
-        Dim x As Integer, y As Integer, total As Long
-
-        ' tabela = RecebeTabela(sql)
-        total = 0
-        grade.Rows.Clear()
-        If tabela.RecordCount <> 0 Then
-            tabela.MoveFirst()
-
-            x = 0
-            While tabela.EOF = False
-                grade.Rows.Add(tabela.Fields(conteudo(0)).Value.ToString)
-                For y = 1 To UBound(conteudo)
-                    grade.Item(y, x).Value = tabela.Fields(conteudo(y)).Value.ToString
-                Next
-                x = x + 1
-                total = total + 1
-                tabela.MoveNext()
-            End While
-            montargrade = True
-        Else
-
-            montargrade = False
-        End If
-        textodestino.Text = total
-    End Function
-
     Public Function centraliza(ByVal frase As String, ByVal valor As Integer)
         Return (valor - frase.Length) / 2
     End Function
@@ -233,113 +197,6 @@ ByRef nSize As Integer) As Integer
         End If
 
     End Function
-    Public Function tratadata2(ByVal data As String) As Date
-        'Dim novadata As String
-        ' novadata = data.Substring(0, 2) & "/" & data.Substring(2, 2) & "/" & data.Substring(4, 4)
-        'If IsDate(novadata) = True Then
-        'Return Format(CDate(novadata), "dd/MM/yyyy")
-        ' Else
-        ' Return Format(CDate("01/01/1900"), "dd/MM/yyyy")
-        ' End If
-    End Function
-
-
-    'Public Function VAL_CPF(ByVal CPF As String) As Boolean
-
-    '    'TRUE = INVÁLIDO ... FALSE = VÁLIDO
-
-    '    Dim CONT, I As Byte
-    '    Dim CPFa(11), CPFb(11), SM As Integer
-
-    '    CPF = Replace(CPF, ".", vbNullString)
-    '    CPF = Replace(CPF, "-", vbNullString)
-
-    '    If Len(CPF) <> 11 Then
-    '        VAL_CPF = False
-    '    Else
-
-    '        ''''''VERIFICA CARACTERES INVÁLIDOS''''''
-    '        If Not IsNumeric(CPF) Then
-    '            VAL_CPF = True
-    '        Else
-
-    '            ''''''VERIFICA NUMERAÇÃO''''''
-    '            If CPF = "11111111111" Or CPF = "22222222222" Or _
-    '                CPF = "33333333333" Or CPF = "44444444444" Or _
-    '                CPF = "55555555555" Or CPF = "66666666666" Or _
-    '                CPF = "77777777777" Or CPF = "88888888888" Or _
-    '                CPF = "99999999999" Or CPF = "00000000000" Then
-
-    '                VAL_CPF = True
-
-    '            Else
-    '                ''''''CARREGA VETOR''''''
-    '                For I = 1 To 11
-
-    '                    CPFa(I) = Mid(CPF, I, 1)
-
-    '                Next I
-    '                ''''''FIM CARREGA VETOR''''''
-
-    '                ''''''1° DIGITO''''''
-    '                CONT = 10
-    '                SM = 0
-
-    '                For I = 1 To 9
-
-    '                    CPFb(I) = CPFa(I) * CONT
-
-    '                    CONT = CONT - 1
-
-    '                    SM = SM + CPFb(I)
-
-    '                Next I
-
-    '                If SM Mod 11 < 2 Then
-
-    '                    CPFa(10) = 0
-
-    '                Else
-
-    '                    CPFa(10) = 11 - (SM Mod 11)
-
-    '                End If
-    '                ''''''FIM 1° DIGITO''''''
-
-    '                ''''''2° DIGITO''''''
-    '                CONT = 11
-    '                SM = 0
-
-    '                For I = 1 To 10
-
-    '                    CPFb(I) = CPFa(I) * CONT
-    '                    CONT = CONT - 1
-    '                    SM = SM + CPFb(I)
-
-    '                Next I
-
-    '                If SM Mod 11 < 2 Then
-    '                    CPFa(11) = 0
-    '                Else
-    '                    CPFa(11) = 11 - (SM Mod 11)
-    '                End If
-    '                ''''''FIM 2° DIGITO''''''
-
-    '                ''''''VERIFICA OS DIGITOS''''''
-    '                If Mid(CPF, 10, 2) <> CPFa(10) & CPFa(11) Then
-    '                    VAL_CPF = True
-    '                End If
-    '                ''''''FIM VERIFICA OS DIGITOS''''''
-
-    '            End If
-    '            ''''''FIM VERIFICA NUMERAÇÃO''''''
-
-    '        End If
-    '        ''''''FIM VERIFICA CARACTERES INVÁLIDOS''''''
-
-    '    End If
-
-    'End Function
 
     Public Function VAL_CPF(ByVal CPF As String) As Boolean
         On Error Resume Next
@@ -548,7 +405,7 @@ ByRef nSize As Integer) As Integer
 
     Public Function GeraCodigo()
 
-        Dim Soma = frmCaderneta.Label2.Text
+        Dim Soma = frmCaderneta.lblNumeroCaderneta.Text
         Dim Anotar As Integer
         Dim NovoSlip As String = "000"
         Dim Numero As String

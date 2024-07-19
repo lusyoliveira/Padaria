@@ -50,30 +50,31 @@ Partial Class frmFornecedores
         Me.mkdCEP = New System.Windows.Forms.MaskedTextBox()
         Me.cbouf = New System.Windows.Forms.ComboBox()
         Me.grpFornecedores = New System.Windows.Forms.GroupBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.lblCodigo = New System.Windows.Forms.Label()
         Me.cboCidade = New System.Windows.Forms.ComboBox()
         Me.btnExcluir = New System.Windows.Forms.Button()
         Me.btnSalvar = New System.Windows.Forms.Button()
         Me.btnAlterar = New System.Windows.Forms.Button()
         Me.lstFornecedores = New System.Windows.Forms.ListView()
-        Me.empresa = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.endereco = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.bairro = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.complemento = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.cidade = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.CNPJ = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.uf = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.cep = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.fornecedor = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.telefone = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.celular = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.siteweb = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.email = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.lblCodigo = New System.Windows.Forms.Label()
+        Me.Codigo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Empresa = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Endereco = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Bairro = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Complemento = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Cidade = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.CNPJ = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Estado = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.CEP = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Fornecedor = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Celular = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Site = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Email = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Telefone = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.grpFornecedores.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -82,9 +83,9 @@ Partial Class frmFornecedores
         Me.Panel1.BackColor = System.Drawing.Color.Navy
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1065, 92)
+        Me.Panel1.Size = New System.Drawing.Size(1064, 115)
         Me.Panel1.TabIndex = 1
         '
         'lblFornecedor
@@ -102,7 +103,7 @@ Partial Class frmFornecedores
         '
         Me.txtFornecedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtFornecedor.Location = New System.Drawing.Point(438, 64)
-        Me.txtFornecedor.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtFornecedor.Margin = New System.Windows.Forms.Padding(4)
         Me.txtFornecedor.Name = "txtFornecedor"
         Me.txtFornecedor.Size = New System.Drawing.Size(401, 24)
         Me.txtFornecedor.TabIndex = 8
@@ -155,7 +156,7 @@ Partial Class frmFornecedores
         '
         Me.txtEmpresa.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEmpresa.Location = New System.Drawing.Point(91, 64)
-        Me.txtEmpresa.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtEmpresa.Margin = New System.Windows.Forms.Padding(4)
         Me.txtEmpresa.Name = "txtEmpresa"
         Me.txtEmpresa.Size = New System.Drawing.Size(339, 24)
         Me.txtEmpresa.TabIndex = 0
@@ -197,7 +198,7 @@ Partial Class frmFornecedores
         '
         Me.txtEndereco.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEndereco.Location = New System.Drawing.Point(16, 119)
-        Me.txtEndereco.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtEndereco.Margin = New System.Windows.Forms.Padding(4)
         Me.txtEndereco.Name = "txtEndereco"
         Me.txtEndereco.Size = New System.Drawing.Size(379, 24)
         Me.txtEndereco.TabIndex = 1
@@ -206,7 +207,7 @@ Partial Class frmFornecedores
         '
         Me.txtComplemento.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtComplemento.Location = New System.Drawing.Point(620, 119)
-        Me.txtComplemento.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtComplemento.Margin = New System.Windows.Forms.Padding(4)
         Me.txtComplemento.Name = "txtComplemento"
         Me.txtComplemento.Size = New System.Drawing.Size(109, 24)
         Me.txtComplemento.TabIndex = 3
@@ -215,7 +216,7 @@ Partial Class frmFornecedores
         '
         Me.txtBairro.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtBairro.Location = New System.Drawing.Point(403, 119)
-        Me.txtBairro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtBairro.Margin = New System.Windows.Forms.Padding(4)
         Me.txtBairro.Name = "txtBairro"
         Me.txtBairro.Size = New System.Drawing.Size(209, 24)
         Me.txtBairro.TabIndex = 2
@@ -235,7 +236,7 @@ Partial Class frmFornecedores
         '
         Me.mkdCelular.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.mkdCelular.Location = New System.Drawing.Point(246, 167)
-        Me.mkdCelular.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.mkdCelular.Margin = New System.Windows.Forms.Padding(4)
         Me.mkdCelular.Mask = "(00)0000-0000"
         Me.mkdCelular.Name = "mkdCelular"
         Me.mkdCelular.Size = New System.Drawing.Size(132, 24)
@@ -245,7 +246,7 @@ Partial Class frmFornecedores
         '
         Me.mkdTelefone.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.mkdTelefone.Location = New System.Drawing.Point(119, 167)
-        Me.mkdTelefone.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.mkdTelefone.Margin = New System.Windows.Forms.Padding(4)
         Me.mkdTelefone.Mask = "(00)0000-0000"
         Me.mkdTelefone.Name = "mkdTelefone"
         Me.mkdTelefone.Size = New System.Drawing.Size(119, 24)
@@ -277,7 +278,7 @@ Partial Class frmFornecedores
         '
         Me.txtSite.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSite.Location = New System.Drawing.Point(675, 167)
-        Me.txtSite.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtSite.Margin = New System.Windows.Forms.Padding(4)
         Me.txtSite.Name = "txtSite"
         Me.txtSite.Size = New System.Drawing.Size(337, 24)
         Me.txtSite.TabIndex = 11
@@ -286,7 +287,7 @@ Partial Class frmFornecedores
         '
         Me.txtEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEmail.Location = New System.Drawing.Point(386, 167)
-        Me.txtEmail.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtEmail.Margin = New System.Windows.Forms.Padding(4)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(281, 24)
         Me.txtEmail.TabIndex = 12
@@ -317,7 +318,7 @@ Partial Class frmFornecedores
         '
         Me.mkdCNPJ.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.mkdCNPJ.Location = New System.Drawing.Point(847, 64)
-        Me.mkdCNPJ.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.mkdCNPJ.Margin = New System.Windows.Forms.Padding(4)
         Me.mkdCNPJ.Mask = "000.000.000/0000-00"
         Me.mkdCNPJ.Name = "mkdCNPJ"
         Me.mkdCNPJ.Size = New System.Drawing.Size(165, 24)
@@ -327,7 +328,7 @@ Partial Class frmFornecedores
         '
         Me.mkdCEP.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.mkdCEP.Location = New System.Drawing.Point(15, 167)
-        Me.mkdCEP.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.mkdCEP.Margin = New System.Windows.Forms.Padding(4)
         Me.mkdCEP.Mask = "00000 - 000"
         Me.mkdCEP.Name = "mkdCEP"
         Me.mkdCEP.Size = New System.Drawing.Size(96, 24)
@@ -339,7 +340,7 @@ Partial Class frmFornecedores
         Me.cbouf.FormattingEnabled = True
         Me.cbouf.Items.AddRange(New Object() {" AC", " AL", " AP", " AM", " BA", " CE", " DF", " ES", " GO", " MA", " MT", " MS", " MG", " PA", " PB", " PR", " PE", " PI", " RJ", " RN", " RS", " RO", " RR", " SC", " SP", " SE", " TO"})
         Me.cbouf.Location = New System.Drawing.Point(905, 119)
-        Me.cbouf.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cbouf.Margin = New System.Windows.Forms.Padding(4)
         Me.cbouf.Name = "cbouf"
         Me.cbouf.Size = New System.Drawing.Size(107, 26)
         Me.cbouf.TabIndex = 6
@@ -379,162 +380,15 @@ Partial Class frmFornecedores
         Me.grpFornecedores.Controls.Add(Me.txtFornecedor)
         Me.grpFornecedores.Controls.Add(Me.lblFornecedor)
         Me.grpFornecedores.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grpFornecedores.Location = New System.Drawing.Point(16, 100)
-        Me.grpFornecedores.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grpFornecedores.Location = New System.Drawing.Point(13, 123)
+        Me.grpFornecedores.Margin = New System.Windows.Forms.Padding(4)
         Me.grpFornecedores.Name = "grpFornecedores"
-        Me.grpFornecedores.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grpFornecedores.Padding = New System.Windows.Forms.Padding(4)
         Me.grpFornecedores.Size = New System.Drawing.Size(1031, 532)
         Me.grpFornecedores.TabIndex = 17
         Me.grpFornecedores.TabStop = False
         Me.grpFornecedores.Tag = "0"
         Me.grpFornecedores.Text = "Fornecedores"
-        '
-        'cboCidade
-        '
-        Me.cboCidade.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboCidade.FormattingEnabled = True
-        Me.cboCidade.Items.AddRange(New Object() {"Juiz de Fora", "Barbacena", "Belo Horizonte"})
-        Me.cboCidade.Location = New System.Drawing.Point(737, 119)
-        Me.cboCidade.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.cboCidade.Name = "cboCidade"
-        Me.cboCidade.Size = New System.Drawing.Size(160, 26)
-        Me.cboCidade.TabIndex = 4
-        '
-        'btnExcluir
-        '
-        Me.btnExcluir.BackgroundImage = Global.Padaria.My.Resources.Resources.ball_stop
-        Me.btnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnExcluir.Location = New System.Drawing.Point(582, 444)
-        Me.btnExcluir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.btnExcluir.Name = "btnExcluir"
-        Me.btnExcluir.Size = New System.Drawing.Size(71, 68)
-        Me.btnExcluir.TabIndex = 15
-        Me.btnExcluir.UseVisualStyleBackColor = True
-        '
-        'btnSalvar
-        '
-        Me.btnSalvar.BackgroundImage = Global.Padaria.My.Resources.Resources.ok
-        Me.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnSalvar.Location = New System.Drawing.Point(401, 444)
-        Me.btnSalvar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.btnSalvar.Name = "btnSalvar"
-        Me.btnSalvar.Size = New System.Drawing.Size(71, 68)
-        Me.btnSalvar.TabIndex = 13
-        Me.btnSalvar.UseVisualStyleBackColor = True
-        '
-        'btnAlterar
-        '
-        Me.btnAlterar.BackgroundImage = Global.Padaria.My.Resources.Resources.document
-        Me.btnAlterar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnAlterar.Location = New System.Drawing.Point(489, 444)
-        Me.btnAlterar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.btnAlterar.Name = "btnAlterar"
-        Me.btnAlterar.Size = New System.Drawing.Size(71, 68)
-        Me.btnAlterar.TabIndex = 14
-        Me.btnAlterar.UseVisualStyleBackColor = True
-        '
-        'lstFornecedores
-        '
-        Me.lstFornecedores.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.empresa, Me.endereco, Me.bairro, Me.complemento, Me.cidade, Me.CNPJ, Me.uf, Me.cep, Me.fornecedor, Me.telefone, Me.celular, Me.siteweb, Me.email})
-        Me.lstFornecedores.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
-        Me.lstFornecedores.FullRowSelect = True
-        Me.lstFornecedores.HideSelection = False
-        Me.lstFornecedores.Location = New System.Drawing.Point(15, 199)
-        Me.lstFornecedores.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.lstFornecedores.MultiSelect = False
-        Me.lstFornecedores.Name = "lstFornecedores"
-        Me.lstFornecedores.Size = New System.Drawing.Size(997, 237)
-        Me.lstFornecedores.TabIndex = 29
-        Me.lstFornecedores.UseCompatibleStateImageBehavior = False
-        Me.lstFornecedores.View = System.Windows.Forms.View.Details
-        '
-        'empresa
-        '
-        Me.empresa.Text = "Empresa"
-        Me.empresa.Width = 150
-        '
-        'endereco
-        '
-        Me.endereco.Text = "Endereço"
-        Me.endereco.Width = 150
-        '
-        'bairro
-        '
-        Me.bairro.Text = "Bairro"
-        Me.bairro.Width = 100
-        '
-        'complemento
-        '
-        Me.complemento.Text = "Complemento"
-        Me.complemento.Width = 80
-        '
-        'cidade
-        '
-        Me.cidade.Text = "Cidade"
-        Me.cidade.Width = 100
-        '
-        'CNPJ
-        '
-        Me.CNPJ.Text = "CNPJ"
-        Me.CNPJ.Width = 100
-        '
-        'uf
-        '
-        Me.uf.Text = "UF"
-        Me.uf.Width = 40
-        '
-        'cep
-        '
-        Me.cep.Text = "CEP"
-        Me.cep.Width = 90
-        '
-        'fornecedor
-        '
-        Me.fornecedor.Text = "Fornecedor"
-        Me.fornecedor.Width = 100
-        '
-        'telefone
-        '
-        Me.telefone.Text = "Telefone"
-        '
-        'celular
-        '
-        Me.celular.Text = "Celular"
-        '
-        'siteweb
-        '
-        Me.siteweb.Text = "Site"
-        Me.siteweb.Width = 100
-        '
-        'email
-        '
-        Me.email.Text = "E - Mail"
-        Me.email.Width = 100
-        '
-        'PrintPreviewDialog1
-        '
-        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
-        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
-        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
-        Me.PrintPreviewDialog1.Document = Me.PrintDocument1
-        Me.PrintPreviewDialog1.Enabled = True
-        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
-        Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
-        Me.PrintPreviewDialog1.Visible = False
-        '
-        'PrintDialog1
-        '
-        Me.PrintDialog1.UseEXDialog = True
-        '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.White
-        Me.Panel2.ForeColor = System.Drawing.Color.DarkRed
-        Me.Panel2.Location = New System.Drawing.Point(0, 38)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1065, 38)
-        Me.Panel2.TabIndex = 39
         '
         'Label7
         '
@@ -556,16 +410,156 @@ Partial Class frmFornecedores
         Me.lblCodigo.Size = New System.Drawing.Size(67, 24)
         Me.lblCodigo.TabIndex = 58
         '
+        'cboCidade
+        '
+        Me.cboCidade.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboCidade.FormattingEnabled = True
+        Me.cboCidade.Items.AddRange(New Object() {"Juiz de Fora", "Barbacena", "Belo Horizonte"})
+        Me.cboCidade.Location = New System.Drawing.Point(737, 119)
+        Me.cboCidade.Margin = New System.Windows.Forms.Padding(4)
+        Me.cboCidade.Name = "cboCidade"
+        Me.cboCidade.Size = New System.Drawing.Size(160, 26)
+        Me.cboCidade.TabIndex = 4
+        '
+        'btnExcluir
+        '
+        Me.btnExcluir.BackgroundImage = Global.Padaria.My.Resources.Resources.ball_stop
+        Me.btnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnExcluir.Location = New System.Drawing.Point(582, 444)
+        Me.btnExcluir.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnExcluir.Name = "btnExcluir"
+        Me.btnExcluir.Size = New System.Drawing.Size(71, 68)
+        Me.btnExcluir.TabIndex = 15
+        Me.btnExcluir.UseVisualStyleBackColor = True
+        '
+        'btnSalvar
+        '
+        Me.btnSalvar.BackgroundImage = Global.Padaria.My.Resources.Resources.ok
+        Me.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnSalvar.Location = New System.Drawing.Point(401, 444)
+        Me.btnSalvar.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnSalvar.Name = "btnSalvar"
+        Me.btnSalvar.Size = New System.Drawing.Size(71, 68)
+        Me.btnSalvar.TabIndex = 13
+        Me.btnSalvar.UseVisualStyleBackColor = True
+        '
+        'btnAlterar
+        '
+        Me.btnAlterar.BackgroundImage = Global.Padaria.My.Resources.Resources.document
+        Me.btnAlterar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnAlterar.Location = New System.Drawing.Point(489, 444)
+        Me.btnAlterar.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnAlterar.Name = "btnAlterar"
+        Me.btnAlterar.Size = New System.Drawing.Size(71, 68)
+        Me.btnAlterar.TabIndex = 14
+        Me.btnAlterar.UseVisualStyleBackColor = True
+        '
+        'lstFornecedores
+        '
+        Me.lstFornecedores.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Codigo, Me.Empresa, Me.Bairro, Me.Complemento, Me.Cidade, Me.CNPJ, Me.Endereco, Me.Estado, Me.CEP, Me.Fornecedor, Me.Celular, Me.Telefone, Me.Site, Me.Email})
+        Me.lstFornecedores.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
+        Me.lstFornecedores.FullRowSelect = True
+        Me.lstFornecedores.HideSelection = False
+        Me.lstFornecedores.Location = New System.Drawing.Point(15, 199)
+        Me.lstFornecedores.Margin = New System.Windows.Forms.Padding(4)
+        Me.lstFornecedores.MultiSelect = False
+        Me.lstFornecedores.Name = "lstFornecedores"
+        Me.lstFornecedores.Size = New System.Drawing.Size(997, 237)
+        Me.lstFornecedores.TabIndex = 29
+        Me.lstFornecedores.UseCompatibleStateImageBehavior = False
+        Me.lstFornecedores.View = System.Windows.Forms.View.Details
+        '
+        'PrintPreviewDialog1
+        '
+        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
+        Me.PrintPreviewDialog1.Document = Me.PrintDocument1
+        Me.PrintPreviewDialog1.Enabled = True
+        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
+        Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
+        Me.PrintPreviewDialog1.Visible = False
+        '
+        'PrintDialog1
+        '
+        Me.PrintDialog1.UseEXDialog = True
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.White
+        Me.Panel2.ForeColor = System.Drawing.Color.DarkRed
+        Me.Panel2.Location = New System.Drawing.Point(0, 38)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1065, 38)
+        Me.Panel2.TabIndex = 39
+        '
+        'Codigo
+        '
+        Me.Codigo.Text = "Código"
+        '
+        'Empresa
+        '
+        Me.Empresa.Text = "Empresa"
+        '
+        'Endereco
+        '
+        Me.Endereco.Text = "Endereço"
+        '
+        'Bairro
+        '
+        Me.Bairro.Text = "Bairro"
+        '
+        'Complemento
+        '
+        Me.Complemento.Text = "Complemento"
+        '
+        'Cidade
+        '
+        Me.Cidade.Text = "Cidade"
+        '
+        'CNPJ
+        '
+        Me.CNPJ.Text = "CNPJ"
+        '
+        'Estado
+        '
+        Me.Estado.Text = "Estado"
+        '
+        'CEP
+        '
+        Me.CEP.Text = "CEP"
+        '
+        'Fornecedor
+        '
+        Me.Fornecedor.Text = "Fornecedor"
+        '
+        'Celular
+        '
+        Me.Celular.Text = "Celular"
+        '
+        'Site
+        '
+        Me.Site.Text = "Site"
+        '
+        'Email
+        '
+        Me.Email.Text = "Email"
+        '
+        'Telefone
+        '
+        Me.Telefone.Text = "Telefone"
+        '
         'frmFornecedores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1065, 649)
+        Me.ClientSize = New System.Drawing.Size(1064, 673)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.grpFornecedores)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.Name = "frmFornecedores"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -603,19 +597,6 @@ Partial Class frmFornecedores
     Friend WithEvents cbouf As System.Windows.Forms.ComboBox
     Friend WithEvents grpFornecedores As System.Windows.Forms.GroupBox
     Friend WithEvents lstFornecedores As System.Windows.Forms.ListView
-    Friend WithEvents empresa As System.Windows.Forms.ColumnHeader
-    Friend WithEvents endereco As System.Windows.Forms.ColumnHeader
-    Friend WithEvents bairro As System.Windows.Forms.ColumnHeader
-    Friend WithEvents complemento As System.Windows.Forms.ColumnHeader
-    Friend WithEvents cidade As System.Windows.Forms.ColumnHeader
-    Friend WithEvents CNPJ As System.Windows.Forms.ColumnHeader
-    Friend WithEvents uf As System.Windows.Forms.ColumnHeader
-    Friend WithEvents cep As System.Windows.Forms.ColumnHeader
-    Friend WithEvents fornecedor As System.Windows.Forms.ColumnHeader
-    Friend WithEvents telefone As System.Windows.Forms.ColumnHeader
-    Friend WithEvents celular As System.Windows.Forms.ColumnHeader
-    Friend WithEvents siteweb As System.Windows.Forms.ColumnHeader
-    Friend WithEvents email As System.Windows.Forms.ColumnHeader
     Friend WithEvents btnExcluir As System.Windows.Forms.Button
     Friend WithEvents btnSalvar As System.Windows.Forms.Button
     Friend WithEvents btnAlterar As System.Windows.Forms.Button
@@ -626,4 +607,18 @@ Partial Class frmFornecedores
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Label7 As Label
     Friend WithEvents lblCodigo As Label
+    Friend WithEvents Codigo As ColumnHeader
+    Friend WithEvents Empresa As ColumnHeader
+    Friend WithEvents Endereco As ColumnHeader
+    Friend WithEvents Bairro As ColumnHeader
+    Friend WithEvents Complemento As ColumnHeader
+    Friend WithEvents Cidade As ColumnHeader
+    Friend WithEvents CNPJ As ColumnHeader
+    Friend WithEvents Estado As ColumnHeader
+    Friend WithEvents CEP As ColumnHeader
+    Friend WithEvents Fornecedor As ColumnHeader
+    Friend WithEvents Celular As ColumnHeader
+    Friend WithEvents Site As ColumnHeader
+    Friend WithEvents Email As ColumnHeader
+    Friend WithEvents Telefone As ColumnHeader
 End Class
