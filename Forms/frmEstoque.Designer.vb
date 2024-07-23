@@ -44,16 +44,17 @@ Partial Class frmEstoque
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cboTipo = New System.Windows.Forms.ComboBox()
         Me.lblTipo = New System.Windows.Forms.Label()
-        Me.txtProdutos = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.cboProduto = New System.Windows.Forms.ComboBox()
         Me.grpEstoque.SuspendLayout()
         Me.SuspendLayout()
         '
         'grpEstoque
         '
+        Me.grpEstoque.Controls.Add(Me.cboProduto)
         Me.grpEstoque.Controls.Add(Me.Label7)
         Me.grpEstoque.Controls.Add(Me.lblCodigo)
         Me.grpEstoque.Controls.Add(Me.btnExcluir)
@@ -70,7 +71,6 @@ Partial Class frmEstoque
         Me.grpEstoque.Controls.Add(Me.Label4)
         Me.grpEstoque.Controls.Add(Me.cboTipo)
         Me.grpEstoque.Controls.Add(Me.lblTipo)
-        Me.grpEstoque.Controls.Add(Me.txtProdutos)
         Me.grpEstoque.Controls.Add(Me.Label1)
         Me.grpEstoque.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpEstoque.Location = New System.Drawing.Point(16, 100)
@@ -291,15 +291,6 @@ Partial Class frmEstoque
         Me.lblTipo.TabIndex = 8
         Me.lblTipo.Text = "Tipo"
         '
-        'txtProdutos
-        '
-        Me.txtProdutos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProdutos.Location = New System.Drawing.Point(88, 55)
-        Me.txtProdutos.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtProdutos.Name = "txtProdutos"
-        Me.txtProdutos.Size = New System.Drawing.Size(299, 26)
-        Me.txtProdutos.TabIndex = 0
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -332,6 +323,15 @@ Partial Class frmEstoque
         Me.Panel2.Size = New System.Drawing.Size(772, 38)
         Me.Panel2.TabIndex = 39
         '
+        'cboProduto
+        '
+        Me.cboProduto.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboProduto.FormattingEnabled = True
+        Me.cboProduto.Location = New System.Drawing.Point(92, 55)
+        Me.cboProduto.Name = "cboProduto"
+        Me.cboProduto.Size = New System.Drawing.Size(295, 26)
+        Me.cboProduto.TabIndex = 64
+        '
         'frmEstoque
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -357,7 +357,6 @@ Partial Class frmEstoque
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents cboTipo As System.Windows.Forms.ComboBox
     Friend WithEvents lblTipo As System.Windows.Forms.Label
-    Friend WithEvents txtProdutos As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents txtQuantidade As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
@@ -382,4 +381,5 @@ Partial Class frmEstoque
     Friend WithEvents lblCodigo As Label
     Friend WithEvents Codigo As ColumnHeader
     Friend WithEvents Fornecedor As ColumnHeader
+    Friend WithEvents cboProduto As ComboBox
 End Class

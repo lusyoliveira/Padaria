@@ -2,7 +2,7 @@ Public Class frmEstoque
     Dim ClasseEstoque As New clsEstoque, ClasseCombo As New clsCombo
     Private Sub Limpar()
         grpEstoque.Tag = 0
-        txtProdutos.Text = ""
+        cboProduto.Text = ""
         txtQuantidade.Text = ""
         txtValor.Text = ""
         txtDataentrada.Text = ""
@@ -10,7 +10,7 @@ Public Class frmEstoque
         cboFornecedores.Text = ""
     End Sub
     Private Sub frmEstoque_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        txtProdutos.Focus()
+        cboProduto.Focus()
         ClasseEstoque.PesquisaEstoque(lstEstoque, 0, "")
     End Sub
     Private Sub txtValor_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtValor.LostFocus
@@ -22,7 +22,7 @@ Public Class frmEstoque
     Private Sub lstEstoque_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstEstoque.SelectedIndexChanged
         If lstEstoque.SelectedItems.Count > 0 Then
             lblCodigo.Text = Val(lstEstoque.SelectedItems(0).SubItems(0).Text)
-            txtProdutos.Text = lstEstoque.SelectedItems(0).SubItems(1).Text
+            cboProduto.Text = lstEstoque.SelectedItems(0).SubItems(1).Text
             txtQuantidade.Text = lstEstoque.SelectedItems(0).SubItems(2).Text
             cboTipo.Text = lstEstoque.SelectedItems(0).SubItems(3).Text
             txtValor.Text = lstEstoque.SelectedItems(0).SubItems(4).Text
@@ -36,7 +36,7 @@ Public Class frmEstoque
         Dim MsgResult As DialogResult = MessageBox.Show("Confirma a entrada de estoque?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
         If MsgResult = DialogResult.Yes Then
-            ClasseEstoque.EntradaEstoque(txtProdutos.Text, txtQuantidade.Text, cboTipo.Text, txtValor.Text, txtDataentrada.Text, ClasseEstoque.CodForn)
+            ClasseEstoque.EntradaEstoque(Val(lblCodigo.Text), txtQuantidade.Text, cboTipo.Text, txtValor.Text, txtDataentrada.Text, ClasseEstoque.CodForn)
         Else
             Exit Sub
         End If
@@ -45,16 +45,25 @@ Public Class frmEstoque
         Dim MsgResult As DialogResult = MessageBox.Show("Confirma a entrada de estoque?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
         If MsgResult = DialogResult.Yes Then
-            ClasseEstoque.SaidaEstoque(txtProdutos.Text, txtQuantidade.Text)
+            ClasseEstoque.SaidaEstoque(Val(lblCodigo.Text), txtQuantidade.Text)
         Else
             Exit Sub
         End If
     End Sub
     Private Sub btnExcluir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExcluir.Click
-        ClasseEstoque.ExcluirEstoque(txtProdutos.Text)
+        ClasseEstoque.ExcluirEstoque(Val(lblCodigo.Text))
     End Sub
     Private Sub cboFornecedores_Leave(sender As Object, e As EventArgs) Handles cboFornecedores.Leave
         ClasseEstoque.CodForn = ClasseCombo.LerCombo(cboFornecedores)
+    End Sub
+
+    Private Sub cboProduto_Enter(sender As Object, e As EventArgs) Handles cboProduto.Enter
+        ClasseCombo.CarregaCombo(cboProduto, "SELECT Codigo, Produto FROM tbProdutos ORDER BY Produto")
+
+    End Sub
+
+    Private Sub cboProduto_Leave(sender As Object, e As EventArgs) Handles cboProduto.Leave
+        lblCodigo.Text = ClasseCombo.LerCombo(cboProduto)
     End Sub
 
     Private Sub cboFornecedores_Enter(sender As Object, e As EventArgs) Handles cboFornecedores.Enter

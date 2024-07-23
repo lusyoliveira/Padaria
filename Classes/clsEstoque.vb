@@ -28,10 +28,10 @@ Public Class clsEstoque
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
-                Dim sql As New StringBuilder("SELECT * FROM tbEstoque WHERE 1=1")
+                Dim sql As New StringBuilder("SELECT * FROM cs_Estoque WHERE 1=1")
                 Using cmd As New SqlCommand(sql.ToString, connection)
                     If CodProd <> 0 Then
-                        sql.AppendLine("AND Codigo = @Codigo")
+                        sql.AppendLine("AND CodProd = @Codigo")
                     End If
 
                     If Not String.IsNullOrEmpty(Produto) Then
@@ -41,7 +41,7 @@ Public Class clsEstoque
                     sql.AppendLine("ORDER BY Nome")
                     Using reader As SqlDataReader = cmd.ExecuteReader()
                         While reader.Read()
-                            lstGrade.Items.Add(reader("Codigo").ToString())
+                            lstGrade.Items.Add(reader("CodProd").ToString())
                             lstGrade.Items(lstGrade.Items.Count - 1).SubItems.Add(reader("produto").ToString())
                             lstGrade.Items(lstGrade.Items.Count - 1).SubItems.Add(reader("quantidade").ToString())
                             lstGrade.Items(lstGrade.Items.Count - 1).SubItems.Add(reader("tipo").ToString())
@@ -58,13 +58,13 @@ Public Class clsEstoque
         End Try
     End Sub
 
-    Public Sub EntradaEstoque(Produto As String, Quantidade As Integer, tipo As String, Valor As Decimal, DataEntrada As String, Fornecedor As Integer)
+    Public Sub EntradaEstoque(CodProd As Integer, Quantidade As Integer, tipo As String, Valor As Decimal, DataEntrada As String, Fornecedor As Integer)
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
-                Dim sql As String = "INSERT INTO tbEstoque (produto, quantidade, tipo, valor, dataentrada, fornecedor) VALUES (@produto, @quantidade, @tipo, @valor, @dataentrada, @fornecedor)"
+                Dim sql As String = "INSERT INTO tbEstoque (CodProd, quantidade, tipo, valor, dataentrada, fornecedor) VALUES (@CodProd, @quantidade, @tipo, @valor, @dataentrada, @fornecedor)"
                 Using cmd As New SqlCommand(sql, connection)
-                    cmd.Parameters.AddWithValue("@produto", Produto)
+                    cmd.Parameters.AddWithValue("@CodProd", CodProd)
                     cmd.Parameters.AddWithValue("@quantidade", Quantidade)
                     cmd.Parameters.AddWithValue("@tipo", tipo)
                     cmd.Parameters.AddWithValue("@valor", Valor)
@@ -80,13 +80,13 @@ Public Class clsEstoque
             MessageBox.Show("Erro ao registrar a entrada: " & ex.Message)
         End Try
     End Sub
-    Public Sub SaidaEstoque(Produto As String, Quantidade As Integer)
+    Public Sub SaidaEstoque(CodProd As Integer, Quantidade As Integer)
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
-                Dim sql As String = "UPDATE tbEstoque SET quantidade = quantidade - 1 WHERE produto = @produto"
+                Dim sql As String = "UPDATE tbEstoque SET quantidade = quantidade - 1 WHERE CodProd = @CodProd"
                 Using cmd As New SqlCommand(sql, connection)
-                    cmd.Parameters.AddWithValue("@produto", Produto)
+                    cmd.Parameters.AddWithValue("@CodProd", CodProd)
                     cmd.Parameters.AddWithValue("@quantidade", Quantidade)
                     cmd.ExecuteNonQuery()
                     MessageBox.Show("Saida registrada com sucesso", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information)
