@@ -15,7 +15,7 @@
         Dim MsgResult As DialogResult = MessageBox.Show("Confirma o pagamento?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
         If MsgResult = DialogResult.Yes Then
-            ClasseCaderneta.PagarCaderneta(txtNrficha.Text)
+            ClasseCaderneta.PagarCaderneta(Val(lblCodigo.Text))
             Limpar()
             ClasseCaderneta.ConsultaCadernetaPendente(lstPagamento)
         Else

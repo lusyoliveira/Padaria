@@ -10,20 +10,22 @@ Public Class clsDependente
 
 #End Region
 #Region "METODOS"
-    Public Function ConsultaDependente(lstGrade As ListView, nrficha As Integer) As DataTable
+    Public Function ConsultaDependente(lstGrade As ListView, CodEntidade As Integer) As DataTable
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
-                Dim sql As String = "SELECT * FROM tbDependentes WHERE codigocliente = @nrficha"
+                Dim sql As String = "SELECT * FROM tbEntidadeDependente WHERE CodEntidade = @CodEntidade"
                 Using cmd As New SqlCommand(sql, connection)
-                    cmd.Parameters.AddWithValue("@nrficha", nrficha)
+                    cmd.Parameters.AddWithValue("@CodEntidade", CodEntidade)
                     Using adapter As New SqlDataAdapter(cmd)
                         adapter.Fill(TbDependentes)
                         Dim x As Integer = 0
                         For Each row As DataRow In TbDependentes.Rows
-                            lstGrade.Items.Add(row("codigocliente").ToString())
-                            lstGrade.Items(x).SubItems.Add(row("nome").ToString())
-                            lstGrade.Items(x).SubItems.Add(row("parentesco").ToString())
+                            lstGrade.Items.Add(row("Codigo").ToString())
+                            lstGrade.Items(x).SubItems.Add(row("NomeDependente").ToString())
+                            lstGrade.Items(x).SubItems.Add(row("DataNasc").ToString())
+                            lstGrade.Items(x).SubItems.Add(row("Documento").ToString())
+                            lstGrade.Items(x).SubItems.Add(row("Parentesco").ToString())
 
                             If x Mod 2 = 0 Then
                                 lstGrade.Items(x).ForeColor = Color.Black
@@ -43,54 +45,56 @@ Public Class clsDependente
         End Try
         Return TbDependentes
     End Function
-    Public Sub SalvarDependente(CodDep As Integer, CodCli As Integer, Nome As String, Parentesco As Integer)
+    Public Sub SalvarDependente(CodEntidade As Integer, NomeDependente As String, DataNasc As String, Documento As String, Parentesco As Integer)
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
-                Dim sql As String = "SELECT * FROM tbDependentes WHERE codigo = @CodDep"
-                Using cmd As New SqlCommand(sql, connection)
-                    cmd.Parameters.AddWithValue("@CodDep", CodDep)
-
-                    TbDependentes.Load(cmd.ExecuteReader())
-
-                    Dim row As DataRow = TbDependentes.Rows(0)
-                    If TbDependentes.Rows.Count() = 0 Then
-                        ' Adiciona um novo registro
-                        sql = "INSERT INTO tbDependentes (codigocliente, nome, parentesco) VALUES (@CodCli, @nome, @parentesco)"
-                    Else
-                        ' Atualiza um registro existente
-                        sql = "UPDATE tbDependentes SET nome = @nome, parentesco = @parentesco WHERE codigo = @CodDep"
-                    End If
-
-                    cmd.CommandText = sql
-                    cmd.Parameters.Clear()
-                    cmd.Parameters.AddWithValue("@CodCli", CodCli)
-                    cmd.Parameters.AddWithValue("@nome", Nome)
-                    cmd.Parameters.AddWithValue("@parentesco", Parentesco)
-
-                    cmd.ExecuteNonQuery()
-                    MessageBox.Show("Registro salvo com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Dim sql As String = "INSERT INTO tbEntidadeDependente   (CodEntidade,
+                                                                        NomeDependente,
+                                                                        DataNasc,
+                                                                        Documento,
+                                                                        Parentesco,
+                                                                        DataCadastro)
+                                            VALUES                      (@CodEntidade, 
+                                                                        @NomeDependente, 
+                                                                        @DataNasc, 
+                                                                        @Documento, 
+                                                                        @Parentesco, 
+                                                                        GETDATE())"
+                Using command As New SqlCommand(sql, connection)
+                    command.Parameters.AddWithValue("@CodEntidade", CodEntidade)
+                    command.Parameters.AddWithValue("@NomeDependente", NomeDependente)
+                    command.Parameters.AddWithValue("@DataNasc", DataNasc)
+                    command.Parameters.AddWithValue("@Documento", Documento)
+                    command.Parameters.AddWithValue("@Parentesco", Parentesco)
+                    command.ExecuteNonQuery()
                 End Using
-                connection.Close()
             End Using
         Catch ex As Exception
-            MessageBox.Show("Erro ao consultar o produto: " & ex.Message)
+            MessageBox.Show("Erro ao salvar o dependente: " & ex.Message)
         End Try
     End Sub
-    Public Sub ExcluirDependente(CodDep As Integer, CodCli As Integer)
+    Public Sub AlterarDependente(CodEntidade As Integer, NomeDependente As String, DataNasc As String, Documento As String, Parentesco As Integer)
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
-                Dim sql As String = "DELETE FROM tbDependentes WHERE codigocliente = @nrficha"
+                Dim sql As String = "UPDATE tbEntidadeDependente 
+                                    SET  
+                                            CodEntidade = @CodEntidade,
+                                            NomeDependente = @NomeDependente,
+                                            DataNasc = @DataNasc,
+                                            Documento = @Documento,
+                                            Parentesco = @Parentesco,
+                                            DataAlteracao = GETDATE()
+W                                   WHERE   CodEntidade = @CodEntidade"
 
-                Using cmd As New SqlCommand(sql, connection)
-                    cmd.Parameters.AddWithValue("@nrficha", frmClientes.txtNrficha.Text)
-                    Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
-                    If rowsAffected > 0 Then
-                        MessageBox.Show("Registro excluído com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Else
-                        MessageBox.Show("Não foi possível encontrar o registro para exclusão!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    End If
+                Using Command As New SqlCommand(sql, connection)
+                    Command.Parameters.AddWithValue("@CodEntidade", CodEntidade)
+                    Command.Parameters.AddWithValue("@NomeDependente", NomeDependente)
+                    Command.Parameters.AddWithValue("@DataNasc", DataNasc)
+                    Command.Parameters.AddWithValue("@Documento", Documento)
+                    Command.Parameters.AddWithValue("@Parentesco", Parentesco)
+                    Command.ExecuteNonQuery()
                 End Using
                 connection.Close()
             End Using
@@ -98,22 +102,14 @@ Public Class clsDependente
             MessageBox.Show("Erro ao excluir o cliente: " & ex.Message)
         End Try
     End Sub
-    Public Sub AtualizaDependente(CodDep As Integer, CodCli As Integer, Nome As String, Parentesco As Integer)
+    Public Sub ExcluirDependente(CodEntidade As Integer)
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
-                Dim sql As String = "UPDATE tbDependentes SET nome = @nome, parentesco = @parentesco WHERE codigocliente = @CodCli"
-
+                Dim sql As String = "DELETE FROM tbEntidadeDependente WHERE CodEntidade = @CodEntidade"
                 Using cmd As New SqlCommand(sql, connection)
-                    cmd.Parameters.AddWithValue("@nome", Nome)
-                    cmd.Parameters.AddWithValue("@parentesco", Parentesco)
-                    cmd.Parameters.AddWithValue("@CodCli", CodCli)
-                    Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
-                    If rowsAffected > 0 Then
-                        MessageBox.Show("Registro alterar com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Else
-                        MessageBox.Show("Não foi possível encontrar o registro para alterar!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    End If
+                    cmd.Parameters.AddWithValue("@CodEntidade", CodEntidade)
+                    cmd.ExecuteNonQuery()
                 End Using
                 connection.Close()
             End Using

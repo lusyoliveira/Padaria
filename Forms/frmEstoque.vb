@@ -53,8 +53,9 @@ Public Class frmEstoque
     Private Sub btnExcluir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExcluir.Click
         ClasseEstoque.ExcluirEstoque(Val(lblCodigo.Text))
     End Sub
+
     Private Sub cboFornecedores_Leave(sender As Object, e As EventArgs) Handles cboFornecedores.Leave
-        ClasseEstoque.CodForn = ClasseCombo.LerCombo(cboFornecedores)
+        ClasseEstoque.CodForn = cboFornecedores.SelectedValue
     End Sub
 
     Private Sub cboProduto_Enter(sender As Object, e As EventArgs) Handles cboProduto.Enter
@@ -67,6 +68,6 @@ Public Class frmEstoque
     End Sub
 
     Private Sub cboFornecedores_Enter(sender As Object, e As EventArgs) Handles cboFornecedores.Enter
-        ClasseCombo.CarregaCombo(cboFornecedores, "SELECT Codigo, Empresa FROM tbFornecedores ORDER BY Empresa")
+        ClasseCombo.PreencherComboBox("SELECT * FROM tbFornecedores WHERE Tipo = 'F' ORDER BY NomeFantasia", " Codigo", "NomeFantasia")
     End Sub
 End Class

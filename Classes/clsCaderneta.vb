@@ -62,7 +62,7 @@ Public Class clsCaderneta
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
-                Dim sql As String = "SELECT codigo+1 AS Codigo FROM tbClientes ORDER BY codigo DESC"
+                Dim sql As String = "SELECT codigo+1 AS Codigo FROM tbCaderneta ORDER BY codigo DESC"
                 Using command As New SqlCommand(sql, connection)
                     Using adapter As New SqlDataAdapter(command)
                         adapter.Fill(tbCaderneta)
@@ -79,14 +79,14 @@ Public Class clsCaderneta
         End Try
         Return codigo
     End Function
-    Public Function ConsultaVencCaderneta(nrficha As Integer)
+    Public Function ConsultaVencCaderneta(nrcaderneta As Integer)
         Dim DataVencimento As String
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
-                Dim sql As String = "SELECT * FROM tbCaderneta WHERE nrficha = @nrficha"
+                Dim sql As String = "SELECT * FROM tbCaderneta WHERE Codigo = @nrcaderneta"
                 Using cmd As New SqlCommand(sql, connection)
-                    cmd.Parameters.AddWithValue("@nrficha", nrficha)
+                    cmd.Parameters.AddWithValue("@nrcaderneta", nrcaderneta)
                     Using da As New SqlDataAdapter(cmd)
                         da.Fill(tbCaderneta)
                     End Using
@@ -106,13 +106,13 @@ Public Class clsCaderneta
     End Function
 #End Region
 #Region "METODOS"
-    Public Sub Cancelar(nrficha As Integer)
+    Public Sub Cancelar(nrcaderneta As Integer)
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
-                Dim sql As String = "DELETE FROM tbDthCaderneta WHERE nrficha = @nrficha"
+                Dim sql As String = "DELETE FROM tbDthCaderneta WHERE nrcaderneta = @nrcaderneta"
                 Using cmd As New SqlCommand(sql, connection)
-                    cmd.Parameters.AddWithValue("@nrficha", nrficha)
+                    cmd.Parameters.AddWithValue("@nrcaderneta", nrcaderneta)
                     cmd.ExecuteNonQuery()
                 End Using
                 connection.Close()
@@ -123,14 +123,13 @@ Public Class clsCaderneta
         End Try
     End Sub
 
-    Public Sub SalvarCaderneta(nrficha As Integer, cliente As String, datacompra As Date, dependente As String, datavencimento As Date, totalfinal As Decimal)
+    Public Sub SalvarCaderneta(nrficha As Integer, datacompra As Date, dependente As String, datavencimento As Date, totalfinal As Decimal)
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
-                Dim sql As String = "INSERT INTO tbCaderneta (nrficha, cliente, datacompra, dependente, datavencimento, total_final) VALUES (@nrficha, @cliente, @datacompra, @dependente, @datavencimento, @total_final)"
+                Dim sql As String = "INSERT INTO tbCaderneta (nrficha,  datacompra, dependente, datavencimento, total_final) VALUES (@nrficha, @datacompra, @dependente, @datavencimento, @total_final)"
                 Using cmd As New SqlCommand(sql, connection)
                     cmd.Parameters.AddWithValue("@nrficha", nrficha)
-                    cmd.Parameters.AddWithValue("@cliente", cliente)
                     cmd.Parameters.AddWithValue("@datacompra", datacompra)
                     cmd.Parameters.AddWithValue("@dependente", dependente)
                     cmd.Parameters.AddWithValue("@datavencimento", datavencimento)
@@ -143,13 +142,12 @@ Public Class clsCaderneta
             MessageBox.Show("Erro ao consultar o Caderneta: " & ex.Message)
         End Try
     End Sub
-    Public Sub SalvarDetCaderneta(nrficha As Integer, nrcaderneta As Integer, CodProd As String, valor As Decimal, quantidade As Integer, total As Decimal)
+    Public Sub SalvarDetCaderneta(nrcaderneta As Integer, CodProd As String, valor As Decimal, quantidade As Integer, total As Decimal)
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
-                Dim sql As String = "INSERT INTO tbProdutos_Caderneta (nrficha, CodProd, valor, quantidade, datacompra, total) VALUES (@nrficha, @CodProd, @valor, @quantidade, @total)"
+                Dim sql As String = "INSERT INTO tbDthCaderneta (CodProd, valor, quantidade, datacompra, total, nrcaderneta) VALUES  @CodProd, @valor, @quantidade, @total, @nrcaderneta)"
                 Using cmd As New SqlCommand(sql, connection)
-                    cmd.Parameters.AddWithValue("@nrficha", nrficha)
                     cmd.Parameters.AddWithValue("@CodProd", CodProd)
                     cmd.Parameters.AddWithValue("@valor", valor)
                     cmd.Parameters.AddWithValue("@quantidade", quantidade)
@@ -167,11 +165,15 @@ Public Class clsCaderneta
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
-                Dim sql As String = "UPDATE tbCaderneta SET cliente = @cliente, datacompra = @datacompra, dependente = @dependente, datavencimento = @datavencimento, total_final = @total_final WHERE codigo = @codigo"
+                Dim sql As String = "UPDATE tbCaderneta SET nrficha = @nrficha, 
+                                                            datacompra = @datacompra, 
+                                                            dependente = @dependente, 
+                                                            datavencimento = @datavencimento, 
+                                                            total_final = @total_final 
+                                                            WHERE codigo = @codigo"
 
                 Using cmd As New SqlCommand(sql, connection)
                     cmd.Parameters.AddWithValue("@nrficha", nrficha)
-                    cmd.Parameters.AddWithValue("@cliente", cliente)
                     cmd.Parameters.AddWithValue("@datacompra", datacompra)
                     cmd.Parameters.AddWithValue("@dependente", dependente)
                     cmd.Parameters.AddWithValue("@datavencimento", datavencimento)
@@ -186,13 +188,13 @@ Public Class clsCaderneta
         End Try
     End Sub
 
-    Public Sub PagarCaderneta(nrficha As Integer)
+    Public Sub PagarCaderneta(Codigo As Integer)
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
-                Dim sql As String = "UPDATE tbCaderneta SET pago = 'True' WHERE nrficha  = @nrficha"
+                Dim sql As String = "UPDATE tbCaderneta SET pago = 1 WHERE codigo = @codigo"
                 Using cmd As New SqlCommand(sql, connection)
-                    cmd.Parameters.AddWithValue("@nrficha", nrficha)
+                    cmd.Parameters.AddWithValue("@codigo", Codigo)
                     cmd.ExecuteNonQuery()
                 End Using
                 connection.Close()

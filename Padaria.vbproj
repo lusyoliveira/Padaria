@@ -92,13 +92,11 @@
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Classes\clsCaderneta.vb" />
-    <Compile Include="Classes\clsClientes.vb" />
     <Compile Include="Classes\clsCombo.vb" />
     <Compile Include="Classes\clsConfiguracao.vb" />
     <Compile Include="Classes\clsDependente.vb" />
+    <Compile Include="Classes\clsEntidades.vb" />
     <Compile Include="Classes\clsEstoque.vb" />
-    <Compile Include="Classes\clsFornecedores.vb" />
-    <Compile Include="Classes\clsFuncionarios.vb" />
     <Compile Include="Classes\clsProdutos.vb" />
     <Compile Include="Classes\clsUsuario.vb" />
     <Compile Include="Classes\clsConexao.vb" />
