@@ -46,7 +46,6 @@ Partial Class frmProdutos
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.grpProdutos.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -78,11 +77,11 @@ Partial Class frmProdutos
         Me.grpProdutos.Controls.Add(Me.btnAlterar)
         Me.grpProdutos.Controls.Add(Me.lblProduto)
         Me.grpProdutos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grpProdutos.Location = New System.Drawing.Point(16, 100)
+        Me.grpProdutos.Location = New System.Drawing.Point(13, 48)
         Me.grpProdutos.Margin = New System.Windows.Forms.Padding(4)
         Me.grpProdutos.Name = "grpProdutos"
         Me.grpProdutos.Padding = New System.Windows.Forms.Padding(4)
-        Me.grpProdutos.Size = New System.Drawing.Size(1185, 562)
+        Me.grpProdutos.Size = New System.Drawing.Size(1185, 621)
         Me.grpProdutos.TabIndex = 10
         Me.grpProdutos.TabStop = False
         Me.grpProdutos.Tag = "0"
@@ -182,7 +181,7 @@ Partial Class frmProdutos
         Me.lstProduto.Margin = New System.Windows.Forms.Padding(4)
         Me.lstProduto.MultiSelect = False
         Me.lstProduto.Name = "lstProduto"
-        Me.lstProduto.Size = New System.Drawing.Size(1133, 363)
+        Me.lstProduto.Size = New System.Drawing.Size(1133, 424)
         Me.lstProduto.TabIndex = 42
         Me.lstProduto.UseCompatibleStateImageBehavior = False
         Me.lstProduto.View = System.Windows.Forms.View.Details
@@ -216,7 +215,7 @@ Partial Class frmProdutos
         '
         Me.btnExcluir.BackgroundImage = Global.Padaria.My.Resources.Resources.ball_stop
         Me.btnExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnExcluir.Location = New System.Drawing.Point(656, 471)
+        Me.btnExcluir.Location = New System.Drawing.Point(645, 532)
         Me.btnExcluir.Margin = New System.Windows.Forms.Padding(4)
         Me.btnExcluir.Name = "btnExcluir"
         Me.btnExcluir.Size = New System.Drawing.Size(71, 68)
@@ -228,7 +227,7 @@ Partial Class frmProdutos
         '
         Me.btnSalvar.BackgroundImage = Global.Padaria.My.Resources.Resources.ok
         Me.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnSalvar.Location = New System.Drawing.Point(475, 471)
+        Me.btnSalvar.Location = New System.Drawing.Point(464, 532)
         Me.btnSalvar.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSalvar.Name = "btnSalvar"
         Me.btnSalvar.Size = New System.Drawing.Size(71, 68)
@@ -240,7 +239,7 @@ Partial Class frmProdutos
         '
         Me.btnAlterar.BackgroundImage = Global.Padaria.My.Resources.Resources.document
         Me.btnAlterar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnAlterar.Location = New System.Drawing.Point(563, 471)
+        Me.btnAlterar.Location = New System.Drawing.Point(552, 532)
         Me.btnAlterar.Margin = New System.Windows.Forms.Padding(4)
         Me.btnAlterar.Name = "btnAlterar"
         Me.btnAlterar.Size = New System.Drawing.Size(71, 68)
@@ -272,20 +271,8 @@ Partial Class frmProdutos
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1217, 92)
+        Me.Panel1.Size = New System.Drawing.Size(1217, 40)
         Me.Panel1.TabIndex = 11
-        '
-        'Panel2
-        '
-        Me.Panel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel2.BackColor = System.Drawing.Color.White
-        Me.Panel2.ForeColor = System.Drawing.Color.DarkRed
-        Me.Panel2.Location = New System.Drawing.Point(0, 38)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1217, 38)
-        Me.Panel2.TabIndex = 39
         '
         'frmProdutos
         '
@@ -293,7 +280,6 @@ Partial Class frmProdutos
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(1217, 682)
-        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.grpProdutos)
         Me.Margin = New System.Windows.Forms.Padding(4)
@@ -317,7 +303,6 @@ Partial Class frmProdutos
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents lstProduto As System.Windows.Forms.ListView
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents txtValorUnit As System.Windows.Forms.TextBox
     Friend WithEvents lblValorUnit As System.Windows.Forms.Label
     Friend WithEvents txtProduto As System.Windows.Forms.TextBox

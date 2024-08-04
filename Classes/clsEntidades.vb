@@ -53,12 +53,12 @@ Public Class clsEntidades
             _NomeFantasia = value
         End Set
     End Property
-    Private Property _Telefone1 As Integer
-    Public Property Telefone1 As Integer
+    Private Property _Telefone1 As String
+    Public Property Telefone1 As String
         Get
             Return _Telefone1
         End Get
-        Set(value As Integer)
+        Set(value As String)
             _Telefone1 = value
         End Set
     End Property
@@ -640,8 +640,8 @@ Public Class clsEntidades
                             DadosEntidades._CodCargo = If(Not RDR.IsDBNull(RDR.GetOrdinal("Codigo")), RDR.GetInt32(RDR.GetOrdinal("Codigo")), String.Empty)
                             DadosEntidades._Matricula = If(Not RDR.IsDBNull(RDR.GetOrdinal("Matricula")), RDR.GetInt32(RDR.GetOrdinal("Matricula")), String.Empty)
                             DadosEntidades._CarteiraProfissional = If(Not RDR.IsDBNull(RDR.GetOrdinal("CarteiraProfissional")), RDR.GetString(RDR.GetOrdinal("CarteiraProfissional")), String.Empty)
-                            DadosEntidades._Cargo = If(Not RDR.IsDBNull(RDR.GetOrdinal("Cargo")), RDR.GetString(RDR.GetOrdinal("Cargo")), String.Empty)
-                            DadosEntidades._Salario = If(Not RDR.IsDBNull(RDR.GetOrdinal("Salario")), RDR.GetDecimal(RDR.GetOrdinal("Salario")), String.Empty)
+                            DadosEntidades._Cargo = If(Not RDR.IsDBNull(RDR.GetOrdinal("Cargo")), RDR.GetInt32(RDR.GetOrdinal("Cargo")), String.Empty)
+                            DadosEntidades._Salario = If(Not RDR.IsDBNull(RDR.GetOrdinal("Salario")), RDR.GetDecimal(RDR.GetOrdinal("Salario")), 0)
                             DadosEntidades._Expediente = If(Not RDR.IsDBNull(RDR.GetOrdinal("Expediente")), RDR.GetString(RDR.GetOrdinal("Expediente")), String.Empty)
                         End While
                     End Using

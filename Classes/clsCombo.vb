@@ -48,9 +48,6 @@ Public Class clsCombo
         End Using
         Return dt
     End Function
-    Public Overrides Function ToString() As String
-        Return Descricao
-    End Function
 
     Public Sub Localizar(Tabela As String, lstGrade As ListView, Localizar As String)
         Dim sql As String = ""

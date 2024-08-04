@@ -38,30 +38,29 @@ Partial Class frmUsuarios
         Me.lblFuncionario = New System.Windows.Forms.Label()
         Me.txtFuncionario = New System.Windows.Forms.TextBox()
         Me.lstUsuarios = New System.Windows.Forms.ListView()
-        Me.funcionario = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Codigo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.usuario = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.permissao = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.funcionario = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Codigo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.grpUsuarios.SuspendLayout()
         Me.SuspendLayout()
         '
         'txtUsuario
         '
         Me.txtUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.txtUsuario.Location = New System.Drawing.Point(522, 68)
+        Me.txtUsuario.Location = New System.Drawing.Point(505, 62)
         Me.txtUsuario.Margin = New System.Windows.Forms.Padding(4)
         Me.txtUsuario.Name = "txtUsuario"
-        Me.txtUsuario.Size = New System.Drawing.Size(197, 26)
+        Me.txtUsuario.Size = New System.Drawing.Size(214, 26)
         Me.txtUsuario.TabIndex = 2
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Label1.Location = New System.Drawing.Point(518, 43)
+        Me.Label1.Location = New System.Drawing.Point(501, 37)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(67, 20)
@@ -72,7 +71,7 @@ Partial Class frmUsuarios
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Label3.Location = New System.Drawing.Point(161, 94)
+        Me.Label3.Location = New System.Drawing.Point(144, 88)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(89, 20)
@@ -84,7 +83,7 @@ Partial Class frmUsuarios
         Me.cboPermissao.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.cboPermissao.FormattingEnabled = True
         Me.cboPermissao.Items.AddRange(New Object() {"ADMINISTRADOR", "USUARIO LIMITADO", "VENDEDOR"})
-        Me.cboPermissao.Location = New System.Drawing.Point(165, 118)
+        Me.cboPermissao.Location = New System.Drawing.Point(148, 112)
         Me.cboPermissao.Margin = New System.Windows.Forms.Padding(4)
         Me.cboPermissao.Name = "cboPermissao"
         Me.cboPermissao.Size = New System.Drawing.Size(356, 28)
@@ -132,7 +131,7 @@ Partial Class frmUsuarios
         'txtSenha
         '
         Me.txtSenha.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.txtSenha.Location = New System.Drawing.Point(28, 120)
+        Me.txtSenha.Location = New System.Drawing.Point(11, 114)
         Me.txtSenha.Margin = New System.Windows.Forms.Padding(4)
         Me.txtSenha.Name = "txtSenha"
         Me.txtSenha.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
@@ -143,7 +142,7 @@ Partial Class frmUsuarios
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Label2.Location = New System.Drawing.Point(24, 96)
+        Me.Label2.Location = New System.Drawing.Point(7, 90)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(56, 20)
@@ -167,7 +166,7 @@ Partial Class frmUsuarios
         Me.grpUsuarios.Controls.Add(Me.btnSalvar)
         Me.grpUsuarios.Controls.Add(Me.lstUsuarios)
         Me.grpUsuarios.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.grpUsuarios.Location = New System.Drawing.Point(17, 100)
+        Me.grpUsuarios.Location = New System.Drawing.Point(13, 53)
         Me.grpUsuarios.Margin = New System.Windows.Forms.Padding(4)
         Me.grpUsuarios.Name = "grpUsuarios"
         Me.grpUsuarios.Padding = New System.Windows.Forms.Padding(4)
@@ -181,7 +180,7 @@ Partial Class frmUsuarios
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(25, 42)
+        Me.Label7.Location = New System.Drawing.Point(8, 36)
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(56, 18)
@@ -191,7 +190,7 @@ Partial Class frmUsuarios
         'lblCodigo
         '
         Me.lblCodigo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblCodigo.Location = New System.Drawing.Point(28, 66)
+        Me.lblCodigo.Location = New System.Drawing.Point(11, 60)
         Me.lblCodigo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblCodigo.Name = "lblCodigo"
         Me.lblCodigo.Size = New System.Drawing.Size(95, 26)
@@ -201,7 +200,7 @@ Partial Class frmUsuarios
         '
         Me.lblFuncionario.AutoSize = True
         Me.lblFuncionario.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.lblFuncionario.Location = New System.Drawing.Point(127, 43)
+        Me.lblFuncionario.Location = New System.Drawing.Point(110, 37)
         Me.lblFuncionario.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblFuncionario.Name = "lblFuncionario"
         Me.lblFuncionario.Size = New System.Drawing.Size(96, 20)
@@ -211,7 +210,7 @@ Partial Class frmUsuarios
         'txtFuncionario
         '
         Me.txtFuncionario.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.txtFuncionario.Location = New System.Drawing.Point(131, 68)
+        Me.txtFuncionario.Location = New System.Drawing.Point(114, 62)
         Me.txtFuncionario.Margin = New System.Windows.Forms.Padding(4)
         Me.txtFuncionario.Name = "txtFuncionario"
         Me.txtFuncionario.Size = New System.Drawing.Size(381, 26)
@@ -223,19 +222,18 @@ Partial Class frmUsuarios
         Me.lstUsuarios.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
         Me.lstUsuarios.FullRowSelect = True
         Me.lstUsuarios.HideSelection = False
-        Me.lstUsuarios.Location = New System.Drawing.Point(28, 158)
+        Me.lstUsuarios.Location = New System.Drawing.Point(11, 152)
         Me.lstUsuarios.Margin = New System.Windows.Forms.Padding(4)
         Me.lstUsuarios.MultiSelect = False
         Me.lstUsuarios.Name = "lstUsuarios"
-        Me.lstUsuarios.Size = New System.Drawing.Size(669, 323)
+        Me.lstUsuarios.Size = New System.Drawing.Size(708, 323)
         Me.lstUsuarios.TabIndex = 17
         Me.lstUsuarios.UseCompatibleStateImageBehavior = False
         Me.lstUsuarios.View = System.Windows.Forms.View.Details
         '
-        'funcionario
+        'Codigo
         '
-        Me.funcionario.Text = "Nome do Funcionário"
-        Me.funcionario.Width = 200
+        Me.Codigo.Text = "Código"
         '
         'usuario
         '
@@ -247,6 +245,11 @@ Partial Class frmUsuarios
         Me.permissao.Text = "Permissão"
         Me.permissao.Width = 100
         '
+        'funcionario
+        '
+        Me.funcionario.Text = "Nome do Funcionário"
+        Me.funcionario.Width = 200
+        '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Navy
@@ -255,29 +258,14 @@ Partial Class frmUsuarios
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(760, 92)
+        Me.Panel1.Size = New System.Drawing.Size(760, 45)
         Me.Panel1.TabIndex = 18
-        '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.White
-        Me.Panel2.ForeColor = System.Drawing.Color.DarkRed
-        Me.Panel2.Location = New System.Drawing.Point(0, 38)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(760, 38)
-        Me.Panel2.TabIndex = 39
-        '
-        'Codigo
-        '
-        Me.Codigo.Text = "Código"
         '
         'frmUsuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(760, 710)
-        Me.Controls.Add(Me.Panel2)
+        Me.ClientSize = New System.Drawing.Size(760, 655)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.grpUsuarios)
         Me.Margin = New System.Windows.Forms.Padding(4)
@@ -308,7 +296,6 @@ Partial Class frmUsuarios
     Friend WithEvents txtFuncionario As System.Windows.Forms.TextBox
     Friend WithEvents funcionario As System.Windows.Forms.ColumnHeader
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Label7 As Label
     Friend WithEvents lblCodigo As Label
     Friend WithEvents Codigo As ColumnHeader

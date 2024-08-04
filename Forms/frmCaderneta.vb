@@ -53,7 +53,13 @@ Public Class frmCaderneta
         If ClasseCaderneta.CodCliente = 0 Then
             Exit Sub
         Else
-            ClasseCombo.PreencherComboBox("SELECT * FROM tbEntidadeDependente WHERE CodEntidade = " & Val(lblNrFicha.Text) & "  ORDER BY NomeDependente", "Codigo", "NomeDependente")
+            Dim ListaDependentes = ClasseCombo.PreencherComboBox("SELECT * FROM tbEntidadeDependente WHERE CodEntidade = " & Val(lblNrFicha.Text) & "  ORDER BY NomeDependente", "Codigo", "NomeDependente")
+            With Me.cboDependentes
+                .DataSource = ListaDependentes
+                .ValueMember = "Codigo"
+                .DisplayMember = "Descricao"
+                .SelectedIndex = "0"
+            End With
         End If
     End Sub
     Private Sub txtQuantidade_Leave(sender As Object, e As EventArgs) Handles txtQuantidade.Leave
@@ -131,7 +137,13 @@ Public Class frmCaderneta
     End Sub
 
     Private Sub cboClientes_Enter(sender As Object, e As EventArgs) Handles cboClientes.Enter
-        ClasseCombo.PreencherComboBox("SELECT * FROM tbEntidades WHERE Tipo = 'C' ORDER BY Nome", "Codigo", "NomeFantasia")
+        Dim ListaCliente = ClasseCombo.PreencherComboBox("SELECT * FROM tbEntidades WHERE Tipo = 'C' ORDER BY NomeFantasia", "Codigo", "NomeFantasia")
+        With Me.cboClientes
+            .DataSource = ListaCliente
+            .ValueMember = "Codigo"
+            .DisplayMember = "Descricao"
+            .SelectedIndex = "0"
+        End With
     End Sub
 
     Private Sub btnSalvar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalvar.Click

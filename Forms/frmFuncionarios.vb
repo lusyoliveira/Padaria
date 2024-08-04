@@ -78,7 +78,7 @@ Public Class frmFuncionarios
             mkdTelefone.Text = ClasseFuncionario.Telefone1
             mkdcelular.Text = ClasseFuncionario.Celular
             ClasseFuncionario.ObterCargo(Val(lblCodigo.Text), ClasseFuncionario)
-            txtNumero.Text = ClasseFuncionario.Matricula
+            txtNumero.Text = ClasseFuncionario.Matricula.ToString
             mkdCarteira.Text = ClasseFuncionario.CarteiraProfissional
             txtCargo.Text = ClasseFuncionario.Cargo
             txtSalario.Text = ClasseFuncionario.Salario

@@ -262,13 +262,13 @@ Public Class clsUsuario
         End Using
     End Sub
 
-    Public Sub SalvarPermissao(Permissao As String, lstBox As CheckedListBox, Ativo As Boolean)
+    Public Sub SalvarPermissao(Permissao As Integer, lstBox As CheckedListBox, Ativo As Boolean)
 
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
                 For x = 0 To lstBox.Items.Count - 1
-                    Dim sql As String = "SELECT COUNT(*) FROM tbpermissoes WHERE permissao = @permissao AND menu = @menu"
+                    Dim sql As String = "SELECT COUNT(*) FROM tbpermissoes WHERE CodNivel = @permissao AND menu = @menu"
                     Using commandCheck As New SqlCommand(sql, connection)
                         commandCheck.Parameters.AddWithValue("@permissao", Permissao)
                         commandCheck.Parameters.AddWithValue("@menu", lstBox.Items(x).ToString())
@@ -276,9 +276,9 @@ Public Class clsUsuario
                         Dim count As Integer = Convert.ToInt32(commandCheck.ExecuteScalar())
 
                         If count = 0 Then
-                            sql = "INSERT INTO tbpermissoes (permissao, menu, ativo) VALUES (@permissao, @menu, @ativo)"
+                            sql = "INSERT INTO tbpermissoes (CodNivel, menu, ativo) VALUES (@permissao, @menu, @ativo)"
                         Else
-                            sql = "UPDATE tbpermissoes SET ativo = @ativo WHERE permissao = @permissao AND menu = @menu"
+                            sql = "UPDATE tbpermissoes SET ativo = @ativo WHERE CodNivel = @permissao AND menu = @menu"
                         End If
 
                         Using commandExecute As New SqlCommand(sql, connection)
@@ -296,12 +296,12 @@ Public Class clsUsuario
             MessageBox.Show("Erro ao salvar permimssão: " & ex.Message)
         End Try
     End Sub
-    Public Sub ConsultaPermissoes(Permissao As String, lstBox As CheckedListBox)
+    Public Sub ConsultaPermissoes(Permissao As Integer, lstBox As CheckedListBox)
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
 
-                Dim sql As String = "SELECT * FROM tbpermissoes WHERE permissao = @permissao"
+                Dim sql As String = "SELECT * FROM tbpermissoes WHERE CodNivel = @permissao"
                 Using command As New SqlCommand(sql, connection)
                     command.Parameters.AddWithValue("@permissao", Permissao)
 
@@ -327,20 +327,21 @@ Public Class clsUsuario
             MessageBox.Show("Erro ao consultar permissões: " & ex.Message)
         End Try
     End Sub
-    Public Sub ExcluirPermissao(Codigo As Integer)
+    Public Sub SalverNivel(Descricao As String)
         Try
             Using connection As New SqlConnection(ClasseConexao.connectionString)
                 connection.Open()
-                Dim sql As String = "DELETE FROM tbPermissoes WHERE nrseq = @Codigo"
+                Dim sql As String = "INSERT INTO tbNivel (Descricao) VALUES (@Descricao)"
                 Using command As New SqlCommand(sql, connection)
-                    command.Parameters.AddWithValue("@Codigo", Codigo)
+                    command.Parameters.AddWithValue("@Descricao", Descricao)
                     command.ExecuteNonQuery()
                 End Using
                 connection.Close()
             End Using
         Catch ex As Exception
-            MessageBox.Show("Erro ao excluir permissões: " & ex.Message)
+            MessageBox.Show("Erro ao salvar nível: " & ex.Message)
         End Try
     End Sub
+
 #End Region
 End Class

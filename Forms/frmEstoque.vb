@@ -59,15 +59,26 @@ Public Class frmEstoque
     End Sub
 
     Private Sub cboProduto_Enter(sender As Object, e As EventArgs) Handles cboProduto.Enter
-        ClasseCombo.CarregaCombo(cboProduto, "SELECT Codigo, Produto FROM tbProdutos ORDER BY Produto")
-
+        Dim ListaProduto = ClasseCombo.PreencherComboBox("SELECT * FROM tbProdutos ORDER BY Produto", "Codigo", "Produto")
+        With Me.cboProduto
+            .DataSource = ListaProduto
+            .ValueMember = "Codigo"
+            .DisplayMember = "Descricao"
+            .SelectedIndex = "0"
+        End With
     End Sub
 
     Private Sub cboProduto_Leave(sender As Object, e As EventArgs) Handles cboProduto.Leave
-        lblCodigo.Text = ClasseCombo.LerCombo(cboProduto)
+        ClasseEstoque.CodProd = cboProduto.SelectedValue
     End Sub
 
     Private Sub cboFornecedores_Enter(sender As Object, e As EventArgs) Handles cboFornecedores.Enter
-        ClasseCombo.PreencherComboBox("SELECT * FROM tbFornecedores WHERE Tipo = 'F' ORDER BY NomeFantasia", " Codigo", "NomeFantasia")
+        Dim ListaFornecedor = ClasseCombo.PreencherComboBox("SELECT * FROM tbFornecedores WHERE Tipo = 'F' ORDER BY NomeFantasia", " Codigo", "NomeFantasia")
+        With Me.cboProduto
+            .DataSource = ListaFornecedor
+            .ValueMember = "Codigo"
+            .DisplayMember = "Descricao"
+            .SelectedIndex = "0"
+        End With
     End Sub
 End Class

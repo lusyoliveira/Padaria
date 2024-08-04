@@ -1,5 +1,5 @@
 Public Class frmClientes
-    Dim ClasseCliente As New clsEntidades, ClasseDependente As New clsDependente, tbClientes As DataTable
+    Dim ClasseCliente As New clsEntidades, ClasseDependente As New clsDependente, ClasseCombo As New clsCombo, tbClientes As DataTable
     Private Sub Limpar()
         lblCodigo.Text = ""
         txtNome.Text = ""
@@ -32,7 +32,7 @@ Public Class frmClientes
         lstDependente.Items.Clear()
     End Sub
     Private Sub frmProdutos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        tbClientes = ClasseCliente.PesquisaEntidade(lstEntidade, Val(lblCodigo.Text), txtNome.Text, "C")
+        ClasseCliente.PesquisaEntidade(lstEntidade, Val(lblCodigo.Text), txtNome.Text, "C")
         lblData.Text = Date.Now.Date
         lblRegistro.Text = lstEntidade.Items.Count()
     End Sub
@@ -119,6 +119,26 @@ Public Class frmClientes
         mskTel2.Text = ClasseCliente.Telefone2
         mskCel.Text = ClasseCliente.Celular
         txtEmail.Text = ClasseCliente.Email
+    End Sub
+
+    Private Sub cboParentesco_Enter(sender As Object, e As EventArgs) Handles cboParentesco.Enter
+        Dim ListaParentesco = ClasseCombo.PreencherComboBox("SELECT * FROM tbParentesco ORDER BY Parentesco", "Codigo", "Parentesco")
+        With Me.cboParentesco
+            .DataSource = ListaParentesco
+            .ValueMember = "Codigo"
+            .DisplayMember = "Descricao"
+            .SelectedIndex = "0"
+        End With
+    End Sub
+
+    Private Sub cboEstadoCivil_Enter(sender As Object, e As EventArgs) Handles cboEstadoCivil.Enter
+        Dim ListaCivil = ClasseCombo.PreencherComboBox("SELECT * FROM tbEstadoCivil ORDER BY Descricao", "Codigo", "Descricao")
+        With Me.cboEstadoCivil
+            .DataSource = ListaCivil
+            .ValueMember = "Codigo"
+            .DisplayMember = "Descricao"
+            .SelectedIndex = "0"
+        End With
     End Sub
 
     Private Sub btnRemover_Click(sender As Object, e As EventArgs) Handles btnRemover.Click
